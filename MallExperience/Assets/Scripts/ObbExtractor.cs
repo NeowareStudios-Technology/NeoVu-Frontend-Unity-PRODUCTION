@@ -107,9 +107,9 @@ public class ObbExtractor : MonoBehaviour
                 saveFilePath = Application.streamingAssetsPath + "/Vuforia/" + fileName;
 
                 //read file into buffer
-                byte[] buffer = new byte[81920];
-                response.ResponseStream.Read(buffer, 0, buffer.Length);
-
+                byte[] buffer = new byte[(int)response.ResponseStream.Length];
+                response.ResponseStream.Read(buffer, 0, (int)response.ResponseStream.Length);
+                
                 //save buffer contents to local file
                 Save(buffer, saveFilePath);
             }
