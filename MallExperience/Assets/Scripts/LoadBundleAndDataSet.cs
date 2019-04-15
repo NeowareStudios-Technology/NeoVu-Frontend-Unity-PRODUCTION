@@ -35,17 +35,6 @@ public class LoadBundleAndDataSet : MonoBehaviour
 
     private void Start()
     {
-        /*request = UnityWebRequestAssetBundle.GetAssetBundle("https://s3-us-west-1.amazonaws.com/modelmaster/mainscene");
-        request.Send();
-
-        if (request.isDone)
-        {
-            AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
-            //GameObject logo = bundle.LoadAsset<GameObject>("NWLogo");
-            //Instantiate(logo, transform.position + transform.forward * -3, transform.rotation);
-            SceneManager.LoadScene("LoadScene");
-        }*/
-
         //needed for AWS sdk to work
         UnityInitializer.AttachToGameObject(this.gameObject);
         AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
@@ -59,7 +48,7 @@ public class LoadBundleAndDataSet : MonoBehaviour
         //initialize S3
         S3Client = new AmazonS3Client(credentials, _S3Region);
     }
-    
+
 
     public void GetDataSetAndAssetBundleFromS3()
     {
@@ -161,91 +150,4 @@ public class LoadBundleAndDataSet : MonoBehaviour
             Debug.Log("Failure!! - File does not exist at: " + outputPath);
         }
     }
-
-
-    /* 
-    public void Business1()
-    {
-        if (request.isDone)
-        {
-            request = UnityWebRequestAssetBundle.GetAssetBundle("https://s3-us-west-1.amazonaws.com/modelmaster/business1");
-            request.Send();
-
-            AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
-            //GameObject logo = bundle.LoadAsset<GameObject>("NWLogo");
-            //Instantiate(logo, transform.position + transform.forward * -3, transform.rotation);
-            SceneManager.LoadScene("Business1");
-                        
-        }
-    }
-
-    public void Business2()
-    {
-        if (request.isDone)
-        {
-            request = UnityWebRequestAssetBundle.GetAssetBundle("https://s3-us-west-1.amazonaws.com/modelmaster/business2");
-            request.Send();
-
-            if (request.isDone)
-            {
-                AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
-                //GameObject logo = bundle.LoadAsset<GameObject>("NWLogo");
-                //Instantiate(logo, transform.position + transform.forward * -3, transform.rotation);
-                SceneManager.LoadScene("Business2");
-            }
-        }
-    }
-
-    public void Business3()
-    {
-        if (request.isDone)
-        {
-            request = UnityWebRequestAssetBundle.GetAssetBundle("https://s3-us-west-1.amazonaws.com/modelmaster/business3");
-            request.Send();
-
-            if (request.isDone)
-            {
-                AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
-                //GameObject logo = bundle.LoadAsset<GameObject>("NWLogo");
-                //Instantiate(logo, transform.position + transform.forward * -3, transform.rotation);
-                SceneManager.LoadScene("Business3");
-            }
-        }
-    }
-
-    public void Business4()
-    {
-        if (request.isDone)
-        {
-            request = UnityWebRequestAssetBundle.GetAssetBundle("https://s3-us-west-1.amazonaws.com/modelmaster/business4");
-            request.Send();
-
-            if (request.isDone)
-            {
-                AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
-                //GameObject logo = bundle.LoadAsset<GameObject>("NWLogo");
-                //Instantiate(logo, transform.position + transform.forward * -3, transform.rotation);
-                SceneManager.LoadScene("Business4");
-            }
-
-        }
-    }
-
-    public void Business5()
-    {
-        if (request.isDone)
-        {
-            request = UnityWebRequestAssetBundle.GetAssetBundle("https://s3-us-west-1.amazonaws.com/modelmaster/business5");
-            request.Send();
-
-            if (request.isDone)
-            {
-                AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
-                //GameObject logo = bundle.LoadAsset<GameObject>("NWLogo");
-                //Instantiate(logo, transform.position + transform.forward * -3, transform.rotation);
-                SceneManager.LoadScene("Business5");
-            }
-        }
-    }
-    */
 }
