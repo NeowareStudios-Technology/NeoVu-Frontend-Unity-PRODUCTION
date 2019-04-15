@@ -61,6 +61,21 @@ public class SceneSwitchers : MonoBehaviour {
         SceneManager.LoadScene("LoadScene");
     }
 
+    public void SwitchtoTest1()
+    {
+        SceneManager.LoadScene("Test1");
+    }
+
+    public void SwitchtoTest2()
+    {
+        SceneManager.LoadScene("Test2");
+    }
+
+    public void SwitchtoTest3()
+    {
+        SceneManager.LoadScene("Test3");
+    }
+
 
 
     //public void SwitchtoPolyBlox()

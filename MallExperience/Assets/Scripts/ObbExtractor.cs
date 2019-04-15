@@ -82,7 +82,11 @@ public class ObbExtractor : MonoBehaviour
                 {
                     //pass the name of the object to function that gets it from S3 and 
                     //saves it locally
-                    SaveS3ObjectLocally(o.Key);
+                    if((o.Key.Contains(".dat")) || (o.Key.Contains(".xml")))
+                    {
+                        SaveS3ObjectLocally(o.Key);
+                    }
+
                 });
             }
             else
@@ -137,7 +141,7 @@ public class ObbExtractor : MonoBehaviour
         }
     }
 
-
+/* 
     private IEnumerator ActivateDatasetfromStreamingAssets()
     {
         yield return new WaitForSeconds(6);
@@ -180,4 +184,38 @@ public class ObbExtractor : MonoBehaviour
         //AttachContentToTrackables(dataSet);
     }
 
+    // Add Trackable event handler and content (cubes) to the Targets.
+	private void AttachContentToTrackables(DataSet dataSet)
+	{
+		// get all current TrackableBehaviours
+		IEnumerable<TrackableBehaviour> trackableBehaviours =
+		TrackerManager.Instance.GetStateManager().GetTrackableBehaviours();
+
+		// Loop over all TrackableBehaviours.
+		foreach (TrackableBehaviour trackableBehaviour in trackableBehaviours)
+		{
+			// check if the Trackable of the current Behaviour is part of this dataset
+			if (dataSet.Contains(trackableBehaviour.Trackable))
+			{
+				GameObject go = trackableBehaviour.gameObject;
+
+				// Add a Trackable event handler to the Trackable.
+				// This Behaviour handles Trackable lost/found callbacks.
+				go.AddComponent<DefaultTrackableEventHandler>();
+
+				// Instantiate the model.
+				GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+				//GameObject cube = Instantiate(Model) as GameObject;
+
+				// Attach the cube to the Trackable and make sure it has a proper size.
+				cube.transform.parent = trackableBehaviour.transform;
+				cube.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+				cube.transform.localPosition = new Vector3(0.0f, 0.35f, 0.0f);
+				cube.transform.localRotation = Quaternion.identity;
+				cube.active = true;
+				trackableBehaviour.gameObject.active = true;
+			}
+		}
+    }
+*/
 }
