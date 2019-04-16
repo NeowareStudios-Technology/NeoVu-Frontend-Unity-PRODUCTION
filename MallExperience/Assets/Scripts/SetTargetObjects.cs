@@ -6,25 +6,36 @@ using System.Linq;
 
 public class SetTargetObjects : MonoBehaviour
 {
+	//put the names of all your "target object" GameObjects here
+	public string[] targetObjectName = new string[] {"TestCapsule"};
     public GameObject[] targetObjects;
+	//put name of dataset here
     public string dataSetName = "Business1";
+	int i;
 
     // Start is called before the first frame update
     void Start()
     {
-        targetObjects = new GameObject[10];
-        targetObjects[0] = GameObject.Find("testCapsule");
+		// Registering call back to know when Vuforia is ready
+		VuforiaARController.Instance.RegisterVuforiaStartedCallback(ActivateDatasetFromStreamingAssets);
 
-        StartCoroutine("ActivateDatasetfromStreamingAssets");
+		//make array of GameObjects for each model named
+        targetObjects = new GameObject[targetObjectName.Length];
+
+		//find the GameObject corresponding to each model name
+		i = 0;
+		foreach(string name in targetObjectName)
+		{
+        	targetObjects[i] = GameObject.Find(targetObjectName[i]);
+			i++;
+		}
+
+        //ActivateDatasetFromStreamingAssets();
     }
 
-    private IEnumerator ActivateDatasetfromStreamingAssets()
+
+    private void ActivateDatasetFromStreamingAssets()
     {
-        yield return new WaitForSeconds(6);
-
-        //DEBUG
-        Debug.Log("Starting activate");
-
         ObjectTracker objectTracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
 
         objectTracker.Stop();
@@ -60,7 +71,8 @@ public class SetTargetObjects : MonoBehaviour
         AttachContentToTrackables(dataSet, targetObjects);
     }
 
-    // Add Trackable event handler and content (cubes) to the Targets.
+
+    // Add Trackable event handler and target objects to targets
 	private void AttachContentToTrackables(DataSet dataSet, GameObject[] targetObjects)
 	{
 		// get all current TrackableBehaviours

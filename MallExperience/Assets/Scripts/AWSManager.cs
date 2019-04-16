@@ -14,15 +14,15 @@ using Amazon.S3.Util;
 using System;
 using System.IO;
 
-public class LoadBundleAndDataSet : MonoBehaviour
+public class AWSManager : MonoBehaviour
 {
     private AssetBundleCreateRequest bundleRequest;
     private UnityWebRequest request;
-
-    AmazonS3Client S3Client;
-    public string bucketName;
-    public string bundleName;
-    public string S3Region = RegionEndpoint.USWest1.SystemName;
+    public AmazonS3Client S3Client;
+    public GameObject messageText;
+    public InputField searchField;
+    public string bundleAndBucketName;
+    public string S3Region = RegionEndpoint.USEast1.SystemName;
     public string saveFilePath;
     public string dataSetName;
     private int counter = 0;
@@ -49,11 +49,39 @@ public class LoadBundleAndDataSet : MonoBehaviour
         S3Client = new AmazonS3Client(credentials, _S3Region);
     }
 
-
+    //called from download button
     public void GetDataSetAndAssetBundleFromS3()
     {
         SaveObjectsInBucketLocally();        
         StartCoroutine(GetAssetBundle());
+    }
+
+    //called by search button
+    public void CheckIfBucketExists()
+    {
+        bundleAndBucketName = searchField.text;
+        var request = new ListObjectsRequest()
+        {
+            BucketName = bundleAndBucketName
+        };
+
+        //make requet to S3 to list all objects in bucket
+        S3Client.ListObjectsAsync(request, (responseObject) =>
+        {
+            //if response not null, bucket found
+            if (responseObject.Exception == null)
+            {
+                messageText.GetComponent<Text>().text = "Bucket Found";
+                messageText.SetActive(true);
+            }
+            //if response null, bucket not found
+            else
+            {
+                messageText.GetComponent<Text>().text = "Bucket Not Found";
+                messageText.SetActive(true);
+                Debug.Log(responseObject.Exception);
+            }
+        });
     }
 
 
@@ -61,7 +89,7 @@ public class LoadBundleAndDataSet : MonoBehaviour
     {
         var request = new ListObjectsRequest()
         {
-            BucketName = bucketName
+            BucketName = bundleAndBucketName
         };
 
         //make requet to S3 to list all objects in bucket
@@ -91,7 +119,7 @@ public class LoadBundleAndDataSet : MonoBehaviour
 
     private IEnumerator GetAssetBundle()
     {
-        UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3-us-west-1.amazonaws.com/testvuforia/"+bundleName);
+        UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+bundleAndBucketName+"/"+bundleAndBucketName);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -101,7 +129,7 @@ public class LoadBundleAndDataSet : MonoBehaviour
         else
         {
             AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(www);
-            SceneManager.LoadScene(bundleName);
+            SceneManager.LoadScene(bundleAndBucketName);
         }
         
     }
@@ -110,7 +138,7 @@ public class LoadBundleAndDataSet : MonoBehaviour
     //get file from s3 bucket and save to streaming assets folder
     private void SaveS3ObjectLocally(String fileName)
     {
-        S3Client.GetObjectAsync(bucketName, fileName, (responseObj) =>
+        S3Client.GetObjectAsync(bundleAndBucketName, fileName, (responseObj) =>
         {
             var response = responseObj.Response;
 
@@ -149,5 +177,10 @@ public class LoadBundleAndDataSet : MonoBehaviour
         {
             Debug.Log("Failure!! - File does not exist at: " + outputPath);
         }
+    }
+
+    public void SetBundleAndBucketName()
+    {
+        bundleAndBucketName = searchField.text;
     }
 }
