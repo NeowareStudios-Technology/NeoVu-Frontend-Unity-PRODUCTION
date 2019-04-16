@@ -28,6 +28,7 @@ public class AWSManager : MonoBehaviour
     public AmazonS3Client S3Client;
     public GameObject messageText;
     public InputField searchField;
+    public Text bucketListText;
     public string bundleAndBucketName;
     public string S3Region = RegionEndpoint.USEast1.SystemName;
     public string saveFilePath;
@@ -146,8 +147,28 @@ public class AWSManager : MonoBehaviour
         {
             AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(www);
             SceneManager.LoadScene(bundleAndBucketName);
-        }
-        
+        }  
+    }
+
+    public void ListBuckets()
+    {
+        S3Client.ListBucketsAsync(new ListBucketsRequest(), (responseObject) =>
+        {
+            if (responseObject.Exception == null)
+            {
+                string bucketList = null;
+                responseObject.Response.Buckets.ForEach((s3b) =>
+                {
+                    bucketList += s3b.BucketName + '\n';
+                });
+
+                bucketListText.text = bucketList;
+            }
+            else
+            {
+                Debug.Log("Error listing buckets");
+            }
+        });
     }
 
 
