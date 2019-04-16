@@ -11,33 +11,36 @@ using UnityEngine;
 using Vuforia;
 using System.Linq;
 
-public class SetTargetObjects : MonoBehaviour
+public class VuforiaSetupManager : MonoBehaviour
 {
 	//put the names of all your "target object" GameObjects here
 	public string[] targetObjectName;// = new string[] {"TestCube"};
     public GameObject[] targetObjects;
 	//put name of dataset here
     public string dataSetName;// = "Business2";
-	int i;
+	private int targetObjectNameCount;
+	private int targetCount = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-		// Registering call back to know when Vuforia is ready
-		VuforiaARController.Instance.RegisterVuforiaStartedCallback(ActivateDatasetFromStreamingAssets);
-
+		Debug.Log("step 1");
 		//make array of GameObjects for each model named
         targetObjects = new GameObject[targetObjectName.Length];
 
 		//find the GameObject corresponding to each model name
-		i = 0;
+		targetObjectNameCount = 0;
 		foreach(string name in targetObjectName)
 		{
-        	targetObjects[i] = GameObject.Find(targetObjectName[i]);
-			i++;
+        	targetObjects[targetObjectNameCount] = GameObject.Find(targetObjectName[targetObjectNameCount]);
+			targetObjectNameCount++;
 		}
+		Debug.Log("step 2");
 
-        //ActivateDatasetFromStreamingAssets();
+		//VuforiaARController.Instance.UpdateState(true,true);
+		VuforiaARController.Instance.RegisterVuforiaStartedCallback(ActivateDatasetFromStreamingAssets);
+
+		Debug.Log("step 3");
     }
 
 
@@ -85,7 +88,7 @@ public class SetTargetObjects : MonoBehaviour
 		// get all current TrackableBehaviours
 		IEnumerable<TrackableBehaviour> trackableBehaviours =
 		TrackerManager.Instance.GetStateManager().GetTrackableBehaviours();
-        int targetCount = 0;
+        targetCount = 0;
 
 		// Loop over all TrackableBehaviours.
 		foreach (TrackableBehaviour trackableBehaviour in trackableBehaviours)

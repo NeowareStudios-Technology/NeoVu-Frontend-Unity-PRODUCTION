@@ -136,7 +136,14 @@ public class AWSManager : MonoBehaviour
 
     private IEnumerator GetAssetBundle()
     {
-        UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+bundleAndBucketName+"/"+bundleAndBucketName);
+        #if UNITY_IPHONE
+		    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+bundleAndBucketName+"/"+bundleAndBucketName+".ios");
+		#elif UNITY_ANDROID
+		    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+bundleAndBucketName+"/"+bundleAndBucketName+".and");
+		#else
+		   UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+bundleAndBucketName+"/"+bundleAndBucketName);
+        #endif
+
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
