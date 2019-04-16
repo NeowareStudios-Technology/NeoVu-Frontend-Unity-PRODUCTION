@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/************************************
+ * Project: NeoWare Lens
+ * Author: David Lee Ramirez
+ * Date: 4/16/19
+ * Copywrite NeoWare 2019
+ * *********************************/
+
+using System.Collections;
 using System.Collections.Generic;
 using Vuforia;
 using UnityEngine;
@@ -116,7 +123,6 @@ public class AWSManager : MonoBehaviour
                     {
                         SaveS3ObjectLocally(o.Key);
                     }
-
                 });
             }
             else

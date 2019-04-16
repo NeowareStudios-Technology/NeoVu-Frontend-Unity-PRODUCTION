@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/************************************
+ * Project: NoWare Lens
+ * Author: David Lee Ramirez
+ * Date: 4/16/19
+ * Copywrite NeoWare 2019
+ * *********************************/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
