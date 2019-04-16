@@ -25,7 +25,11 @@ public class AWSManager : MonoBehaviour
     public string S3Region = RegionEndpoint.USEast1.SystemName;
     public string saveFilePath;
     public string dataSetName;
-    private int counter = 0;
+    //need to download .xml and .dat file (ie. 2 files)
+    private int numFilesToDownload = 2;
+    public int filesDownloaded = 0;
+    //set this to false when you want to load a new lens from the main scene
+    public bool getAssetBundleCheck = true;
 
     private RegionEndpoint _S3Region
     {
@@ -49,12 +53,18 @@ public class AWSManager : MonoBehaviour
         S3Client = new AmazonS3Client(credentials, _S3Region);
     }
 
-    //called from download button
-    public void GetDataSetAndAssetBundleFromS3()
+
+    //get the asset bundle for the scene and load the scene ONLY AFTER downloading dataset files
+    void Update()
     {
-        SaveObjectsInBucketLocally();        
-        StartCoroutine(GetAssetBundle());
-    }
+        if ((getAssetBundleCheck == true) && (filesDownloaded == numFilesToDownload))
+        {
+            StartCoroutine("GetAssetBundle");
+            filesDownloaded = 0;
+            getAssetBundleCheck = false;
+        }
+    } 
+
 
     //called by search button
     public void CheckIfBucketExists()
@@ -85,7 +95,7 @@ public class AWSManager : MonoBehaviour
     }
 
 
-    private void SaveObjectsInBucketLocally()
+    public void SaveObjectsInBucketLocally()
     {
         var request = new ListObjectsRequest()
         {
@@ -171,7 +181,7 @@ public class AWSManager : MonoBehaviour
         if (File.Exists(outputPath))
         {
             Debug.Log("File successfully saved at: " + outputPath);
-            //ActivateDatasetfromStreamingAssets();
+            filesDownloaded++;
         }
         else
         {
@@ -182,5 +192,24 @@ public class AWSManager : MonoBehaviour
     public void SetBundleAndBucketName()
     {
         bundleAndBucketName = searchField.text;
+    }
+
+    //call this when returning to main scene from any downloaded lens
+    public void DeleteStreamingAssetsAndResetCheck()
+    {
+        System.IO.DirectoryInfo di = new DirectoryInfo(Application.streamingAssetsPath + "/Vuforia");
+/* 
+        //delete all downloaded streaming assets (ie. vuforia datasets)
+        foreach (FileInfo file in di.GetFiles())
+        {
+            file.Delete(); 
+        }
+        foreach (DirectoryInfo dir in di.GetDirectories())
+        {
+            dir.Delete(true); 
+        }
+*/
+        //set to true so asset bundles can be downloaded only after downloading dataset
+        getAssetBundleCheck = true;
     }
 }

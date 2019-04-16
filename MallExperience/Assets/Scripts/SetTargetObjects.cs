@@ -7,10 +7,10 @@ using System.Linq;
 public class SetTargetObjects : MonoBehaviour
 {
 	//put the names of all your "target object" GameObjects here
-	public string[] targetObjectName = new string[] {"TestCapsule"};
+	public string[] targetObjectName;// = new string[] {"TestCube"};
     public GameObject[] targetObjects;
 	//put name of dataset here
-    public string dataSetName = "Business1";
+    public string dataSetName;// = "Business2";
 	int i;
 
     // Start is called before the first frame update

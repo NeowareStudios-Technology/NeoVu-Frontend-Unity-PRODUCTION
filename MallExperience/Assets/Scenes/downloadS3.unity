@@ -666,7 +666,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1023184994}
-        m_MethodName: GetDataSetAndAssetBundleFromS3
+        m_MethodName: SaveObjectsInBucketLocally
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
