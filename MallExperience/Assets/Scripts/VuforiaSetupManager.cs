@@ -25,7 +25,6 @@ public class VuforiaSetupManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		Debug.Log("step 1");
 		//make array of GameObjects for each model named
         targetObjects = new GameObject[targetObjectName.Length];
 
@@ -36,12 +35,9 @@ public class VuforiaSetupManager : MonoBehaviour
         	targetObjects[targetObjectNameCount] = GameObject.Find(targetObjectName[targetObjectNameCount]);
 			targetObjectNameCount++;
 		}
-		Debug.Log("step 2");
 
 		//VuforiaARController.Instance.UpdateState(true,true);
 		VuforiaARController.Instance.RegisterVuforiaStartedCallback(ActivateDatasetFromLocalPath);
-
-		Debug.Log("step 3");
     }
 
 

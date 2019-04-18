@@ -214,11 +214,8 @@ public class AWSManager : MonoBehaviour
     {
         //DEBUG
         Debug.Log("SAVE S3 OBJECT: " + outputPath);
-        Debug.Log("STEP 1");
 
-        Debug.Log("STEP 2");
         File.WriteAllBytes(outputPath, contents);
-        Debug.Log("STEP 3");
 
         // Verify that the File has been actually stored
         if (File.Exists(outputPath))
@@ -230,7 +227,6 @@ public class AWSManager : MonoBehaviour
         {
             Debug.Log("Failure!! - File does not exist at: " + outputPath);
         }
-        Debug.Log("STEP 4");
     }
 
     public void SetBundleAndBucketName()
