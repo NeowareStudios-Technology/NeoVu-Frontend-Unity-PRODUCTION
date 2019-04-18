@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneNavigator : MonoBehaviour
 {
-    public VuforiaSetupManager vsm;
+    public string sceneName;
     public void LoadMainScene()
     {
-        SceneManager.UnloadSceneAsync(vsm.dataSetName);
+        SceneManager.UnloadSceneAsync(sceneName);
         SceneManager.LoadScene("mainmenu");
     }
 }
