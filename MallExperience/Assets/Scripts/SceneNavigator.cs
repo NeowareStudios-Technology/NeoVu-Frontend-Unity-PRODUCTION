@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneNavigator : MonoBehaviour
 {
+    public string sceneName;
     public void LoadMainScene()
     {
+        Debug.Log("STEP 1");
         SceneManager.LoadScene("mainmenu");
+        Debug.Log("STEP 2");
     }
 }

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 using System.Linq;
+using System.IO;
 
 public class VuforiaSetupManager : MonoBehaviour
 {
@@ -24,7 +25,6 @@ public class VuforiaSetupManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		Debug.Log("step 1");
 		//make array of GameObjects for each model named
         targetObjects = new GameObject[targetObjectName.Length];
 
@@ -35,17 +35,24 @@ public class VuforiaSetupManager : MonoBehaviour
         	targetObjects[targetObjectNameCount] = GameObject.Find(targetObjectName[targetObjectNameCount]);
 			targetObjectNameCount++;
 		}
-		Debug.Log("step 2");
 
 		//VuforiaARController.Instance.UpdateState(true,true);
-		VuforiaARController.Instance.RegisterVuforiaStartedCallback(ActivateDatasetFromStreamingAssets);
-
-		Debug.Log("step 3");
+		VuforiaARController.Instance.RegisterVuforiaStartedCallback(ActivateDatasetFromLocalPath);
     }
 
 
-    private void ActivateDatasetFromStreamingAssets()
+    private void ActivateDatasetFromLocalPath()
     {
+		string dataSetPath = "";
+		string dataSetFileName = dataSetName + ".xml";
+		#if UNITY_IOS
+			dataSetPath = Path.Combine(Application.persistentDataPath, dataSetFileName);
+		#elif UNITY_ANDROID
+			dataSetPath = "jar:file://" + Path.Combine(Application.persistentDataPath, dataSetFileName);
+		#else
+			dataSetPath = Path.Combine(Application.persistentDataPath, dataSetFileName);
+		#endif
+
         ObjectTracker objectTracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
 
         objectTracker.Stop();
@@ -56,7 +63,7 @@ public class VuforiaSetupManager : MonoBehaviour
 		}
 
 		// Check if the data set exists at the given path.
-		if (!DataSet.Exists(dataSetName))
+		if (!DataSet.Exists(dataSetPath, VuforiaUnity.StorageType.STORAGE_ABSOLUTE))
 		{
 			Debug.LogError("Data set does not exist.");
         }
@@ -65,7 +72,7 @@ public class VuforiaSetupManager : MonoBehaviour
 		DataSet dataSet = objectTracker.CreateDataSet();
 	
 		// Load the data set from the given path.
-		if (!dataSet.Load(dataSetName))
+		if (!dataSet.Load(dataSetPath, VuforiaUnity.StorageType.STORAGE_ABSOLUTE))
 		{
 			Debug.LogError("Failed to load data set ");
 		}

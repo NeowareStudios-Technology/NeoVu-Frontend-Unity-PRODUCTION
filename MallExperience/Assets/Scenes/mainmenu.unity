@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641234, b: 0.57481724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -148,8 +148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: 246}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -3.8500023, y: 179.95001}
+  m_SizeDelta: {x: 247.8, y: 64.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6800862
 MonoBehaviour:
@@ -374,7 +374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31.515, y: -189.35}
+  m_AnchoredPosition: {x: 365, y: -146}
   m_SizeDelta: {x: 165.03, y: 54.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &396434983
@@ -519,8 +519,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: -122}
-  m_SizeDelta: {x: 160.46, y: 20.1}
+  m_AnchoredPosition: {x: 379, y: -22.2}
+  m_SizeDelta: {x: 160.5, y: 44.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488009950
 MonoBehaviour:
@@ -682,8 +682,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -34.029995, y: -147.05002}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -50.324997, y: -71.79999}
+  m_SizeDelta: {x: 154.9, y: 54.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &759860177
 MonoBehaviour:
@@ -844,8 +844,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.229996, y: -231.65002}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -0.000002861, y: -167}
+  m_SizeDelta: {x: 182.3, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792664693
 MonoBehaviour:
@@ -1052,7 +1052,7 @@ MonoBehaviour:
   bucketListText: {fileID: 1612209813}
   bundleAndBucketName: 
   S3Region: us-east-1
-  saveFilePath: 
+  dataSetPath: 
   dataSetName: 
   filesDownloaded: 0
   getAssetBundleCheck: 1
@@ -1399,8 +1399,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: 59.8}
-  m_SizeDelta: {x: 160, y: 316.3}
+  m_AnchoredPosition: {x: -4.5, y: 71.8}
+  m_SizeDelta: {x: 228.9, y: 128.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1612209813
 MonoBehaviour:
@@ -1559,8 +1559,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65.895004, y: -147.05002}
-  m_SizeDelta: {x: 39.85, y: 30}
+  m_AnchoredPosition: {x: 73.05, y: -71.79999}
+  m_SizeDelta: {x: 91.9, y: 54.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1997520219
 MonoBehaviour:

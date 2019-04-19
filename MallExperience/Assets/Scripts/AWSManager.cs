@@ -31,7 +31,7 @@ public class AWSManager : MonoBehaviour
     public Text bucketListText;
     public string bundleAndBucketName;
     public string S3Region = RegionEndpoint.USEast1.SystemName;
-    public string saveFilePath;
+    public string dataSetPath;
     public string dataSetName;
     //need to download .xml and .dat file (ie. 2 files)
     private int numFilesToDownload = 2;
@@ -136,7 +136,7 @@ public class AWSManager : MonoBehaviour
 
     private IEnumerator GetAssetBundle()
     {
-        #if UNITY_IPHONE
+        #if UNITY_IOS
 		    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+bundleAndBucketName+"/"+bundleAndBucketName+".ios");
 		#elif UNITY_ANDROID
 		    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+bundleAndBucketName+"/"+bundleAndBucketName+".and");
@@ -190,14 +190,20 @@ public class AWSManager : MonoBehaviour
             if (response.ResponseStream != null)
             {
                 //set path to save file downloaded from s3 to
-                saveFilePath = Application.streamingAssetsPath + "/Vuforia/" + fileName;
+                #if UNITY_IOS
+                    dataSetPath = Path.Combine(Application.persistentDataPath,fileName);
+                #elif UNITY_ANDROID
+                    dataSetPath = "jar:file://" + Path.Combine(Application.persistentDataPath,fileName);
+                #else
+                    dataSetPath = Path.Combine(Application.persistentDataPath,fileName);
+                #endif
 
                 //read file into buffer
                 byte[] buffer = new byte[(int)response.ResponseStream.Length];
                 response.ResponseStream.Read(buffer, 0, (int)response.ResponseStream.Length);
                 
                 //save buffer contents to local file
-                Save(buffer, saveFilePath);
+                Save(buffer, dataSetPath);
             }
         });
     }
