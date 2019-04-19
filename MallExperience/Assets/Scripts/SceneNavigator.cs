@@ -9,9 +9,7 @@ public class SceneNavigator : MonoBehaviour
     public void LoadMainScene()
     {
         Debug.Log("STEP 1");
-        SceneManager.UnloadSceneAsync(sceneName);
-        Debug.Log("STEP 2");
         SceneManager.LoadScene("mainmenu");
-        Debug.Log("STEP 3");
+        Debug.Log("STEP 2");
     }
 }
