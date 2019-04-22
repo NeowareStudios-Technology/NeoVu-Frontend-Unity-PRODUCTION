@@ -36,7 +36,6 @@ public class VuforiaSetupManager : MonoBehaviour
 			targetObjectNameCount++;
 		}
 
-		//VuforiaARController.Instance.UpdateState(true,true);
 		VuforiaARController.Instance.RegisterVuforiaStartedCallback(ActivateDatasetFromLocalPath);
     }
 
@@ -45,14 +44,8 @@ public class VuforiaSetupManager : MonoBehaviour
     {
 		string dataSetPath = "";
 		string dataSetFileName = dataSetName + ".xml";
-		#if UNITY_IOS
-			dataSetPath = Path.Combine(Application.persistentDataPath, dataSetFileName);
-		#elif UNITY_ANDROID
-			dataSetPath = /*"jar:file://" + */Path.Combine(Application.persistentDataPath, dataSetFileName);
-		#else
-			dataSetPath = Path.Combine(Application.persistentDataPath, dataSetFileName);
-		#endif
-
+		dataSetPath = Path.Combine(Application.persistentDataPath, dataSetFileName);
+		
         ObjectTracker objectTracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
 
         objectTracker.Stop();

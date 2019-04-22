@@ -190,13 +190,7 @@ public class AWSManager : MonoBehaviour
             if (response.ResponseStream != null)
             {
                 //set path to save file downloaded from s3 to
-                #if UNITY_IOS
-                    dataSetPath = Path.Combine(Application.persistentDataPath,fileName);
-                #elif UNITY_ANDROID
-                    dataSetPath = /*"jar:file://" + */Path.Combine(Application.persistentDataPath,fileName);
-                #else
-                    dataSetPath = Path.Combine(Application.persistentDataPath,fileName);
-                #endif
+                dataSetPath = Path.Combine(Application.persistentDataPath,fileName);
 
                 //read file into buffer
                 byte[] buffer = new byte[(int)response.ResponseStream.Length];
@@ -237,18 +231,15 @@ public class AWSManager : MonoBehaviour
     //call this when returning to main scene from any downloaded lens
     public void DeleteStreamingAssetsAndResetCheck()
     {
-        System.IO.DirectoryInfo di = new DirectoryInfo(Application.streamingAssetsPath + "/Vuforia");
-/* 
+        System.IO.DirectoryInfo di = new DirectoryInfo(Application.persistentDataPath);
+
+        
         //delete all downloaded streaming assets (ie. vuforia datasets)
         foreach (FileInfo file in di.GetFiles())
         {
             file.Delete(); 
         }
-        foreach (DirectoryInfo dir in di.GetDirectories())
-        {
-            dir.Delete(true); 
-        }
-*/
+
         //set to true so asset bundles can be downloaded only after downloading dataset
         getAssetBundleCheck = true;
     }
