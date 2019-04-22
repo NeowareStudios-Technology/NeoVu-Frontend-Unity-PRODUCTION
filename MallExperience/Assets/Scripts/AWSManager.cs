@@ -56,6 +56,13 @@ public class AWSManager : MonoBehaviour
             "us-east-1:ad940b00-0da0-42e9-b93d-5c58bc7ddee6", // Identity pool ID
             RegionEndpoint.USEast1 // Region
         );
+        
+/*      //this is for the NeoWare account
+        CognitoAWSCredentials credentials = new CognitoAWSCredentials (
+            "us-east-2:6e630d64-0f8f-45ab-9f52-76db64e254ed", // Identity pool ID
+            RegionEndpoint.USEast2 // Region
+        );
+*/
 
         //initialize S3
         S3Client = new AmazonS3Client(credentials, _S3Region);
