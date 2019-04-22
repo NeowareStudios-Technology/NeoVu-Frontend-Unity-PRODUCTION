@@ -48,7 +48,7 @@ public class VuforiaSetupManager : MonoBehaviour
 		#if UNITY_IOS
 			dataSetPath = Path.Combine(Application.persistentDataPath, dataSetFileName);
 		#elif UNITY_ANDROID
-			dataSetPath = "jar:file://" + Path.Combine(Application.persistentDataPath, dataSetFileName);
+			dataSetPath = /*"jar:file://" + */Path.Combine(Application.persistentDataPath, dataSetFileName);
 		#else
 			dataSetPath = Path.Combine(Application.persistentDataPath, dataSetFileName);
 		#endif
@@ -114,8 +114,8 @@ public class VuforiaSetupManager : MonoBehaviour
 				targetObjects[targetCount].transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
 				targetObjects[targetCount].transform.localPosition = new Vector3(0.0f, 0.35f, 0.0f);
 				targetObjects[targetCount].transform.localRotation = Quaternion.identity;
-				targetObjects[targetCount].active = true;
-				trackableBehaviour.gameObject.active = true;
+				targetObjects[targetCount].SetActive(true);
+				trackableBehaviour.gameObject.SetActive(true);
 
                 targetCount++;
 			}

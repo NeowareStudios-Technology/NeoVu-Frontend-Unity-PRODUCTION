@@ -193,7 +193,7 @@ public class AWSManager : MonoBehaviour
                 #if UNITY_IOS
                     dataSetPath = Path.Combine(Application.persistentDataPath,fileName);
                 #elif UNITY_ANDROID
-                    dataSetPath = "jar:file://" + Path.Combine(Application.persistentDataPath,fileName);
+                    dataSetPath = /*"jar:file://" + */Path.Combine(Application.persistentDataPath,fileName);
                 #else
                     dataSetPath = Path.Combine(Application.persistentDataPath,fileName);
                 #endif
