@@ -3,15 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class ViewInfo
-{
-    public string viewName;
-}
-
 public class ScrollList : MonoBehaviour {
 
-    public List<ViewInfo> viewInfoList;
     public Transform contentPanel;
     public SimpleObjectPool buttonObjectPool;
     
@@ -20,16 +13,16 @@ public class ScrollList : MonoBehaviour {
     // Use this for initialization
     void Start () 
     {
-        RefreshDisplay ();
+        //RefreshDisplay ();
     }
 
     void RefreshDisplay()
     {
-        RemoveButtons ();
-        AddButtons ();
+        //RemoveButtons();
+        //AddButton();
     }
 
-    private void RemoveButtons()
+    public void RemoveButtons()
     {
         while (contentPanel.childCount > 0) 
         {
@@ -38,16 +31,12 @@ public class ScrollList : MonoBehaviour {
         }
     }
 
-    private void AddButtons()
+    public void AddButton(string viewName)
     {
-        for (int i = 0; i < viewInfoList.Count; i++) 
-        {
-            ViewInfo viewInfo = viewInfoList[i];
-            GameObject newButton = buttonObjectPool.GetObject();
-            newButton.transform.SetParent(contentPanel);
+        GameObject newButton = buttonObjectPool.GetObject();
+        newButton.transform.SetParent(contentPanel);
 
-            SampleButton sampleButton = newButton.GetComponent<SampleButton>();
-            sampleButton.Setup(viewInfo, this);
-        }
+        SelectViewButton selectViewButton = newButton.GetComponent<SelectViewButton>();
+        selectViewButton.Setup(viewName, this);
     }
 }

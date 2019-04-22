@@ -6,11 +6,14 @@ using UnityEngine.UI;
 public class SearchLensManager : MonoBehaviour
 {
     public LensListJSON llj;
+    public ScrollList sl;
     public InputField searchInput;
     public Text outputText;
 
     public void SearchMatchingLenses()
     {
+        sl.RemoveButtons();
+
         outputText.text = "";
         int outputCount = 0;
         foreach(string lensName in llj.lenses)
@@ -19,9 +22,7 @@ public class SearchLensManager : MonoBehaviour
             {
                 if(lensName.Contains(searchInput.text))
                 {
-                    Debug.Log(outputCount + " " + lensName);
-                    outputText.text += outputCount + " " + lensName + "\n";
-                    outputCount++;
+                    sl.AddButton(lensName);
                 }
             }
         }

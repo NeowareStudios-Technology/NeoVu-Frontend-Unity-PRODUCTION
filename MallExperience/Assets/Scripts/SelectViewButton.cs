@@ -7,20 +7,17 @@ public class SelectViewButton : MonoBehaviour
 {
     public Button button;
     public Text viewName;
-
-    private ViewInfo viewInfo;
     private ScrollList scrollList;
+    
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    public void Setup(ViewInfo currentViewInfo, ScrollList currentScrollList)
+    public void Setup(string currentViewName, ScrollList currentScrollList)
     {
-        viewInfo = currentViewInfo;
-        viewName.text = viewInfo.viewName;
-
+        viewName.text = currentViewName;
         scrollList = currentScrollList;
     }
     
