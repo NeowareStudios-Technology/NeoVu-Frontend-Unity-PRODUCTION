@@ -29,10 +29,10 @@ public class AWSManager : MonoBehaviour
     public GameObject messageText;
     public InputField searchField;
     public Text bucketListText;
-    public string bundleAndBucketName;
+    public string nameOfView;
     public string S3Region = RegionEndpoint.USEast1.SystemName;
     public string dataSetPath;
-    public string dataSetName;
+    public string neoBucketName = "nwlens1";
     //need to download .xml and .dat file (ie. 2 files)
     private int numFilesToDownload = 2;
     public int filesDownloaded = 0;
@@ -50,21 +50,20 @@ public class AWSManager : MonoBehaviour
         //needed for AWS sdk to work
         UnityInitializer.AttachToGameObject(this.gameObject);
         AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
-/* 
+
         //This is for Danny account
         CognitoAWSCredentials credentials = new CognitoAWSCredentials(
             "us-east-1:ad940b00-0da0-42e9-b93d-5c58bc7ddee6", // Identity pool ID
             RegionEndpoint.USEast1 // Region
         );
-*/
-        
+
+       /*  
         //this is for the NeoWare account
         CognitoAWSCredentials credentials = new CognitoAWSCredentials (
             "us-east-2:6e630d64-0f8f-45ab-9f52-76db64e254ed", // Identity pool ID
             RegionEndpoint.USEast2 // Region
         );
-
-
+*/
         //initialize S3
         S3Client = new AmazonS3Client(credentials, _S3Region);
     }
@@ -75,47 +74,29 @@ public class AWSManager : MonoBehaviour
     {
         if ((getAssetBundleCheck == true) && (filesDownloaded == numFilesToDownload))
         {
-            StartCoroutine("GetAssetBundle");
+            StartCoroutine(GetAssetBundle(nameOfView));
             filesDownloaded = 0;
             getAssetBundleCheck = false;
         }
     } 
 
 
-    //called by search button
-    public void CheckIfBucketExists()
+    public void DowloadDataSet(string nameOfSelectedView)
     {
-        bundleAndBucketName = searchField.text;
-        var request = new ListObjectsRequest()
-        {
-            BucketName = bundleAndBucketName
-        };
-
-        //make requet to S3 to list all objects in bucket
-        S3Client.ListObjectsAsync(request, (responseObject) =>
-        {
-            //if response not null, bucket found
-            if (responseObject.Exception == null)
-            {
-                messageText.GetComponent<Text>().text = "Bucket Found";
-                messageText.SetActive(true);
-            }
-            //if response null, bucket not found
-            else
-            {
-                messageText.GetComponent<Text>().text = "Bucket Not Found";
-                messageText.SetActive(true);
-                Debug.Log(responseObject.Exception);
-            }
-        });
+        Debug.Log("starting download");
+        nameOfView = nameOfSelectedView;
+        string XMLFileName = nameOfView + ".xml";
+        string DATFileName = nameOfView + ".dat";
+        SaveS3ObjectLocally(XMLFileName);
+        SaveS3ObjectLocally(DATFileName);
     }
 
-
+/* 
     public void SaveObjectsInBucketLocally()
     {
         var request = new ListObjectsRequest()
         {
-            BucketName = bundleAndBucketName
+            BucketName = nameOfView
         };
 
         //make requet to S3 to list all objects in bucket
@@ -140,16 +121,64 @@ public class AWSManager : MonoBehaviour
             }
         });
     }
+ */
+
+    //call this when returning to main scene from any downloaded lens
+    public void DeleteStreamingAssetsAndResetCheck()
+    {
+        System.IO.DirectoryInfo di = new DirectoryInfo(Application.persistentDataPath);
+
+        
+        //delete all downloaded streaming assets (ie. vuforia datasets)
+        foreach (FileInfo file in di.GetFiles())
+        {
+            file.Delete(); 
+        }
+
+        //set to true so asset bundles can be downloaded only after downloading dataset
+        getAssetBundleCheck = true;
+    }
 
 
-    private IEnumerator GetAssetBundle()
+    #region UtilityFunctions
+/* 
+    //called by search button
+    public void CheckIfBucketExists()
+    {
+        nameOfView = searchField.text;
+        var request = new ListObjectsRequest()
+        {
+            BucketName = nameOfView
+        };
+
+        //make requet to S3 to list all objects in bucket
+        S3Client.ListObjectsAsync(request, (responseObject) =>
+        {
+            //if response not null, bucket found
+            if (responseObject.Exception == null)
+            {
+                messageText.GetComponent<Text>().text = "Bucket Found";
+                messageText.SetActive(true);
+            }
+            //if response null, bucket not found
+            else
+            {
+                messageText.GetComponent<Text>().text = "Bucket Not Found";
+                messageText.SetActive(true);
+                Debug.Log(responseObject.Exception);
+            }
+        });
+    }
+*/
+
+    private IEnumerator GetAssetBundle(string paramNameOfView)
     {
         #if UNITY_IOS
-		    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+bundleAndBucketName+"/"+bundleAndBucketName+".ios");
+		    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+ paramNameOfView +"/"+paramNameOfView+".ios");
 		#elif UNITY_ANDROID
-		    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+bundleAndBucketName+"/"+bundleAndBucketName+".and");
+		    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+paramNameOfView+"/"+paramNameOfView+".and");
 		#else
-		   UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+bundleAndBucketName+"/"+bundleAndBucketName);
+		   UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+paramNameOfView+"/"+paramNameOfView);
         #endif
 
         yield return www.SendWebRequest();
@@ -161,7 +190,7 @@ public class AWSManager : MonoBehaviour
         else
         {
             AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(www);
-            SceneManager.LoadScene(bundleAndBucketName);
+            SceneManager.LoadScene(nameOfView);
         }  
     }
 
@@ -190,7 +219,7 @@ public class AWSManager : MonoBehaviour
     //get file from s3 bucket and save to streaming assets folder
     private void SaveS3ObjectLocally(String fileName)
     {
-        S3Client.GetObjectAsync(bundleAndBucketName, fileName, (responseObj) =>
+        S3Client.GetObjectAsync(neoBucketName, fileName, (responseObj) =>
         {
             var response = responseObj.Response;
 
@@ -205,14 +234,41 @@ public class AWSManager : MonoBehaviour
                 response.ResponseStream.Read(buffer, 0, (int)response.ResponseStream.Length);
                 
                 //save buffer contents to local file
-                Save(buffer, dataSetPath);
+                SaveToFile(buffer, dataSetPath);
+            }
+        });
+}
+
+/* 
+    //get file from s3 bucket and save to streaming assets folder
+    private void SaveS3ObjectLocally(string paramBucketName, string paramFileName)
+    {
+        Debug.Log(paramBucketName + "  " + paramFileName);
+        S3Client.GetObjectAsync(paramBucketName, paramFileName, (responseObj) =>
+        {
+            var response = responseObj.Response;
+            //if this object exists in the bucket...
+            if (response.ResponseStream != null)
+            {
+                //set path to save file downloaded from s3 to
+                dataSetPath = Path.Combine(Application.persistentDataPath,paramFileName);
+                //read file into buffer
+                byte[] buffer = new byte[(int)response.ResponseStream.Length];
+                response.ResponseStream.Read(buffer, 0, (int)response.ResponseStream.Length);
+                
+                //save buffer contents to local file
+                SaveToFile(buffer, dataSetPath);
+            }
+            else
+            {
+                Debug.Log("Could not find S3 object");
             }
         });
     }
-
+*/
 
     //write contents to new file
-    private void Save(byte[] contents, string outputPath)
+    private void SaveToFile(byte[] contents, string outputPath)
     {
         //DEBUG
         Debug.Log("SAVE S3 OBJECT: " + outputPath);
@@ -231,24 +287,5 @@ public class AWSManager : MonoBehaviour
         }
     }
 
-    public void SetBundleAndBucketName()
-    {
-        bundleAndBucketName = searchField.text;
-    }
-
-    //call this when returning to main scene from any downloaded lens
-    public void DeleteStreamingAssetsAndResetCheck()
-    {
-        System.IO.DirectoryInfo di = new DirectoryInfo(Application.persistentDataPath);
-
-        
-        //delete all downloaded streaming assets (ie. vuforia datasets)
-        foreach (FileInfo file in di.GetFiles())
-        {
-            file.Delete(); 
-        }
-
-        //set to true so asset bundles can be downloaded only after downloading dataset
-        getAssetBundleCheck = true;
-    }
+    #endregion 
 }

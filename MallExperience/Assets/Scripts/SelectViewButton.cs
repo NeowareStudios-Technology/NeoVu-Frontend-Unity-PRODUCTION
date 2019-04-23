@@ -24,8 +24,7 @@ public class SelectViewButton : MonoBehaviour
 
     public void StartAssetDownloads()
     {
-        awsm.bundleAndBucketName = viewName.text;
-        awsm.SaveObjectsInBucketLocally();
+        awsm.DowloadDataSet(viewName.text);
     }
     
 }
