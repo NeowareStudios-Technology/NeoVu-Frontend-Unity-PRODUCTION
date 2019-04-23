@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneNavigator : MonoBehaviour
 {
-    public string sceneName;
     public AWSManager awsm;
 
     public void Start()

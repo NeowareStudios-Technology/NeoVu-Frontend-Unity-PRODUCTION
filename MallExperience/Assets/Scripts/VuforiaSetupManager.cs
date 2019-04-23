@@ -21,19 +21,23 @@ public class VuforiaSetupManager : MonoBehaviour
     public string dataSetName;// = "Business2";
 	private int targetObjectNameCount;
 	private int targetCount = 0;
+	public bool targetsArePreset;
 
     // Start is called before the first frame update
     void Start()
     {
-		//make array of GameObjects for each model named
-        targetObjects = new GameObject[targetObjectName.Length];
-
-		//find the GameObject corresponding to each model name
-		targetObjectNameCount = 0;
-		foreach(string name in targetObjectName)
+		if (targetsArePreset == false)
 		{
-        	targetObjects[targetObjectNameCount] = GameObject.Find(targetObjectName[targetObjectNameCount]);
-			targetObjectNameCount++;
+			//make array of GameObjects for each model named
+			targetObjects = new GameObject[targetObjectName.Length];
+
+			//find the GameObject corresponding to each model name
+			targetObjectNameCount = 0;
+			foreach(string name in targetObjectName)
+			{
+				targetObjects[targetObjectNameCount] = GameObject.Find(targetObjectName[targetObjectNameCount]);
+				targetObjectNameCount++;
+			}
 		}
 
 		//VuforiaARController.Instance.UpdateState(true,true);
@@ -85,10 +89,13 @@ public class VuforiaSetupManager : MonoBehaviour
 		objectTracker.ActivateDataSet(dataSet);
 		objectTracker.Start();
 
-        AttachContentToTrackables(dataSet, targetObjects);
+		if (targetsArePreset == false)
+		{
+        	AttachContentToTrackables(dataSet, targetObjects);
+		}
     }
 
-
+ 
     // Add Trackable event handler and target objects to targets
 	private void AttachContentToTrackables(DataSet dataSet, GameObject[] targetObjects)
 	{
