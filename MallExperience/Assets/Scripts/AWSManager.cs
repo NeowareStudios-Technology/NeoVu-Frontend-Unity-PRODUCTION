@@ -87,6 +87,7 @@ public class AWSManager : MonoBehaviour
     } 
 
 
+    //get record of available views from S3
     private void GetListOfViews()
     {
         S3Client.GetObjectAsync(metaBucketName, "VuList.json", (responseObj) =>
@@ -179,7 +180,8 @@ public class AWSManager : MonoBehaviour
                 Debug.Log("Could not find S3 object");
             }
         });
-}
+    }
+
 
     //write contents to new file
     private void SaveToFile(byte[] contents, string outputPath)
@@ -216,5 +218,4 @@ public class AWSManager : MonoBehaviour
         //set to true so asset bundles can be downloaded only after downloading dataset
         getAssetBundleCheck = true;
     }
-
 }
