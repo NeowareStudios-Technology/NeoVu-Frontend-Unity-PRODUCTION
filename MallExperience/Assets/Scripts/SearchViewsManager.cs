@@ -21,7 +21,7 @@ public class SearchViewsManager : MonoBehaviour
         {
             if (searchInput.text != "")
             {
-                if(viewName.Contains(searchInput.text))
+                if(viewName.Contains(searchInput.text.ToLower()))
                 {
                     sl.AddButton(viewName);
                 }
