@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SearchLensManager : MonoBehaviour
+public class SearchViewsManager : MonoBehaviour
 {
-    public LensListJSON llj;
+    public AWSManager awsm;
     public ScrollList sl;
     public InputField searchInput;
     public Text outputText;
 
-    public void SearchMatchingLenses()
+    public void SeachMachingViews()
     {
         sl.RemoveButtons();
 
         outputText.text = "";
         int outputCount = 0;
-        foreach(string lensName in llj.lenses)
+        //for each view in the list of views downloaded from s3
+        foreach(string viewName in awsm.vlj.views)
         {
             if (searchInput.text != "")
             {
-                if(lensName.Contains(searchInput.text))
+                if(viewName.Contains(searchInput.text))
                 {
-                    sl.AddButton(lensName);
+                    sl.AddButton(viewName);
                 }
             }
         }

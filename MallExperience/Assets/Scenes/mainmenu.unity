@@ -733,25 +733,14 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1023184994}
-        m_MethodName: SetBundleAndBucketName
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 905752093}
-        m_MethodName: SearchMatchingLenses
+        m_MethodName: SeachMachingViews
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -816,7 +805,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 905752095}
-  - component: {fileID: 905752094}
   - component: {fileID: 905752093}
   m_Layer: 0
   m_Name: Search_Manager
@@ -837,25 +825,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 648f9378db0fe084f9b5b8489e78640c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  llj: {fileID: 905752094}
+  awsm: {fileID: 1023184994}
   sl: {fileID: 41476734705825644}
   searchInput: {fileID: 759860177}
   outputText: {fileID: 396434983}
---- !u!114 &905752094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905752092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeab3ab345e4c44499d4caa4bcf7385b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lenses:
-  - nwlens1
-  - nwlens2
 --- !u!4 &905752095
 Transform:
   m_ObjectHideFlags: 0
@@ -913,13 +886,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300b0b14a4d5b8348b13dd899008825d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vlj:
+    views:
+    - 
   messageText: {fileID: 488009948}
   searchField: {fileID: 759860177}
   bucketListText: {fileID: 1612209813}
   nameOfView: 
   S3Region: us-east-1
   dataSetPath: 
-  neoBucketName: neoware-neovu-views
+  viewsBucketName: neoware-neovu-views
+  metaBucketName: neoware-neovu-meta
   filesDownloaded: 0
   getAssetBundleCheck: 1
 --- !u!1 &1034617247

@@ -23,6 +23,7 @@ using System.IO;
 
 public class AWSManager : MonoBehaviour
 {
+    public ViewListJSON vlj;
     private AssetBundleCreateRequest bundleRequest;
     private UnityWebRequest request;
     public AmazonS3Client S3Client;
@@ -32,7 +33,9 @@ public class AWSManager : MonoBehaviour
     public string nameOfView;
     public string S3Region = RegionEndpoint.USEast1.SystemName;
     public string dataSetPath;
-    public string neoBucketName = "neoware-neovu";
+    public string viewsBucketName = "neoware-neovu-views";
+    public string metaBucketName = "neoware-neovu-meta";
+
     //need to download .xml and .dat file (ie. 2 files)
     private int numFilesToDownload = 2;
     public int filesDownloaded = 0;
@@ -66,6 +69,9 @@ public class AWSManager : MonoBehaviour
 */
         //initialize S3
         S3Client = new AmazonS3Client(credentials, _S3Region);
+
+        //this is needed for search functionality
+        GetListOfViews();
     }
 
 
@@ -81,15 +87,41 @@ public class AWSManager : MonoBehaviour
     } 
 
 
+    private void GetListOfViews()
+    {
+        S3Client.GetObjectAsync(metaBucketName, "VuList.json", (responseObj) =>
+        {
+            string JsonData = null;
+            var response = responseObj.Response;
+            if (response.ResponseStream != null)
+            {
+                using (StreamReader reader = new StreamReader(response.ResponseStream))
+                {
+                    JsonData = reader.ReadToEnd();
+                }
+            }
+            else
+            {
+                Debug.Log("Could not find S3 object");
+            }
+            Debug.Log(JsonData);
+
+            //save downloaded JSON as a class in unity
+            vlj = JsonUtility.FromJson<ViewListJSON>(JsonData);
+        });
+
+    }
+
+
     private IEnumerator GetAssetBundle(string paramNameOfView)
     {
         //get different asset bundles depending on platform
         #if UNITY_IOS
-		    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+ neoBucketName+"/"+paramNameOfView +"/"+paramNameOfView+".ios");
+		    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+ viewsBucketName+"/"+paramNameOfView +"/"+paramNameOfView+".ios");
 		#elif UNITY_ANDROID
-		    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+ neoBucketName+"/"+paramNameOfView +"/"+paramNameOfView+".and");
+		    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+ viewsBucketName+"/"+paramNameOfView +"/"+paramNameOfView+".and");
 		#else
-		   UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+ neoBucketName+"/"+paramNameOfView +"/"+paramNameOfView);
+		   UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/"+ viewsBucketName+"/"+paramNameOfView +"/"+paramNameOfView);
         #endif
 
         yield return www.SendWebRequest();
@@ -125,7 +157,7 @@ public class AWSManager : MonoBehaviour
         //the directory containing the Vu will always have th same name as the dataset file names
         string S3ObjectPath= directoryName + "/" + fileName;
         Debug.Log(S3ObjectPath);
-        S3Client.GetObjectAsync(neoBucketName, S3ObjectPath, (responseObj) =>
+        S3Client.GetObjectAsync(viewsBucketName, S3ObjectPath, (responseObj) =>
         {
             var response = responseObj.Response;
 
