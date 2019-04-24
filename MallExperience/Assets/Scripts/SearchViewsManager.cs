@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SearchViewsManager : MonoBehaviour
 {
     public AWSManager awsm;
     public ScrollList sl;
-    public InputField searchInput;
+    public TMP_InputField searchInput;
 
     public void SearchMatchingViews()
     {
