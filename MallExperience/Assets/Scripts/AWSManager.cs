@@ -27,7 +27,6 @@ public class AWSManager : MonoBehaviour
     private AssetBundleCreateRequest bundleRequest;
     private UnityWebRequest request;
     public AmazonS3Client S3Client;
-    public GameObject messageText;
     public InputField searchField;
     public Text bucketListText;
     public string nameOfView;
@@ -39,8 +38,6 @@ public class AWSManager : MonoBehaviour
     //need to download .xml and .dat file (ie. 2 files)
     private int numFilesToDownload = 2;
     public int filesDownloaded = 0;
-    //set this to false when you want to load a new lens from the main scene
-    public bool getAssetBundleCheck = true;
 
     private RegionEndpoint _S3Region
     {
@@ -70,19 +67,21 @@ public class AWSManager : MonoBehaviour
         //initialize S3
         S3Client = new AmazonS3Client(credentials, _S3Region);
 
+        SceneManager.activeSceneChanged += DeleteDownloadedFilesAndResetCheck;
+
         //this is needed for search functionality
         GetListOfViews();
     }
 
 
+
     //get the asset bundle for the scene and load the scene ONLY AFTER downloading dataset files
     void Update()
     {
-        if ((getAssetBundleCheck == true) && (filesDownloaded == numFilesToDownload))
+        if (filesDownloaded == numFilesToDownload)
         {
             StartCoroutine(GetAssetBundle(nameOfView));
             filesDownloaded = 0;
-            getAssetBundleCheck = false;
         }
     } 
 
@@ -205,17 +204,17 @@ public class AWSManager : MonoBehaviour
 
 
     //call this when returning to main scene from any downloaded lens
-    public void DeleteStreamingAssetsAndResetCheck()
+    public void DeleteDownloadedFilesAndResetCheck(Scene current, Scene next)
     {
-        System.IO.DirectoryInfo di = new DirectoryInfo(Application.persistentDataPath);
-        
-        //delete all downloaded streaming assets (ie. vuforia datasets)
-        foreach (FileInfo file in di.GetFiles())
+        if (next.name == "mainmenu")
         {
-            file.Delete(); 
+            System.IO.DirectoryInfo di = new DirectoryInfo(Application.persistentDataPath);
+            
+            //delete all downloaded streaming assets (ie. vuforia datasets)
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete(); 
+            }
         }
-
-        //set to true so asset bundles can be downloaded only after downloading dataset
-        getAssetBundleCheck = true;
     }
 }

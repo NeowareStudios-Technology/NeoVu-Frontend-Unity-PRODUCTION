@@ -13,7 +13,7 @@ public class SelectViewButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        awsm = GameObject.Find("AWS_Manager").GetComponent<AWSManager>();
+        awsm = GameObject.Find("AWS_Scripts").GetComponent<AWSManager>();
     }
 
     public void Setup(string currentViewName, ScrollList currentScrollList)

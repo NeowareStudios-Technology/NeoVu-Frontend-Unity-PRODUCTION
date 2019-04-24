@@ -8,13 +8,11 @@ public class SearchViewsManager : MonoBehaviour
     public AWSManager awsm;
     public ScrollList sl;
     public InputField searchInput;
-    public Text outputText;
 
-    public void SeachMachingViews()
+    public void SearchMatchingViews()
     {
         sl.RemoveButtons();
 
-        outputText.text = "";
         int outputCount = 0;
         //for each view in the list of views downloaded from s3
         foreach(string viewName in awsm.vlj.views)
