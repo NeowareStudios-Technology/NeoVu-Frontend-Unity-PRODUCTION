@@ -27,8 +27,7 @@ public class AWSManager : MonoBehaviour
     private AssetBundleCreateRequest bundleRequest;
     private UnityWebRequest request;
     public AmazonS3Client S3Client;
-    public InputField searchField;
-    public Text bucketListText;
+    public Text viewListText;
     public string nameOfView;
     public string S3Region = RegionEndpoint.USEast1.SystemName;
     public string dataSetPath;
@@ -109,7 +108,16 @@ public class AWSManager : MonoBehaviour
             //save downloaded JSON as a class in unity
             vlj = JsonUtility.FromJson<ViewListJSON>(JsonData);
         });
+    }
 
+
+    public void DisplayListOfViews()
+    {
+        viewListText.text = "";
+        foreach(string viewName in vlj.views)
+        {
+            viewListText.text += (viewName + "\n");
+        }
     }
 
 

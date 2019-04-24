@@ -192,7 +192,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1023184994}
-        m_MethodName: ListBuckets
+        m_MethodName: DisplayListOfViews
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1099,7 +1099,7 @@ MonoBehaviour:
     views:
     - 
   searchField: {fileID: 0}
-  bucketListText: {fileID: 1612209813}
+  viewListText: {fileID: 1612209813}
   nameOfView: 
   S3Region: us-east-1
   dataSetPath: 
@@ -1392,7 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95be323334fa3a47926957686a077a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 640691863953265242, guid: a3c78ced38c77f7409c951c9c0bc2af2, type: 3}
+  prefab: {fileID: 8906930293424066491, guid: 45d757c69f1ae6048bedcfd47c2e14d8, type: 3}
 --- !u!4 &1400675927
 Transform:
   m_ObjectHideFlags: 0
@@ -1800,7 +1800,7 @@ GameObject:
   - component: {fileID: 1612209814}
   - component: {fileID: 1612209813}
   m_Layer: 5
-  m_Name: BucketList-text
+  m_Name: ViewsList-text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1822,8 +1822,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.5, y: 71.8}
-  m_SizeDelta: {x: 228.9, y: 128.4}
+  m_AnchoredPosition: {x: -4.5, y: -120.7}
+  m_SizeDelta: {x: 228.9, y: 513.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1612209813
 MonoBehaviour:

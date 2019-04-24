@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SelectViewButton : MonoBehaviour
 {
     public AWSManager awsm;
     public Button button;
-    public Text viewName;
+    public TMP_Text viewName;
+    public TMP_Text highlightedViewName;
     private ScrollList scrollList;
 
     // Start is called before the first frame update
@@ -19,6 +21,7 @@ public class SelectViewButton : MonoBehaviour
     public void Setup(string currentViewName, ScrollList currentScrollList)
     {
         viewName.text = currentViewName;
+        highlightedViewName.text = currentViewName;
         scrollList = currentScrollList;
     }
 

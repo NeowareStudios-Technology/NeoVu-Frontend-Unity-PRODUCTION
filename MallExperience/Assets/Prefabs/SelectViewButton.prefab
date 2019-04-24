@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59160c76d4c2a37408693cd8b2dffc3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  awsm: {fileID: 0}
   button: {fileID: 640691863953265241}
   viewName: {fileID: 640691864508227100}
 --- !u!1 &640691864508227103
