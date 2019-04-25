@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.Analytics;
+using System.Collections.Generic;
 
 public class MainMenuSwipeManager : MonoBehaviour
 {
@@ -43,6 +45,9 @@ public class MainMenuSwipeManager : MonoBehaviour
     {
         if(data.Direction == SwipeDirection.Left && restrictToSearch == false)
         {
+            AnalyticsEvent.Custom("FeaturedPanelOpened", new Dictionary<string, object>
+            {
+            });
             restrictToFeatured = true;
             featuredOpener.OpenPanel();
         }
