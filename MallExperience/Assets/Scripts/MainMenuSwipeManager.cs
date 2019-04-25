@@ -30,6 +30,11 @@ public class MainMenuSwipeManager : MonoBehaviour
     {
         if(data.Direction == SwipeDirection.Right && restrictToFeatured == false)
         {
+            AnalyticsEvent.Custom("SearchPanelOpened", new Dictionary<string, object>
+            {
+            });
+            restrictToFeatured = true;
+            featuredOpener.OpenPanel();
             restrictToSearch = true;
             searchOpener.OpenPanel();
         }
