@@ -11,6 +11,7 @@ using UnityEngine;
 using Vuforia;
 using System.Linq;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class VuforiaSetupManager : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class VuforiaSetupManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		if (targetsArePreset == false)
+		if (targetsArePreset == false && SceneManager.GetActiveScene().name != "mainmenu")
 		{
 			//make array of GameObjects for each model named
 			targetObjects = new GameObject[targetObjectName.Length];
@@ -38,10 +39,11 @@ public class VuforiaSetupManager : MonoBehaviour
 				targetObjects[targetObjectNameCount] = GameObject.Find(targetObjectName[targetObjectNameCount]);
 				targetObjectNameCount++;
 			}
+
+			VuforiaARController.Instance.RegisterVuforiaStartedCallback(ActivateDatasetFromLocalPath);
 		}
 
-		//VuforiaARController.Instance.UpdateState(true,true);
-		VuforiaARController.Instance.RegisterVuforiaStartedCallback(ActivateDatasetFromLocalPath);
+		//VuforiaARController.Instance.RegisterVuforiaStartedCallback(ActivateDatasetFromLocalPath);
     }
 
 
@@ -57,41 +59,47 @@ public class VuforiaSetupManager : MonoBehaviour
 			dataSetPath = Path.Combine(Application.persistentDataPath, dataSetFileName);
 		#endif
 
-        ObjectTracker objectTracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
-
-        objectTracker.Stop();
-		IEnumerable<DataSet> dataSetList = objectTracker.GetActiveDataSets();
-  
-		foreach(DataSet set in dataSetList.ToList()){
-			objectTracker.DeactivateDataSet(set);
-		}
-
-		// Check if the data set exists at the given path.
-		if (!DataSet.Exists(dataSetPath, VuforiaUnity.StorageType.STORAGE_ABSOLUTE))
+		if (SceneManager.GetActiveScene().name != "mainmenu")
 		{
-			Debug.LogError("Data set does not exist.");
-        }
 
-        // Create a new empty data set.
-		DataSet dataSet = objectTracker.CreateDataSet();
+			ObjectTracker objectTracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
+
+			objectTracker.Stop();
+			IEnumerable<DataSet> dataSetList = objectTracker.GetActiveDataSets();
 	
-		// Load the data set from the given path.
-		if (!dataSet.Load(dataSetPath, VuforiaUnity.StorageType.STORAGE_ABSOLUTE))
-		{
-			Debug.LogError("Failed to load data set ");
-		}
-        else
-        {
-            Debug.Log("Dataset loaded successfully");
-        }
-	
-		// (Optional) Activate the data set.
-		objectTracker.ActivateDataSet(dataSet);
-		objectTracker.Start();
+			foreach(DataSet set in dataSetList.ToList()){
+				objectTracker.DeactivateDataSet(set);
+			}
 
-		if (targetsArePreset == false)
-		{
-        	AttachContentToTrackables(dataSet, targetObjects);
+			// Create a new empty data set.
+			DataSet dataSet = objectTracker.CreateDataSet();
+
+			// Check if the data set exists at the given path.
+			if (!DataSet.Exists(dataSetPath, VuforiaUnity.StorageType.STORAGE_ABSOLUTE))
+			{
+				Debug.LogError("Data set does not exist.");
+			}
+			else
+			{
+				// Load the data set from the given path.
+				if (!dataSet.Load(dataSetPath, VuforiaUnity.StorageType.STORAGE_ABSOLUTE))
+				{
+					Debug.LogError("Failed to load data set ");
+				}
+				else
+				{
+					Debug.Log("Dataset loaded successfully");
+				}
+			}
+		
+			// (Optional) Activate the data set.
+			objectTracker.ActivateDataSet(dataSet);
+			objectTracker.Start();
+
+			if (targetsArePreset == false && SceneManager.GetActiveScene().name != "mainmenu")
+			{
+				AttachContentToTrackables(dataSet, targetObjects);
+			}
 		}
     }
 
