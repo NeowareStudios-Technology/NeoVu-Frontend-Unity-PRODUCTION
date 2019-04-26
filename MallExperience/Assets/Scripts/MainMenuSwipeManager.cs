@@ -7,9 +7,6 @@ public class MainMenuSwipeManager : MonoBehaviour
     public PanelOpener searchOpener;
     public PanelOpener featuredOpener;
 
-
-    //private bool onlySwipeLeft = false;
-    //private bool onlySwipeRight = false;
     private bool restrictToSearch = false;
     private bool restrictToFeatured = false;
 
@@ -34,7 +31,6 @@ public class MainMenuSwipeManager : MonoBehaviour
             {
             });
             restrictToFeatured = true;
-            featuredOpener.OpenPanel();
             restrictToSearch = true;
             searchOpener.OpenPanel();
         }
