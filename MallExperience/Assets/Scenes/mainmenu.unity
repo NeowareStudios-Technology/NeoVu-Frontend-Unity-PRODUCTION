@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -298,7 +298,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Search Vus
+  m_text: Search
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 381cb6a764f6a480282616cfacb272b3, type: 2}
   m_sharedMaterial: {fileID: 21372465665135128, guid: 381cb6a764f6a480282616cfacb272b3,
@@ -368,10 +368,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 39879535}
-    characterCount: 10
+    characterCount: 6
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -1209,7 +1209,7 @@ MonoBehaviour:
   mAspectRatio: 0.599391
   mImageTargetType: 0
   mWidth: 1
-  mHeight: 1
+  mHeight: 0.599391
 --- !u!4 &304653404
 Transform:
   m_ObjectHideFlags: 0
@@ -3867,7 +3867,7 @@ MonoBehaviour:
   mAspectRatio: 0.571429
   mImageTargetType: 0
   mWidth: 1
-  mHeight: 1
+  mHeight: 0.571429
 --- !u!4 &1248546316
 Transform:
   m_ObjectHideFlags: 0
@@ -4367,7 +4367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95be323334fa3a47926957686a077a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2244103912109449431, guid: ec3f399e30929564ebcdb1871a1a8826, type: 3}
+  prefab: {fileID: 2244103912109449431, guid: 45d757c69f1ae6048bedcfd47c2e14d8, type: 3}
 --- !u!4 &1400675927
 Transform:
   m_ObjectHideFlags: 0
@@ -5365,7 +5365,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Enter Vu Name
+  m_text: Enter Here...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 381cb6a764f6a480282616cfacb272b3, type: 2}
   m_sharedMaterial: {fileID: 21372465665135128, guid: 381cb6a764f6a480282616cfacb272b3,
@@ -5375,8 +5375,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 2013265919
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.46666667}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5437,8 +5437,8 @@ MonoBehaviour:
     textComponent: {fileID: 1777528091}
     characterCount: 13
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -5766,8 +5766,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -155}
-  m_SizeDelta: {x: 437.7, y: 79.8}
+  m_AnchoredPosition: {x: 0, y: -164}
+  m_SizeDelta: {x: 437.7, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1928933348
 MonoBehaviour:
@@ -5943,7 +5943,7 @@ PrefabInstance:
     - target: {fileID: 224635062107639732, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1002
+      value: 216
       objectReference: {fileID: 0}
     - target: {fileID: 224635062107639732, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
@@ -5953,7 +5953,7 @@ PrefabInstance:
     - target: {fileID: 224635062107639732, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 256.1
+      value: 256.09998
       objectReference: {fileID: 0}
     - target: {fileID: 224635062107639732, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
@@ -5963,7 +5963,7 @@ PrefabInstance:
     - target: {fileID: 224635062107639732, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224635062107639732, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
@@ -5973,7 +5973,7 @@ PrefabInstance:
     - target: {fileID: 224635062107639732, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224635062107639732, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
@@ -6740,7 +6740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000011792204}
+  m_AnchoredPosition: {x: 0, y: -0.000026069714}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &41476734705825646
@@ -6838,8 +6838,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 41476735156973456}
   m_HandleRect: {fileID: 41476735156973457}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
