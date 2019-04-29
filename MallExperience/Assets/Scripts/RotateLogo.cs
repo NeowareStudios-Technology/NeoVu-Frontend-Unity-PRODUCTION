@@ -10,6 +10,6 @@ public class RotateLogo : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(new Vector3(0, 0, 1), speed * Time.deltaTime);
+        transform.Rotate(new Vector3(0, 1, 0), speed * Time.deltaTime);
     }
 }

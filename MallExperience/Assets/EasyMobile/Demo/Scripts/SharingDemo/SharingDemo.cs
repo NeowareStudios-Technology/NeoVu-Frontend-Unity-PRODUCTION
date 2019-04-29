@@ -8,8 +8,8 @@ namespace EasyMobile.Demo
 {
     public class SharingDemo : MonoBehaviour
     {
-        public Image clockRect;
-        public Text clockText;
+        // public Image clockRect;
+        // public Text clockText;
 
         // Screenshot names don't need to include the extension (e.g. ".png")
         string TwoStepScreenshotName = "EM_Screenshot";
@@ -26,25 +26,25 @@ namespace EasyMobile.Demo
                 RuntimeManager.Init();
         }
 
-        void OnEnable()
-        {
-            ColorChooser.colorSelected += ColorChooser_colorSelected;
-        }
+        // void OnEnable()
+        // {
+        //     ColorChooser.colorSelected += ColorChooser_colorSelected;
+        // }
 
-        void OnDisable()
-        {
-            ColorChooser.colorSelected -= ColorChooser_colorSelected;
-        }
+        // void OnDisable()
+        // {
+        //     ColorChooser.colorSelected -= ColorChooser_colorSelected;
+        // }
 
-        void ColorChooser_colorSelected(Color obj)
-        {
-            clockRect.color = obj;
-        }
+        // void ColorChooser_colorSelected(Color obj)
+        // {
+        //     clockRect.color = obj;
+        // }
 
-        void Update()
-        {
-            clockText.text = System.DateTime.Now.ToString("hh:mm:ss");
-        }
+        // void Update()
+        // {
+        //     clockText.text = System.DateTime.Now.ToString("hh:mm:ss");
+        // }
 
         public void ShareText()
         {
@@ -60,6 +60,15 @@ namespace EasyMobile.Demo
         {
             StartCoroutine(CRSaveScreenshot());
         }
+
+
+        public void CaptureScreenshots()
+        {
+            StartCoroutine(CaptureScreenshot());
+        }
+
+
+
 
         public void ShareScreenshot()
         {
@@ -87,11 +96,21 @@ namespace EasyMobile.Demo
             NativeUI.Alert("Alert", "A new screenshot was saved at " + TwoStepScreenshotPath);
         }
 
+
+
         IEnumerator CROneStepSharing()
         {
             yield return new WaitForEndOfFrame();
 
             Sharing.ShareScreenshot(OneStepScreenshotName, sampleMessage);
+        }
+
+
+        IEnumerator CaptureScreenshot()
+        {
+            yield return new WaitForEndOfFrame();
+
+            Texture2D texture = Sharing.CaptureScreenshot();
         }
     }
 }

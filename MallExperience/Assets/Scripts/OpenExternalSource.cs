@@ -9,6 +9,11 @@ public class OpenExternalSource : MonoBehaviour
 		Application.OpenURL(link);
 	}
 
+	    public void OpenLinkInApp(string link)
+	{
+		InAppBrowser.OpenURL(link);
+	}
+
     public void OpenFacebookPage(string id, string url)
 	{
 		float startTime;
