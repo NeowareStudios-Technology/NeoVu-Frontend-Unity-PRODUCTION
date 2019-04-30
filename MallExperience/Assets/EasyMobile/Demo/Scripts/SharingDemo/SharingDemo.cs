@@ -76,14 +76,7 @@ namespace EasyMobile.Demo
 
         public void ShareScreenshot()
         {
-            if (!string.IsNullOrEmpty(TwoStepScreenshotPath))
-            {
-                Sharing.ShareImage(TwoStepScreenshotPath, sampleMessage);
-            }
-            else
-            {
-                NativeUI.Alert("Alert", "Please save a screenshot first.");
-            }
+            NatShareU.NatShare.Share(ImgSave);
         }
 
         public void ExitPhoto()

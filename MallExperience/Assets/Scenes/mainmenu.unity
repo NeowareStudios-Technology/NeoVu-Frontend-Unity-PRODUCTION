@@ -4548,7 +4548,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 13017307}
-        m_MethodName: ShareScreenshot
+        m_MethodName: OneStepSharing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6480,7 +6480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d552dc2baee1f64fa376fdc7bf471e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tex2DSave: {fileID: 0}
 --- !u!224 &1501638944 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224043458205264114, guid: 8103067a880c7b7409a24decfafc5617,
