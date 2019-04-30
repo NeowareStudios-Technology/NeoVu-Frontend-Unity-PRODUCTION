@@ -18,6 +18,9 @@ namespace EasyMobile.Demo
         string sampleMessage = "This is a sample sharing message #sampleshare";
         string sampleText = "Hello from Easy Mobile!";
         string sampleURL = "http://u3d.as/Dd2";
+        public RawImage targImg;
+        public GameObject targPare;
+        public Texture2D ImgSave;
 
         void Awake()
         {
@@ -59,6 +62,7 @@ namespace EasyMobile.Demo
         public void SaveScreenshot()
         {
             StartCoroutine(CRSaveScreenshot());
+            NatShareU.NatShare.SaveToCameraRoll(ImgSave);
         }
 
 
@@ -80,6 +84,11 @@ namespace EasyMobile.Demo
             {
                 NativeUI.Alert("Alert", "Please save a screenshot first.");
             }
+        }
+
+        public void ExitPhoto()
+        {
+            targPare.SetActive(false);
         }
 
         public void OneStepSharing()
@@ -111,6 +120,11 @@ namespace EasyMobile.Demo
             yield return new WaitForEndOfFrame();
 
             Texture2D texture = Sharing.CaptureScreenshot();
+            Debug.Log("Texture Saved");
+            targPare.SetActive(true);
+            targImg.texture = texture;
+            ImgSave = texture;
+            
         }
     }
 }
