@@ -21,9 +21,11 @@ namespace EasyMobile.Demo
         public RawImage targImg;
         public GameObject targPare;
         public Texture2D ImgSave;
+        public GameObject lowerButtonManager;
 
         void Awake()
         {
+            lowerButtonManager = GameObject.Find("LowerButtonManager");
             // Init EM runtime if needed (useful in case only this scene is built).
             if (!RuntimeManager.IsInitialized())
                 RuntimeManager.Init();
@@ -61,8 +63,8 @@ namespace EasyMobile.Demo
 
         public void SaveScreenshot()
         {
-            StartCoroutine(CRSaveScreenshot());
-            NatShareU.NatShare.SaveToCameraRoll(ImgSave);
+           // StartCoroutine(CRSaveScreenshot());
+            NatShareU.NatShare.SaveToCameraRoll(ImgSave); //Using NatShare to Save directly to user camera roll
         }
 
 
@@ -76,12 +78,22 @@ namespace EasyMobile.Demo
 
         public void ShareScreenshot()
         {
-            NatShareU.NatShare.Share(ImgSave);
+            NatShareU.NatShare.Share(ImgSave);  //using NatShare Plug in to share with OS native UI
+            /*if(NatShareU.NatShare.Share(ImgSave) == true)     Debug to check if sharing is available
+            {
+                NativeUI.Alert("imageShared","");
+            }
+
+            else
+            {
+                NativeUI.Alert("Image Not Share", "");
+            }*/
         }
 
-        public void ExitPhoto()
+        public void ExitPhoto()  //Used to exit the photo preview mode
         {
             targPare.SetActive(false);
+            lowerButtonManager.SetActive(true);
         }
 
         public void OneStepSharing()
@@ -110,13 +122,14 @@ namespace EasyMobile.Demo
 
         IEnumerator CaptureScreenshot()
         {
+            lowerButtonManager.SetActive(false);
             yield return new WaitForEndOfFrame();
 
             Texture2D texture = Sharing.CaptureScreenshot();
             Debug.Log("Texture Saved");
             targPare.SetActive(true);
             targImg.texture = texture;
-            ImgSave = texture;
+            ImgSave = texture; //Display the taken photo on the users screen 
             
         }
     }
