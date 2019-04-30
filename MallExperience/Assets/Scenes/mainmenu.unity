@@ -273,6 +273,7 @@ MonoBehaviour:
   targImg: {fileID: 1494041390}
   targPare: {fileID: 1494041388}
   ImgSave: {fileID: 0}
+  lowerButtonManager: {fileID: 0}
 --- !u!4 &13017308
 Transform:
   m_ObjectHideFlags: 0
@@ -899,12 +900,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 374011977}
-  m_Father: {fileID: 504551873}
-  m_RootOrder: 5
+  m_Father: {fileID: 2069936741}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -143.07, y: -165.37}
+  m_AnchoredPosition: {x: 427.3479, y: 888.9259}
   m_SizeDelta: {x: 125, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &176587637
@@ -2137,7 +2138,6 @@ RectTransform:
   - {fileID: 1928933347}
   - {fileID: 1106460283}
   - {fileID: 909727052}
-  - {fileID: 176587636}
   m_Father: {fileID: 301886295}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8539,6 +8539,7 @@ RectTransform:
   - {fileID: 2001563279}
   - {fileID: 1926240948}
   - {fileID: 1501638944}
+  - {fileID: 176587636}
   m_Father: {fileID: 301886295}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
