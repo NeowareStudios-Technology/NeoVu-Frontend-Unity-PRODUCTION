@@ -984,7 +984,7 @@ MonoBehaviour:
   - Cube
   targetObjects:
   - {fileID: 0}
-  dataSetName: SockGallery
+  dataSetName: sockgallery
   targetsArePreset: 0
 --- !u!114 &992026111
 MonoBehaviour:

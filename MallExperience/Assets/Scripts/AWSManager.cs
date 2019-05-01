@@ -90,15 +90,18 @@ public class AWSManager : MonoBehaviour
     //get record of available views from S3
     private void GetListOfViews()
     {
+        Debug.Log("Getlist of views running");
         S3Client.GetObjectAsync(metaBucketName, "VuList.json", (responseObj) =>
         {
             string JsonData = null;
             var response = responseObj.Response;
+            Debug.Log(response);
             if (response.ResponseStream != null)
             {
                 using (StreamReader reader = new StreamReader(response.ResponseStream))
                 {
                     JsonData = reader.ReadToEnd();
+                    Debug.Log("found s3 object");
                 }
             }
             else
@@ -110,6 +113,7 @@ public class AWSManager : MonoBehaviour
             //save downloaded JSON as a class in unity
             vlj = JsonUtility.FromJson<ViewListJSON>(JsonData);
         });
+        Debug.Log("end get list");
     }
 
 
