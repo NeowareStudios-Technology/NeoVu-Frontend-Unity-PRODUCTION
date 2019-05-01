@@ -5,10 +5,11 @@ using UnityEngine;
 public class ButtonManager : MonoBehaviour
 {
     public GameObject flashlight;
+    public GameObject[] buttons;
     // Start is called before the first frame update
     void Start()
     {
-        flashlight = GameObject.Find("Flashlight"); //find glashlight/torch button at runtime
+        buttons = GameObject.FindGameObjectsWithTag("Button");
     }
 
     // Update is called once per frame
@@ -18,14 +19,21 @@ public class ButtonManager : MonoBehaviour
     }
 
     //Disable flashlight when called
-    public void flashDisable() 
+    public void buttonsDisable() 
     {
-        flashlight.SetActive(false);
+       for(int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].SetActive(false);
+            Debug.Log("button " + i + " Disabled");
+        }
     }
 
     //Enable flashlight when called
-    public void flashEnable()
+    public void buttonsEnable()
     {
-        flashlight.SetActive(true);
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].SetActive(true);
+        }
     }
 }

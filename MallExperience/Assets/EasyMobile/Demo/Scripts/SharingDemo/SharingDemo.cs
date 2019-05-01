@@ -21,11 +21,11 @@ namespace EasyMobile.Demo
         public RawImage targImg;
         public GameObject targPare;
         public Texture2D ImgSave;
-        public GameObject lowerButtonManager;
+        public GameObject ButtonManagerScript;
 
         void Awake()
         {
-            lowerButtonManager = GameObject.Find("LowerButtonManager");
+            ButtonManagerScript = GameObject.Find("ViewFuncManager");
             // Init EM runtime if needed (useful in case only this scene is built).
             if (!RuntimeManager.IsInitialized())
                 RuntimeManager.Init();
@@ -92,8 +92,8 @@ namespace EasyMobile.Demo
 
         public void ExitPhoto()  //Used to exit the photo preview mode
         {
+            ButtonManagerScript.GetComponent<ButtonManager>().buttonsEnable();
             targPare.SetActive(false);
-            lowerButtonManager.SetActive(true);
         }
 
         public void OneStepSharing()
@@ -122,7 +122,8 @@ namespace EasyMobile.Demo
 
         IEnumerator CaptureScreenshot()
         {
-            lowerButtonManager.SetActive(false);
+            ButtonManagerScript.GetComponent<ButtonManager>().buttonsDisable();
+            Debug.Log("Picture Taken");
             yield return new WaitForEndOfFrame();
 
             Texture2D texture = Sharing.CaptureScreenshot();
