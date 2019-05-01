@@ -34,7 +34,7 @@ public class ScrollList : MonoBehaviour {
     public void AddButton(string viewName)
     {
         GameObject newButton = buttonObjectPool.GetObject();
-        newButton.transform.SetParent(contentPanel);
+        newButton.transform.SetParent(contentPanel, true);
 
         SelectViewButton selectViewButton = newButton.GetComponent<SelectViewButton>();
         selectViewButton.Setup(viewName, this);
