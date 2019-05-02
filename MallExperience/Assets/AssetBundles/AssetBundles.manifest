@@ -1,10 +1,22 @@
 ManifestFileVersion: 0
-CRC: 2103193313
+CRC: 3949608762
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: neovu mainmenu
+      Name: eatdistrictplay
       Dependencies: {}
     Info_1:
       Name: mooyah
+      Dependencies: {}
+    Info_2:
+      Name: sockgallery
+      Dependencies: {}
+    Info_3:
+      Name: zoohealthclub
+      Dependencies: {}
+    Info_4:
+      Name: 3dmylife
+      Dependencies: {}
+    Info_5:
+      Name: neovu mainmenu
       Dependencies: {}
