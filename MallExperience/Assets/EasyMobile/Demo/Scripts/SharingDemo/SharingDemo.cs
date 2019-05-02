@@ -25,7 +25,7 @@ namespace EasyMobile.Demo
 
         void Awake()
         {
-            ButtonManagerScript = GameObject.Find("ViewFuncManager");
+            ButtonManagerScript = GameObject.FindGameObjectWithTag("FunctionManager");
             // Init EM runtime if needed (useful in case only this scene is built).
             if (!RuntimeManager.IsInitialized())
                 RuntimeManager.Init();

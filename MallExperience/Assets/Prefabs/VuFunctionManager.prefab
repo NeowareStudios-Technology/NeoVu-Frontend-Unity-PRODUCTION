@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6340469234371692755}
   - component: {fileID: 6340469234371692753}
   m_Layer: 0
-  m_Name: ViewFuncManager
-  m_TagString: Untagged
+  m_Name: VuFunctionManager
+  m_TagString: FunctionManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

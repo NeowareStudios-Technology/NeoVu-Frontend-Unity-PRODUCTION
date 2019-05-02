@@ -3189,8 +3189,18 @@ PrefabInstance:
     - target: {fileID: 6340469234371692754, guid: fe22f1988df5dd64cbcbc77c396f5052,
         type: 3}
       propertyPath: m_Name
-      value: ViewFuncManager
+      value: VuFunctionManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6340469234371692755, guid: fe22f1988df5dd64cbcbc77c396f5052,
+        type: 3}
+      propertyPath: targImg
+      value: 
+      objectReference: {fileID: 907579557}
+    - target: {fileID: 6340469234371692755, guid: fe22f1988df5dd64cbcbc77c396f5052,
+        type: 3}
+      propertyPath: targPare
+      value: 
+      objectReference: {fileID: 907579554}
     - target: {fileID: 6340469234371692752, guid: fe22f1988df5dd64cbcbc77c396f5052,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3246,16 +3256,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6340469234371692755, guid: fe22f1988df5dd64cbcbc77c396f5052,
-        type: 3}
-      propertyPath: targImg
-      value: 
-      objectReference: {fileID: 907579557}
-    - target: {fileID: 6340469234371692755, guid: fe22f1988df5dd64cbcbc77c396f5052,
-        type: 3}
-      propertyPath: targPare
-      value: 
-      objectReference: {fileID: 907579554}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe22f1988df5dd64cbcbc77c396f5052, type: 3}
 --- !u!1 &1806911707
