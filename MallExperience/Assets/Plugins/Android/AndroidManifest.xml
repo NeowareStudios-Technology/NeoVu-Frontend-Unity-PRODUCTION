@@ -26,6 +26,7 @@
   <uses-permission android:name="com.amazonaws.unity.permission.C2D_MESSAGE" />
 
 
+
   <application
       android:theme="@android:style/Theme.NoTitleBar"
       android:icon="@drawable/app_icon"
