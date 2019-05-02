@@ -65,6 +65,7 @@ namespace EasyMobile.Demo
         {
            // StartCoroutine(CRSaveScreenshot());
             NatShareU.NatShare.SaveToCameraRoll(ImgSave); //Using NatShare to Save directly to user camera roll
+            NativeUI.Alert("NeoVu", "Photo Saved");
         }
 
 
