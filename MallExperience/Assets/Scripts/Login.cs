@@ -1,0 +1,138 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Firebase.Auth;
+
+public class Login : MonoBehaviour
+{
+
+    public TMPro.TMP_InputField userEmail;
+    public TMPro.TMP_InputField userPassword;
+    public TMPro.TMP_InputField loginEmail;
+    public TMPro.TMP_InputField loginPassword;
+    public TMPro.TextMeshProUGUI SignUpWarning;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+
+    public void PasswordCheck()
+    {
+        bool hasUpper = false;
+        bool hasLower = false;
+        bool hasNumber = false;
+        var password = userPassword.text;
+        var email = userEmail.text;
+        
+        //iterates through password to check for an uppercase letter, a lowercase one, and a number
+        if (password.Length >= 8)
+        {
+            for (int i = 0; i < password.Length; i++)
+            {
+                if (char.IsLower(password[i]))
+                {
+                    hasLower = true;
+                }
+                else if (char.IsUpper(password[i]))
+                {
+                    hasUpper = true;
+                }
+                else if (char.IsNumber(password[i]))
+                {
+                    hasNumber = true;
+                }
+            }
+
+            if (hasUpper == true && hasLower == true && hasNumber == true)
+            {
+                //if password passes check for neccessities of email adress
+                if (userEmail.text.Contains("@") && userEmail.text.Contains(".com"))
+                {
+                    SignUp();
+                }
+                else
+                {
+                    SignUpWarning.text = "Valid Email Required";
+                }
+                
+            }
+            //feedback on loop failure
+            else if (hasUpper == false)
+            {
+                SignUpWarning.text = "Make sure your password contains an uppercase letter";
+            }
+            else if (hasLower == false)
+            {
+                SignUpWarning.text = "Make sure your password contains a lowercase letter";
+            }
+            else if (hasNumber == false)
+            {
+                SignUpWarning.text = "Make sure your password contains a number";
+            }
+        }
+        //feedback if password is too short
+        else
+        {
+            SignUpWarning.text = "Your password must be atleast 8 characters long";
+        }
+    }
+
+    //Firebase Sign in Function
+    public void SignUp()
+    {
+        var email = userEmail.text;
+        var password = userPassword.text;
+
+            FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task =>
+            {
+                if (task.IsCanceled)
+                {
+                    Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
+                    return;
+                }
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                    return;
+                }
+
+                // Firebase user has been created.
+                Firebase.Auth.FirebaseUser newUser = task.Result;
+                Debug.LogFormat("Firebase user created successfully: {0} ({1})",
+                    newUser.DisplayName, newUser.UserId);
+                newUser.SendEmailVerificationAsync();
+                
+            });
+    }
+
+    public void LogIn()
+    {
+        var email = loginEmail.text;
+        var password = loginPassword.text;
+
+        FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
+            if (task.IsCanceled)
+            {
+                Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                return;
+            }
+
+            Firebase.Auth.FirebaseUser newUser = task.Result;
+            Debug.LogFormat("User signed in successfully: {0} ({1})",
+                newUser.DisplayName, newUser.UserId);
+        });
+    }
+}

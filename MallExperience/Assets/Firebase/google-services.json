@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "932548818266",
+    "firebase_url": "https://neovu-1bbe7.firebaseio.com",
+    "project_id": "neovu-1bbe7",
+    "storage_bucket": "neovu-1bbe7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932548818266:android:fcfa146b5a26f0f2",
+        "android_client_info": {
+          "package_name": "com.neo.vu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "932548818266-334n5l6ime5oj32p8s1n2gmkjr64oe4k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwtzI81PKoSGV3ODc7e6KDMkLQ6_R2kKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "932548818266-334n5l6ime5oj32p8s1n2gmkjr64oe4k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "932548818266-pme0srj5qjccunl6d173svqi6l7kiq13.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.neo.vu"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
