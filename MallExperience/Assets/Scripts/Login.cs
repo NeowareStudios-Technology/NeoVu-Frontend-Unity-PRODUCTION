@@ -11,6 +11,10 @@ public class Login : MonoBehaviour
     public TMPro.TMP_InputField loginEmail;
     public TMPro.TMP_InputField loginPassword;
     public TMPro.TextMeshProUGUI SignUpWarning;
+    public GameObject signUpScreen;
+    public TMPro.TextMeshProUGUI loginWarning;
+    public GameObject verifyButton;
+    private FirebaseUser currUser;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +25,17 @@ public class Login : MonoBehaviour
     void Update()
     {
 
+    }
+
+    //Pull up sign in screen
+    public void SignUpPressed()
+    {
+        signUpScreen.SetActive(true);
+    }
+    public void resendVerify()
+    {
+        currUser.SendEmailVerificationAsync();
+        loginWarning.text = ("Verification Email sent!");
     }
 
 
@@ -57,6 +72,8 @@ public class Login : MonoBehaviour
                 if (userEmail.text.Contains("@") && userEmail.text.Contains(".com"))
                 {
                     SignUp();
+                    signUpScreen.SetActive(false);
+                    loginWarning.text = ("Sign Up Completed");
                 }
                 else
                 {
@@ -109,15 +126,19 @@ public class Login : MonoBehaviour
                 Debug.LogFormat("Firebase user created successfully: {0} ({1})",
                     newUser.DisplayName, newUser.UserId);
                 newUser.SendEmailVerificationAsync();
+                currUser = newUser;
                 
             });
     }
 
+    //Firebase Login Function
     public void LogIn()
     {
         var email = loginEmail.text;
         var password = loginPassword.text;
+        
 
+        
         FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
             if (task.IsCanceled)
             {
@@ -127,12 +148,27 @@ public class Login : MonoBehaviour
             if (task.IsFaulted)
             {
                 Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                loginWarning.text = "Invalid username or password";
                 return;
             }
 
             Firebase.Auth.FirebaseUser newUser = task.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 newUser.DisplayName, newUser.UserId);
+            currUser = newUser;
+            if (newUser.IsEmailVerified)
+            {
+                
+                Debug.Log("Email Verified");
+                this.GetComponent<AWSManager>().mainMenu();
+            }
+
+            else
+            {
+                Debug.Log("Email Not Verified");
+                loginWarning.text = "Please verify your email before logging in";
+                verifyButton.SetActive(true);
+            }
         });
     }
 }
