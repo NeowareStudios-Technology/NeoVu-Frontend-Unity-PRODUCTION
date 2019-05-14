@@ -3117,17 +3117,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 628542835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 2020821747, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
+  m_Script: {fileID: 11500000, guid: d09a22ab56d8cdc4495e300501f577bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnchorStage: {fileID: 1157163995}
-  DuplicateStage: 1
-  OnContentPlaced:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Vuforia.ContentPlacedEvent, Vuforia.UnityExtensions, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  mDisplayAdvanced: 0
+  AnchorStage: {fileID: 1157163993}
 --- !u!114 &628542837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3140,18 +3133,17 @@ MonoBehaviour:
   m_Script: {fileID: 422107450, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlaneIndicator: {fileID: 1353731089078378, guid: b9ed12c68682d5b49bfa70ee9d71602d,
-    type: 3}
+  PlaneIndicator: {fileID: 0}
   Height: 1.4
   OnInteractiveHitTest:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 628542836}
-        m_MethodName: PositionContentAtPlaneAnchor
+        m_MethodName: OnInteractiveHitTest
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3164,8 +3156,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Vuforia.HitTestEvent, Vuforia.UnityExtensions, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  mDisplayAdvanced: 0
-  mHitTestMode: 0
+  mDisplayAdvanced: 1
+  mHitTestMode: 1
 --- !u!114 &628542838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10012,7 +10004,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000028927394}
+  m_AnchoredPosition: {x: 0, y: 0.000012213478}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &41476734705825646
