@@ -17,8 +17,9 @@ public class Login : MonoBehaviour
     private FirebaseUser currUser;
     private System.DateTime newDate; //Date Cutoff for 13 years
     public TMPro.TMP_InputField birthDate;
-    public TMPro.TMP_InputField gender;
+    public TMPro.TMP_Dropdown gender;
     public TMPro.TMP_InputField phoneNum;
+    public string genderVal;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +27,13 @@ public class Login : MonoBehaviour
         System.DateTime newDate = System.DateTime.Today.AddYears(-13); //Set the date for 13 or older
         Debug.Log(newDate);
         Debug.Log((System.DateTime.Today - newDate).Days);
+       // Debug.Log(gender.value);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+       // Debug.Log(gender.value);
     }
 
     //Pull up sign in screen
@@ -79,21 +81,57 @@ public class Login : MonoBehaviour
                 if (userEmail.text.Contains("@") && userEmail.text.Contains("."))
                 {
                     System.DateTime birthCheck = System.Convert.ToDateTime(birthDate.text);
-                    if ((System.DateTime.Today - birthCheck).Days < 4748)
+                    if ((System.DateTime.Today - birthCheck).Days < 4748) //check to makes sure the age is over 13 years old, in days
                     {
-                        SignUpWarning.text = "Age to low to use this applicatoion";
+                        SignUpWarning.text = "Age to low to use this application";
                     }
                     else
                     {
+                        bool numCheck = true;
                         if (phoneNum.text == "")
                         {
                             SignUpWarning.text = "Input your phone number";
                         }
+                        else if((phoneNum.text.Length > 10) || (phoneNum.text.Length < 9)) //check the phone number length to make sure it is legit
+                        {
+                            SignUpWarning.text = "This is an invalid phone number";
+                        } 
                         else
                         {
-                            SignUp();
-                            signUpScreen.SetActive(false);
-                            loginWarning.text = ("Sign Up Completed");
+                            for (int i = 0; i < phoneNum.text.Length; i++) //iterate through the phone number to make sure it is only numeric
+                            {
+                                if (char.IsLetter(phoneNum.text[i]))
+                                {
+                                    SignUpWarning.text = "The phone number entered is invalid";
+                                    numCheck = false;
+                                }
+                            }
+                            if (numCheck == true)
+                            {
+                                switch (gender.value)  //assign a gender from the drop down
+                                {
+                                    case 0:
+                                        genderVal = "unspecified";
+                                        break;
+                                    case 1:
+                                        genderVal = "female";
+                                        break;
+                                    case 2:
+                                        genderVal = "male";
+                                        break;
+
+                                }
+                                if (gender.value == 4)  //Throw an error if a gender is not picked
+                                {
+                                    SignUpWarning.tag = "Please pick a gender";
+                                }
+                                else
+                                {
+                                    SignUp();
+                                    signUpScreen.SetActive(false);
+                                    loginWarning.text = ("Sign Up Completed");
+                                }
+                            }
                         }
                     }
                 }
