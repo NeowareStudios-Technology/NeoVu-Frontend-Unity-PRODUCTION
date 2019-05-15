@@ -15,10 +15,17 @@ public class Login : MonoBehaviour
     public TMPro.TextMeshProUGUI loginWarning;
     public GameObject verifyButton;
     private FirebaseUser currUser;
+    private System.DateTime newDate; //Date Cutoff for 13 years
+    public TMPro.TMP_InputField birthDate;
+    public TMPro.TMP_InputField gender;
+    public TMPro.TMP_InputField phoneNum;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log(System.DateTime.Today);
+        System.DateTime newDate = System.DateTime.Today.AddYears(-13); //Set the date for 13 or older
+        Debug.Log(newDate);
+        Debug.Log((System.DateTime.Today - newDate).Days);
     }
 
     // Update is called once per frame
@@ -69,11 +76,26 @@ public class Login : MonoBehaviour
             if (hasUpper == true && hasLower == true && hasNumber == true)
             {
                 //if password passes check for neccessities of email adress
-                if (userEmail.text.Contains("@") && userEmail.text.Contains(".com"))
+                if (userEmail.text.Contains("@") && userEmail.text.Contains("."))
                 {
-                    SignUp();
-                    signUpScreen.SetActive(false);
-                    loginWarning.text = ("Sign Up Completed");
+                    System.DateTime birthCheck = System.Convert.ToDateTime(birthDate.text);
+                    if ((System.DateTime.Today - birthCheck).Days < 4748)
+                    {
+                        SignUpWarning.text = "Age to low to use this applicatoion";
+                    }
+                    else
+                    {
+                        if (phoneNum.text == "")
+                        {
+                            SignUpWarning.text = "Input your phone number";
+                        }
+                        else
+                        {
+                            SignUp();
+                            signUpScreen.SetActive(false);
+                            loginWarning.text = ("Sign Up Completed");
+                        }
+                    }
                 }
                 else
                 {
@@ -99,6 +121,13 @@ public class Login : MonoBehaviour
         else
         {
             SignUpWarning.text = "Your password must be atleast 8 characters long";
+        }
+    }
+    public void setText()
+    {
+        if (birthDate.text == "")
+        {
+            birthDate.text = "mm/dd/yyyy";
         }
     }
 
