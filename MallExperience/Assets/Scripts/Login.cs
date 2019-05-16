@@ -20,6 +20,7 @@ public class Login : MonoBehaviour
     public TMPro.TMP_Dropdown gender;
     public TMPro.TMP_InputField phoneNum;
     public string genderVal;
+    System.DateTime birthCheck;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,7 +81,7 @@ public class Login : MonoBehaviour
                 //if password passes check for neccessities of email adress
                 if (userEmail.text.Contains("@") && userEmail.text.Contains("."))
                 {
-                    System.DateTime birthCheck = System.Convert.ToDateTime(birthDate.text);
+                     birthCheck = System.Convert.ToDateTime(birthDate.text);
                     if ((System.DateTime.Today - birthCheck).Days < 4748) //check to makes sure the age is over 13 years old, in days
                     {
                         SignUpWarning.text = "Age to low to use this application";
@@ -194,6 +195,8 @@ public class Login : MonoBehaviour
                     newUser.DisplayName, newUser.UserId);
                 newUser.SendEmailVerificationAsync();
                 currUser = newUser;
+                PlayerPrefs.SetFloat("Age", Mathf.Round(((System.DateTime.Today - birthCheck).Days) / 365));
+                PlayerPrefs.SetString("Gender", genderVal);
                 
             });
     }
@@ -223,6 +226,7 @@ public class Login : MonoBehaviour
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 newUser.DisplayName, newUser.UserId);
             currUser = newUser;
+            PlayerPrefs.SetString("Status", "Signed In");
             if (newUser.IsEmailVerified)
             {
                 
