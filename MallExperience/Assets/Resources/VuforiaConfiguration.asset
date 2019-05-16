@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -2067402452, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
+  m_Script: {fileID: -2067402452, guid: 8a9a760f95896c34689febc965510927, type: 3}
   m_Name: VuforiaConfiguration
   m_EditorClassIdentifier: 
   vuforia:
     vuforiaLicenseKey: AQ0W+CP/////AAAACF/uAHxqTEPlqc0Y7OGBWEYLibXtnIFhUZ3JR5609kpmSqSyvXk4j+AWPzX3V380m90Mwsd+OKZgDZTp2cFzpREEDRn5eY3/pBcLCvmLucSZ5ETOAmaz+OMW5K66aR6bLUsG/N+RBdplBs+tL/qtUdJ6+wlgG9lFsSdImqSpZg8pwS9X+GbvfheT+QS0ihuopl3JNT/WSbCH4+0omrf4mDE0NF/PZcw7/USfK+zoaiHyPLqLf6ULsMDJPio5xvg26dSToqZZQ5m65p336aJTlbyUJVojsvz2FRJtYbK1IxjBBqYDQBebMyTlHYC3Na/mIXJLiz7LHGNrnph0ll7cHK7jqgM2s6qrpEL//K5IJVqO
-    ufoLicenseKey: QWNndzZFei8vLy8vQUFBQUtHT2d2RTlrN1VOV2xiMGpxQlNlblBsRHdrVEVzZFgvMWVKdWdPQnRZOUZGM1JtaVdaMk9hd1dYcDduOW1VK3VaeWwydmlKZFgzNFIvbnRSaXlabjQ0eTliK0orOW1pbmkrM21NbDBIbFZ2dEVKMFdKWUw1NDZDZ0xBRXNqekltVWhhanRienJGbjdKbDZNWGtqbitiSWJwVDljNVFQUlJ4QTk3TUxMcHpIbkJMRXRDRnZodjhGYmhGMTZuc3dnOGQ0TUlEQzVjYzM3MWZqUG1QVGEyekd1d1piUE1uN2ZiZlZ4eDdNMDhLakhHSURoSjRNSllQMTVQMzliVUF4U2t4TDJjK0tGWkhLK0FINSt1bnFYNDZVSjZWbnZuZjJobllIcTM1S0kwQmJ3VUNIRS9rMFJoK29pOTUwNTNuRGM3TDBKajJlVEczZUMvbi9OUS9LTEREMHN5N2NPblExWTZwOXU0TjlzTTAwelg=
+    ufoLicenseKey: QVYrc1ZVRC8vLy8vQUFBQUtEdXhEa1E0a2sxcGhzLzl5anVZZ0RDWHYxVm9lckR3MFhkWXlMcVNkY0hwbzZ0V25lREpUdUxXNlJEMTZrQWpySkxxRkR0YmdmQlJmRnZBU2VnWXBnaDk4bkhMcFppdElNWm53alEvTzlaV3Fuai9XS2MrTFE3ZVgzNlFkbE13YjNSMTd1Uk9JN1UyTlM1U1YrRDNxQTQyV2NYMWcwUUQ4cStHb2UzRnBUaHB5bGVtNWZnV3B5dWd3MnBLTi9wYU1vMGtJTlJuSjFaQ0FEL0ZpL2xUd0trb2lTUVdRNWFISG5SdlhrYUxVeS8vYVY1aUUwL2sxT3BVK3l4b2FZQU8rNFM0em9XQThJR0hybVVlTkcrYmFkUzR2QXpvNXRGUENVOE0rUDlhV3Rwb3VVcmdWZWZFbEI4b3ZhM0dldzlweHFZT2Z6aXFtc01HSWRGdk5SY1JHR1djcTgrZ01MbHMrTjlNVEt2N1BDMG0=
     delayedInitialization: 0
-    cameraDeviceModeSetting: -3
-    maxSimultaneousImageTargets: 1
+    cameraDeviceModeSetting: -1
+    maxSimultaneousImageTargets: 4
     maxSimultaneousObjectTargets: 1
     useDelayedLoadingObjectTargets: 0
     version: 8.1.10
@@ -55,7 +55,7 @@ MonoBehaviour:
   deviceTracker:
     autoInitTracker: 0
     autoStartTracker: 0
-    trackingMode: 1
+    trackingMode: 0
     posePrediction: 0
     modelCorrectionMode: 0
     modelTransformEnabled: 0
@@ -64,6 +64,6 @@ MonoBehaviour:
     autoInitTracker: 0
     autoStartTracker: 0
   webcam:
-    deviceNameSetInEditor: 
+    deviceNameSetInEditor: "Microsoft\xAE LifeCam Cinema(TM)"
     turnOffWebCam: 0
     renderTextureLayer: 30

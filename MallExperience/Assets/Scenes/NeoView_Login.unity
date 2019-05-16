@@ -269,6 +269,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224616566760223214, guid: 6cfdac5e44f0da044a5f1acf000cda93,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224616566760223214, guid: 6cfdac5e44f0da044a5f1acf000cda93,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224616566760223214, guid: 6cfdac5e44f0da044a5f1acf000cda93,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cfdac5e44f0da044a5f1acf000cda93, type: 3}
 --- !u!1 &116869602
@@ -669,7 +684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &315120177
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5264,7 +5279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -277}
+  m_AnchoredPosition: {x: 0, y: -48}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1233349219
@@ -8204,6 +8219,7 @@ MonoBehaviour:
   birthDate: {fileID: 1159229487}
   gender: {fileID: 0}
   phoneNum: {fileID: 0}
+  genderVal: 
 --- !u!4 &1837821724
 Transform:
   m_ObjectHideFlags: 0

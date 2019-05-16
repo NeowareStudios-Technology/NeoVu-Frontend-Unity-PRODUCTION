@@ -41,6 +41,7 @@ public class Login : MonoBehaviour
     public void SignUpPressed()
     {
         signUpScreen.SetActive(true);
+        loginWarning.gameObject.SetActive(false);
     }
     public void resendVerify()
     {
@@ -130,6 +131,7 @@ public class Login : MonoBehaviour
                                 {
                                     SignUp();
                                     signUpScreen.SetActive(false);
+                                    loginWarning.gameObject.SetActive(true);
                                     loginWarning.text = ("Sign Up Completed");
                                 }
                             }

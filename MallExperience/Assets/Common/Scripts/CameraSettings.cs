@@ -14,7 +14,7 @@ public class CameraSettings : MonoBehaviour
 {
     #region PRIVATE_MEMBERS
     private bool mVuforiaStarted = false;
-    private bool mAutofocusEnabled = false;
+    private bool mAutofocusEnabled = true;
     private bool mFlashTorchEnabled = false;
     #endregion //PRIVATE_MEMBERS
 
@@ -58,10 +58,10 @@ public class CameraSettings : MonoBehaviour
     {
         if (ON)
         {
-            if (CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_NORMAL))
+            if (CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO))
             {
                 Debug.Log("Successfully enabled continuous autofocus.");
-                //mAutofocusEnabled = true;
+                mAutofocusEnabled = true;
             }
             else
             {
@@ -132,8 +132,6 @@ public class CameraSettings : MonoBehaviour
         mVuforiaStarted = true;
         // Try enabling continuous autofocus
         SwitchAutofocus(true);
-        CameraDevice.Instance.SetFocusMode(
-        CameraDevice.FocusMode.FOCUS_MODE_NORMAL);
     }
 
     private void OnPaused(bool paused)
@@ -167,30 +165,4 @@ public class CameraSettings : MonoBehaviour
     }
 
     #endregion // PRIVATE_METHODS
-
-    private void Update()
-    {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            Debug.Log("Continuous Check");
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    Debug.Log("Touch Began");
-                    break;
-
-                case TouchPhase.Ended:
-                    Debug.Log("Touch Ended");
-                    TriggerAutofocusEvent();
-                    break;
-            }
-        }
-
-        /*if (Input.GetMouseButtonUp(0) == true)
-        {
-            Debug.Log("Click Released");
-            TriggerAutofocusEvent();
-        }*/
-    }
 }
