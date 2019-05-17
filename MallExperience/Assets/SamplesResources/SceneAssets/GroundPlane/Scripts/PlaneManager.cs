@@ -192,6 +192,7 @@ public class PlaneManager : MonoBehaviour
         if (!groundPlaneUI.IsCanvasButtonPressed())
         {
             Debug.Log("HandleInteractiveHitTest() called.");
+            
 
             // If the PlaneFinderBehaviour's Mode is Automatic, then the Interactive HitTestResult will be centered.
 

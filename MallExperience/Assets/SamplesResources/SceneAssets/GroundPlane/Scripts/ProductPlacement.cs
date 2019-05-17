@@ -85,6 +85,11 @@ public class ProductPlacement : MonoBehaviour
 
     void Update()
     {
+  
+    }
+
+    void LateUpdate()
+    {
         if (PlaneManager.CurrentPlaneMode == PlaneManager.PlaneMode.PLACEMENT)
         {
             EnablePreviewModeTransparency(!this.IsPlaced);
@@ -120,10 +125,6 @@ public class ProductPlacement : MonoBehaviour
             this.rotationIndicator.SetActive(false);
             this.translationIndicator.SetActive(false);
         }
-    }
-
-    void LateUpdate()
-    {
         if (!this.IsPlaced)
         {
             SetVisible(this.ChairVisibilityConditionsMet);
@@ -148,6 +149,7 @@ public class ProductPlacement : MonoBehaviour
             this.chair.transform.SetParent(transform);
             this.chair.transform.localPosition = Vector3.zero;
             UtilityHelper.RotateTowardCamera(this.chair);
+            Debug.Log("anchor set");
         }
         else
         {

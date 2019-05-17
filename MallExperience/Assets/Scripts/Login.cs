@@ -233,7 +233,7 @@ public class Login : MonoBehaviour
             {
                 
                 Debug.Log("Email Verified");
-                this.GetComponent<AWSManager>().mainMenu();
+               // this.GetComponent<AWSManager>().mainMenu();
             }
 
             else

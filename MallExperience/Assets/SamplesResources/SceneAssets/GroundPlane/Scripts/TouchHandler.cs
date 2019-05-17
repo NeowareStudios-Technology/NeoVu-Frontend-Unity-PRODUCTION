@@ -6,12 +6,14 @@ countries.
 ==============================================================================*/
 
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TouchHandler : MonoBehaviour
 {
     #region PUBLIC_MEMBERS
 
     public Transform augmentationObject;
+    public bool active;
 
     [HideInInspector]
     public bool enableRotation;
@@ -57,55 +59,62 @@ public class TouchHandler : MonoBehaviour
         this.cachedAugmentationRotation = this.augmentationObject.localEulerAngles;
     }
 
-    void Update()
+    void LateUpdate()
     {
-        this.touches = Input.touches;
 
-        if (Input.touchCount == 2)
+        if (active == true)
         {
-            float currentTouchDistance = Vector2.Distance(this.touches[0].position, this.touches[1].position);
-            float diff_y = this.touches[0].position.y - this.touches[1].position.y;
-            float diff_x = this.touches[0].position.x - this.touches[1].position.x;
-            float currentTouchAngle = Mathf.Atan2(diff_y, diff_x) * Mathf.Rad2Deg;
+            this.touches = Input.touches;
 
-            if (this.isFirstFrameWithTwoTouches)
+
+
+            if (Input.touchCount == 2)
             {
-                this.cachedTouchDistance = currentTouchDistance;
-                this.cachedTouchAngle = currentTouchAngle;
-                this.isFirstFrameWithTwoTouches = false;
+
+                float currentTouchDistance = Vector2.Distance(this.touches[0].position, this.touches[1].position);
+                float diff_y = this.touches[0].position.y - this.touches[1].position.y;
+                float diff_x = this.touches[0].position.x - this.touches[1].position.x;
+                float currentTouchAngle = Mathf.Atan2(diff_y, diff_x) * Mathf.Rad2Deg;
+
+                if (this.isFirstFrameWithTwoTouches)
+                {
+                    this.cachedTouchDistance = currentTouchDistance;
+                    this.cachedTouchAngle = currentTouchAngle;
+                    this.isFirstFrameWithTwoTouches = false;
+                }
+
+                float angleDelta = currentTouchAngle - this.cachedTouchAngle;
+                float scaleMultiplier = (currentTouchDistance / this.cachedTouchDistance);
+                float scaleAmount = this.cachedAugmentationScale * scaleMultiplier;
+                float scaleAmountClamped = Mathf.Clamp(scaleAmount, ScaleRangeMin, ScaleRangeMax);
+
+                if (this.enableRotation)
+                {
+                    this.augmentationObject.localEulerAngles = this.cachedAugmentationRotation - new Vector3(0, angleDelta * 3f, 0);
+                }
+                if (this.enableRotation && this.enablePinchScaling)
+                {
+                    // Optional Pinch Scaling can be enabled via Inspector for this Script Component
+                    this.augmentationObject.localScale = new Vector3(scaleAmountClamped, scaleAmountClamped, scaleAmountClamped);
+                }
+
             }
-
-            float angleDelta = currentTouchAngle - this.cachedTouchAngle;
-            float scaleMultiplier = (currentTouchDistance / this.cachedTouchDistance);
-            float scaleAmount = this.cachedAugmentationScale * scaleMultiplier;
-            float scaleAmountClamped = Mathf.Clamp(scaleAmount, ScaleRangeMin, ScaleRangeMax);
-
-            if (this.enableRotation)
+            else if (Input.touchCount < 2)
             {
-                this.augmentationObject.localEulerAngles = this.cachedAugmentationRotation - new Vector3(0, angleDelta * 3f, 0);
+                this.cachedAugmentationScale = this.augmentationObject.localScale.x;
+                this.cachedAugmentationRotation = this.augmentationObject.localEulerAngles;
+                this.isFirstFrameWithTwoTouches = true;
             }
-            if (this.enableRotation && this.enablePinchScaling)
+            else if (Input.touchCount == 6)
             {
-                // Optional Pinch Scaling can be enabled via Inspector for this Script Component
-                this.augmentationObject.localScale = new Vector3(scaleAmountClamped, scaleAmountClamped, scaleAmountClamped);
+                // enable runtime testing of pinch scaling
+                this.enablePinchScaling = true;
             }
-
-        }
-        else if (Input.touchCount < 2)
-        {
-            this.cachedAugmentationScale = this.augmentationObject.localScale.x;
-            this.cachedAugmentationRotation = this.augmentationObject.localEulerAngles;
-            this.isFirstFrameWithTwoTouches = true;
-        }
-        else if (Input.touchCount == 6)
-        {
-            // enable runtime testing of pinch scaling
-            this.enablePinchScaling = true;
-        }
-        else if (Input.touchCount == 5)
-        {
-            // disable runtime testing of pinch scaling
-            this.enablePinchScaling = false;
+            else if (Input.touchCount == 5)
+            {
+                // disable runtime testing of pinch scaling
+                this.enablePinchScaling = false;
+            }
         }
     }
 

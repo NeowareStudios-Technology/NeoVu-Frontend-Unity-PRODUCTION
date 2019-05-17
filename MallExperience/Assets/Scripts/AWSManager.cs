@@ -233,7 +233,7 @@ public class AWSManager : MonoBehaviour
             }
         }
     }
-    public void mainMenu()
+  /*  public void mainMenu()
     {
             StartCoroutine(GetAssetBundle("mainmenu"));
             filesDownloaded = 0;
@@ -245,5 +245,5 @@ public class AWSManager : MonoBehaviour
                 UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://s3.amazonaws.com/" + "mainmenu" + "/" + "mainmenu" + "/" + "mainmenu");
 #endif
         SceneManager.LoadScene("mainmenu");
-    }
+    }*/
 }
