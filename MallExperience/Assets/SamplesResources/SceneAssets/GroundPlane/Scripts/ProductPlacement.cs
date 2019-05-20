@@ -11,18 +11,18 @@ using Vuforia;
 public class ProductPlacement : MonoBehaviour
 {
     #region PUBLIC_MEMBERS
-    public bool IsPlaced { get; private set; }
+    public bool IsPlaced;
     #endregion // PUBLIC_MEMBERS
 
 
     #region PRIVATE_MEMBERS
     [Header("Augmentation Objects")]
-    [SerializeField] GameObject chair = null;
+    public GameObject chair = null;
     //[SerializeField] GameObject chairShadow = null;
 
     [Header("Control Indicators")]
-    [SerializeField] GameObject translationIndicator = null;
-    [SerializeField] GameObject rotationIndicator = null;
+    public GameObject translationIndicator = null;
+    public GameObject rotationIndicator = null;
 
     [Header("Augmentation Size")]
     [Range(0.1f, 2.0f)]
@@ -86,14 +86,6 @@ public class ProductPlacement : MonoBehaviour
 
     void Update()
     {
-        if (this.translationIndicator.GetComponent<MeshRenderer>().isVisible)
-        {
-            Debug.Log("Visible");
-        }
-        else
-        {
-            Debug.Log("NotVisible");
-        }
   
     }
 

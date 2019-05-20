@@ -12,12 +12,26 @@ public class ButtonManager : MonoBehaviour
     public GameObject ARbutton;
     public GameObject CameraButton;
     public GameObject ButtonBlock;
+    public GameObject[] ARButtons;
+    public GameObject SlamManager;
+    public GameObject GroundPlaneUi;
     // Start is called before the first frame update
     void Start()
     {
         buttons = GameObject.FindGameObjectsWithTag("Button");
-        ButtonBlock.transform.localPosition = new Vector3(0, -0.016f, 0.077f);
-        ButtonBlock.transform.localScale = new Vector3(0.007f, 1e-05f, 0.007f);
+        ARButtons = GameObject.FindGameObjectsWithTag("ARUI");
+        //ButtonBlock.transform.localPosition = new Vector3(0, -0.016f, 0.077f);
+        //ButtonBlock.transform.localScale = new Vector3(0.007f, 1e-05f, 0.007f);
+        if (ARButtons.Length > 0)
+        {
+            for (int i = 0; i < ARButtons.Length; i++)
+            {
+                ARButtons[i].SetActive(false);
+            }
+        }
+        productPlacement.SetActive(false);
+        PlaneManager.SetActive(false);
+        GroundPlaneUi.SetActive(false);
     }
 
     // Update is called once per frame
@@ -50,8 +64,16 @@ public class ButtonManager : MonoBehaviour
         productPlacement.GetComponent<TouchHandler>().active = true;
         productPlacement.SetActive(true);
         PlaneManager.SetActive(true);
-        SwipeScript.GetComponent<SwipeDetector>().gameObject.SetActive(false);
+        GroundPlaneUi.SetActive(true);
+        if (SwipeScript != null)
+        {
+            SwipeScript.GetComponent<SwipeDetector>().gameObject.SetActive(false);
+        }
         buttonsDisable();
+        for (int i = 0; i < ARButtons.Length; i++)
+        {
+            ARButtons[i].SetActive(true);
+        }
         ARbutton.SetActive(false);
         CameraButton.SetActive(true);
 
@@ -62,9 +84,26 @@ public class ButtonManager : MonoBehaviour
         productPlacement.GetComponent<TouchHandler>().active = false;
         productPlacement.SetActive(false);
         PlaneManager.SetActive(false);
-        SwipeScript.GetComponent<SwipeDetector>().gameObject.SetActive(true);
+        GroundPlaneUi.SetActive(false);
+        if (SwipeScript != null)
+        {
+            SwipeScript.GetComponent<SwipeDetector>().gameObject.SetActive(true);
+        }
         buttonsEnable();
         ARbutton.SetActive(true);
         CameraButton.SetActive(false);
+        for (int i = 0; i < ARButtons.Length; i++)
+        {
+            ARButtons[i].SetActive(false);
+        }
+        //Turns off the translation and rotation indicators on slam objects
+        if (SlamManager != null)
+        {
+            for (int j = 0; j < SlamManager.GetComponent<SlamManger>().items.Length; j++)
+            {
+                SlamManager.GetComponent<SlamManger>().items[j].transform.GetChild(0).gameObject.SetActive(false);
+                SlamManager.GetComponent<SlamManger>().items[j].transform.GetChild(1).gameObject.SetActive(false);
+            }
+        }
     }
 }
