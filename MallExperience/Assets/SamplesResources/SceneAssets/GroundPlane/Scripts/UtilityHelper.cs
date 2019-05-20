@@ -15,7 +15,7 @@ public static class UtilityHelper
         if (Vuforia.VuforiaManager.Instance.ARCameraTransform != null)
         {
             var lookAtPosition = Vuforia.VuforiaManager.Instance.ARCameraTransform.position - augmentation.transform.position;
-            lookAtPosition.y = 0;
+            lookAtPosition.y = 90;
             var rotation = Quaternion.LookRotation(lookAtPosition);
             augmentation.transform.rotation = rotation;
         }

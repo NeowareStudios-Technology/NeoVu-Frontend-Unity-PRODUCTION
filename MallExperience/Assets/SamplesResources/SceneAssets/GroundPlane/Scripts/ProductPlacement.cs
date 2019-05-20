@@ -18,7 +18,7 @@ public class ProductPlacement : MonoBehaviour
     #region PRIVATE_MEMBERS
     [Header("Augmentation Objects")]
     [SerializeField] GameObject chair = null;
-    [SerializeField] GameObject chairShadow = null;
+    //[SerializeField] GameObject chairShadow = null;
 
     [Header("Control Indicators")]
     [SerializeField] GameObject translationIndicator = null;
@@ -62,29 +62,38 @@ public class ProductPlacement : MonoBehaviour
 
     #region MONOBEHAVIOUR_METHODS
     void Start()
-    {
+    { 
+        this.rotationIndicator.GetComponent<MeshRenderer>().enabled = true;
         this.mainCamera = Camera.main;
         this.groundPlaneUI = FindObjectOfType<GroundPlaneUI>();
-        this.chairRenderer = this.chair.GetComponent<MeshRenderer>();
-        this.chairShadowRenderer = this.chairShadow.GetComponent<MeshRenderer>();
+       this.chairRenderer = this.chair.GetComponent<MeshRenderer>();
+       // this.chairShadowRenderer = this.chairShadow.GetComponent<MeshRenderer>();
 
-        SetupMaterials();
+       // SetupMaterials();
         SetupFloor();
 
 
-        this.augmentationScale = VuforiaRuntimeUtilities.IsPlayMode() ? 0.1f : this.productSize;
+        /*this.augmentationScale = VuforiaRuntimeUtilities.IsPlayMode() ? 0.1f : this.productSize;
 
         this.productScale =
             new Vector3(this.augmentationScale,
                         this.augmentationScale,
                         this.augmentationScale);
 
-        this.chair.transform.localScale = this.productScale;
+        this.chair.transform.localScale = this.productScale;*/
     }
 
 
     void Update()
     {
+        if (this.translationIndicator.GetComponent<MeshRenderer>().isVisible)
+        {
+            Debug.Log("Visible");
+        }
+        else
+        {
+            Debug.Log("NotVisible");
+        }
   
     }
 
@@ -93,19 +102,24 @@ public class ProductPlacement : MonoBehaviour
         if (PlaneManager.CurrentPlaneMode == PlaneManager.PlaneMode.PLACEMENT)
         {
             EnablePreviewModeTransparency(!this.IsPlaced);
+            
             if (!this.IsPlaced)
                 UtilityHelper.RotateTowardCamera(this.chair);
         }
 
         if (PlaneManager.CurrentPlaneMode == PlaneManager.PlaneMode.PLACEMENT && this.IsPlaced)
         {
-            this.rotationIndicator.SetActive(Input.touchCount == 2);
+            this.rotationIndicator.SetActive(Input.touchCount == 2 || Input.GetMouseButton(1));
+            this.rotationIndicator.GetComponent<MeshRenderer>().enabled = true;
 
             this.translationIndicator.SetActive(
                 (TouchHandler.IsSingleFingerDragging || TouchHandler.IsSingleFingerStationary) && !this.groundPlaneUI.IsCanvasButtonPressed());
 
             if (TouchHandler.IsSingleFingerDragging || (VuforiaRuntimeUtilities.IsPlayMode() && Input.GetMouseButton(0)))
             {
+                Debug.Log("moving Object");
+                this.translationIndicator.SetActive(true);
+                this.translationIndicator.GetComponent<MeshRenderer>().enabled = true;
                 if (!this.groundPlaneUI.IsCanvasButtonPressed())
                 {
                     this.cameraToPlaneRay = this.mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -136,9 +150,9 @@ public class ProductPlacement : MonoBehaviour
     #region PUBLIC_METHODS
     public void Reset()
     {
-        this.chair.transform.position = Vector3.zero;
+       /* this.chair.transform.position = Vector3.zero;
         this.chair.transform.localEulerAngles = Vector3.zero;
-        this.chair.transform.localScale = this.productScale;
+        this.chair.transform.localScale = this.productScale;*/
     }
 
     public void SetProductAnchor(Transform transform)
@@ -147,7 +161,7 @@ public class ProductPlacement : MonoBehaviour
         {
             this.IsPlaced = true;
             this.chair.transform.SetParent(transform);
-            this.chair.transform.localPosition = Vector3.zero;
+           // this.chair.transform.localPosition = Vector3.zero;
             UtilityHelper.RotateTowardCamera(this.chair);
             Debug.Log("anchor set");
         }
@@ -175,8 +189,8 @@ public class ProductPlacement : MonoBehaviour
             Resources.Load<Material>("ChairFrameTransparent")
         };
 
-        this.chairShadowMaterial = Resources.Load<Material>("ChairShadow");
-        this.chairShadowMaterialTransparent = Resources.Load<Material>("ChairShadowTransparent");
+        //this.chairShadowMaterial = Resources.Load<Material>("ChairShadow");
+       // this.chairShadowMaterialTransparent = Resources.Load<Material>("ChairShadowTransparent");
     }
 
     void SetupFloor()
@@ -204,13 +218,13 @@ public class ProductPlacement : MonoBehaviour
     void SetVisible(bool visible)
     {
         // Set the visibility of the chair and it's shadow
-        this.chairRenderer.enabled = this.chairShadowRenderer.enabled = visible;
+       this.chairRenderer.enabled  = visible;
     }
 
     void EnablePreviewModeTransparency(bool previewEnabled)
     {
-        this.chairRenderer.materials = previewEnabled ? this.chairMaterialsTransparent : this.chairMaterials;
-        this.chairShadowRenderer.material = previewEnabled ? this.chairShadowMaterialTransparent : this.chairShadowMaterial;
+        //this.chairRenderer.materials = previewEnabled ? this.chairMaterialsTransparent : this.chairMaterials;
+       // this.chairShadowRenderer.material = previewEnabled ? this.chairShadowMaterialTransparent : this.chairShadowMaterial;
     }
     #endregion // PRIVATE_METHODS
 
