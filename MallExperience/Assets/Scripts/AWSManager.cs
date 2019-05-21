@@ -47,7 +47,10 @@ public class AWSManager : MonoBehaviour
 
     private void Start()
     {
-        lsm = GameObject.Find("UI_Scripts").GetComponent<LoadScreenManager>();
+        if (SceneManager.GetActiveScene().name == "mainmenu")
+        {
+            lsm = GameObject.Find("UI_Scripts").GetComponent<LoadScreenManager>();
+        }
         //needed for AWS sdk to work
         UnityInitializer.AttachToGameObject(this.gameObject);
         AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
@@ -155,8 +158,11 @@ public class AWSManager : MonoBehaviour
     //download Vuforia DataSet seperately from asset bundle because it cant be packaged in the asset bundle
     public void DowloadDataSet(string nameOfSelectedView)
     {
-        lsm = GameObject.Find("UI_Scripts").GetComponent<LoadScreenManager>();
-        lsm.SwitchLoadingPanel();
+        if (SceneManager.GetActiveScene().name == "main menu")
+        {
+            lsm = GameObject.Find("UI_Scripts").GetComponent<LoadScreenManager>();
+            lsm.SwitchLoadingPanel();
+        }
         Debug.Log("starting download");
         nameOfView = nameOfSelectedView;
 
