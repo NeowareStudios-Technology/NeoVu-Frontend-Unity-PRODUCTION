@@ -11334,6 +11334,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1913696302572007321, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: plane
+      value: 
+      objectReference: {fileID: 2100000, guid: 226ae0a911cd78144a5757e08a495bb6, type: 2}
+    - target: {fileID: 1913696302572007321, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: planeTex
+      value: 
+      objectReference: {fileID: 2800000, guid: c4c421fec75744e75b27b0d0f46240ed, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d632fd2efb7df634fb387f43014b2a2c, type: 3}
 --- !u!1001 &6340469233847809874
