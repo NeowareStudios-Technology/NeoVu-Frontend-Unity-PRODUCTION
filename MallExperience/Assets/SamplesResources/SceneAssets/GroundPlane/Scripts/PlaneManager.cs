@@ -16,6 +16,8 @@ public class PlaneManager : MonoBehaviour
         MIDAIR,
         PLACEMENT
     }
+    public Material plane;
+    public Texture planeTex;
 
     #region PUBLIC_MEMBERS
     public static PlaneMode CurrentPlaneMode = PlaneMode.PLACEMENT;
@@ -28,9 +30,9 @@ public class PlaneManager : MonoBehaviour
     [SerializeField] MidAirPositionerBehaviour midAirPositioner = null;
 
     [Header("Plane, Mid-Air, & Placement Augmentations")]
-    [SerializeField] GameObject planeAugmentation = null;
-    [SerializeField] GameObject midAirAugmentation = null;
-    [SerializeField] GameObject placementAugmentation = null;
+    public GameObject planeAugmentation = null;
+    public GameObject midAirAugmentation = null;
+    public GameObject placementAugmentation = null;
 
     const string UnsupportedDeviceTitle = "Unsupported Device";
     const string UnsupportedDeviceBody =
@@ -38,14 +40,14 @@ public class PlaneManager : MonoBehaviour
         "Please check the list of supported Ground Plane devices on our site: " +
         "\n\nhttps://library.vuforia.com/articles/Solution/ground-plane-supported-devices.html";
 
-    StateManager stateManager;
-    SmartTerrain smartTerrain;
-    PositionalDeviceTracker positionalDeviceTracker;
-    ContentPositioningBehaviour contentPositioningBehaviour;
-    TouchHandler touchHandler;
-    ProductPlacement productPlacement;
-    GroundPlaneUI groundPlaneUI;
-    AnchorBehaviour planeAnchor, midAirAnchor, placementAnchor;
+    public StateManager stateManager;
+    public SmartTerrain smartTerrain;
+    public PositionalDeviceTracker positionalDeviceTracker;
+    public ContentPositioningBehaviour contentPositioningBehaviour;
+    public TouchHandler touchHandler;
+    public ProductPlacement productPlacement;
+    public GroundPlaneUI groundPlaneUI;
+    public AnchorBehaviour planeAnchor, midAirAnchor, placementAnchor;
     int automaticHitTestFrameCount;
     static TrackableBehaviour.Status StatusCached = TrackableBehaviour.Status.NO_POSE;
     static TrackableBehaviour.StatusInfo StatusInfoCached = TrackableBehaviour.StatusInfo.UNKNOWN;
@@ -103,6 +105,7 @@ public class PlaneManager : MonoBehaviour
 
     void Start()
     {
+        plane.SetTexture("_MainTex", planeTex);
         VuforiaARController.Instance.RegisterVuforiaStartedCallback(OnVuforiaStarted);
         VuforiaARController.Instance.RegisterOnPauseCallback(OnVuforiaPaused);
         DeviceTrackerARController.Instance.RegisterTrackerStartedCallback(OnTrackerStarted);
@@ -382,6 +385,7 @@ public class PlaneManager : MonoBehaviour
     void SetSurfaceIndicatorVisible(bool isVisible)
     {
         Renderer[] renderers = this.planeFinder.PlaneIndicator.GetComponentsInChildren<Renderer>(true);
+        this.planeFinder.PlaneIndicator.GetComponentInChildren<Renderer>().material = plane;
         Canvas[] canvas = this.planeFinder.PlaneIndicator.GetComponentsInChildren<Canvas>(true);
 
         foreach (Canvas c in canvas)
