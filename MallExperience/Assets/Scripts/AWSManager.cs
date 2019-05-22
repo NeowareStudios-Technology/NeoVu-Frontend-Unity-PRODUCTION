@@ -158,6 +158,7 @@ public class AWSManager : MonoBehaviour
     //download Vuforia DataSet seperately from asset bundle because it cant be packaged in the asset bundle
     public void DowloadDataSet(string nameOfSelectedView)
     {
+        //TODO: Check for existing files before downloading one if it doesnt exist
         if (SceneManager.GetActiveScene().name == "main menu")
         {
             lsm = GameObject.Find("UI_Scripts").GetComponent<LoadScreenManager>();

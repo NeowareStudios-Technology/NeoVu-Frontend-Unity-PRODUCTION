@@ -163,6 +163,20 @@ public class ProductPlacement : MonoBehaviour
             this.chair.transform.SetParent(null);
         }
     }
+
+    public void cloneArObject()
+    {
+        GameObject copy;
+        if(chair != null)
+        {
+            copy = Instantiate(chair /*new Vector3(chair.transform.position.x, chair.transform.position.y, chair.transform.position.z)*/);
+            copy.transform.position = chair.transform.position;
+            copy.transform.rotation = chair.transform.rotation;
+            chair.transform.position = new Vector3(1000, 1000, 100);
+            copy.transform.GetChild(0).gameObject.SetActive(false);
+            copy.transform.GetChild(1).gameObject.SetActive(false);
+        }
+    }
     #endregion // PUBLIC_METHODS
 
 
