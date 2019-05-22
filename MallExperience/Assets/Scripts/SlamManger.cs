@@ -16,7 +16,39 @@ public class SlamManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log(Input.touchCount);    
+        for (var i = 0; i < Input.touchCount; ++i)
+        {
+            if (Input.GetTouch(i).phase == TouchPhase.Began)
+            {
+
+                // Construct a ray from the current touch coordinates
+                Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
+                Debug.Log("RayCast Sent");
+                // Create a particle if hit
+                if (Physics.Raycast(ray))
+                {
+                    Instantiate(productPlacement.GetComponent<ProductPlacement>().chair, transform.position, transform.rotation);
+                    Debug.Log("RaycastHit");
+                }
+            }
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Debug.Log("RayCast Sent");
+            if (Physics.Raycast(ray, out hit) && hit.transform.tag == "ARObject")
+            {
+               if(productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject)
+                {
+                    productPlacement.GetComponent<ProductPlacement>().chair = hit.transform.gameObject;
+                    productPlacement.GetComponent<ProductPlacement>().translationIndicator = hit.transform.gameObject.transform.GetChild(1).gameObject;
+                    productPlacement.GetComponent<ProductPlacement>().rotationIndicator = hit.transform.gameObject.transform.GetChild(0).gameObject;
+                }
+              
+            }
+        }
     }
 
     //Change the target of the product placement and touch handler script with an object from items array

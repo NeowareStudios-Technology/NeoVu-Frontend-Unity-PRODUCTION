@@ -153,6 +153,7 @@ public class ProductPlacement : MonoBehaviour
         {
             this.IsPlaced = true;
             this.chair.transform.SetParent(transform);
+            this.chair.GetComponent<MeshCollider>().gameObject.SetActive(true);
            // this.chair.transform.localPosition = Vector3.zero;
             UtilityHelper.RotateTowardCamera(this.chair);
             Debug.Log("anchor set");

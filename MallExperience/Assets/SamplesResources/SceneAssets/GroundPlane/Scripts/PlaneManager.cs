@@ -192,7 +192,9 @@ public class PlaneManager : MonoBehaviour
             return;
         }
 
-        if (!groundPlaneUI.IsCanvasButtonPressed())
+        
+
+            if (!groundPlaneUI.IsCanvasButtonPressed())
         {
             Debug.Log("HandleInteractiveHitTest() called.");
             

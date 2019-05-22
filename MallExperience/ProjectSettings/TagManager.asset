@@ -7,6 +7,7 @@ TagManager:
   - Button
   - FunctionManager
   - ARUI
+  - ARObject
   layers:
   - Default
   - TransparentFX
