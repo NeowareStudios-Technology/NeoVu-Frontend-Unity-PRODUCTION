@@ -26,10 +26,15 @@ public class SlamManger : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
                 Debug.Log("RayCast Sent");
                 // Create a particle if hit
-                if (Physics.Raycast(ray))
+                if (Physics.Raycast(ray, out hit) && hit.transform.tag == "ARObject")
                 {
-                    Instantiate(productPlacement.GetComponent<ProductPlacement>().chair, transform.position, transform.rotation);
-                    Debug.Log("RaycastHit");
+                    if (productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject)
+                    {
+                        productPlacement.GetComponent<ProductPlacement>().chair = hit.transform.gameObject;
+                        productPlacement.GetComponent<ProductPlacement>().translationIndicator = hit.transform.gameObject.transform.GetChild(1).gameObject;
+                        productPlacement.GetComponent<ProductPlacement>().rotationIndicator = hit.transform.gameObject.transform.GetChild(0).gameObject;
+                    }
+
                 }
             }
         }

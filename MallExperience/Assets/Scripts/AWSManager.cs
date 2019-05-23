@@ -159,18 +159,30 @@ public class AWSManager : MonoBehaviour
     public void DowloadDataSet(string nameOfSelectedView)
     {
         //TODO: Check for existing files before downloading one if it doesnt exist
-        if (SceneManager.GetActiveScene().name == "main menu")
+        if (SceneManager.GetActiveScene().name == "mainmenu")
         {
             lsm = GameObject.Find("UI_Scripts").GetComponent<LoadScreenManager>();
             lsm.SwitchLoadingPanel();
         }
-        Debug.Log("starting download");
-        nameOfView = nameOfSelectedView;
 
-        string XMLFileName = nameOfView + ".xml";
-        string DATFileName = nameOfView + ".dat";
-        SaveS3ObjectLocally(nameOfView,XMLFileName);
-        SaveS3ObjectLocally(nameOfView,DATFileName);
+        if (File.Exists(Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".dat")))
+        {
+            Debug.Log("File Already Exists");
+            //filesDownloaded = 2;
+            SceneManager.LoadScene(nameOfSelectedView);
+            GetVersionNumber(nameOfView, nameOfView+"versionnumber.json");
+        }
+        else
+        {
+            Debug.Log("starting download");
+            Debug.Log(Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".dat"));
+            nameOfView = nameOfSelectedView;
+
+            string XMLFileName = nameOfView + ".xml";
+            string DATFileName = nameOfView + ".dat";
+            SaveS3ObjectLocally(nameOfView, XMLFileName);
+            SaveS3ObjectLocally(nameOfView, DATFileName);
+        }
     }
 
 
@@ -189,6 +201,7 @@ public class AWSManager : MonoBehaviour
             {
                 //set path to save file downloaded from s3 to
                 dataSetPath = Path.Combine(Application.persistentDataPath,fileName);
+                Debug.Log(dataSetPath);
 
                 //read file into buffer
                 byte[] buffer = new byte[(int)response.ResponseStream.Length];
@@ -224,6 +237,34 @@ public class AWSManager : MonoBehaviour
             Debug.Log("Failure!! - File does not exist at: " + outputPath);
         }
     }
+    private void GetVersionNumber(String folderName, String file)
+    {
+        string S3ObjectPath = folderName + "/" + file;
+        S3Client.GetObjectAsync(viewsBucketName, S3ObjectPath, (responseObj) =>
+        {
+            string JsonData = null;
+            var response = responseObj.Response;
+            Debug.Log(response);
+            if (response.ResponseStream != null)
+            {
+                using (StreamReader reader = new StreamReader(response.ResponseStream))
+                {
+                    JsonData = reader.ReadToEnd();
+                    Debug.Log("found s3 object");
+                    Debug.Log(JsonData);
+                }
+            }
+            else
+            {
+                Debug.Log("Could not find S3 object");
+            }
+            Debug.Log(JsonData);
+
+            //save downloaded JSON as a class in unity
+            vlj = JsonUtility.FromJson<ViewListJSON>(JsonData);
+        });
+        Debug.Log("end get list");
+    }
 
 
     //call this when returning to main scene from any downloaded lens
@@ -234,10 +275,10 @@ public class AWSManager : MonoBehaviour
             System.IO.DirectoryInfo di = new DirectoryInfo(Application.persistentDataPath);
             
             //delete all downloaded streaming assets (ie. vuforia datasets)
-            foreach (FileInfo file in di.GetFiles())
+            /*foreach (FileInfo file in di.GetFiles())
             {
                 file.Delete(); 
-            }
+            }*/
         }
     }
   /*  public void mainMenu()
