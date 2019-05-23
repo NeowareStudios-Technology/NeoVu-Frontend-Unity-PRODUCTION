@@ -151,6 +151,7 @@ public class ProductPlacement : MonoBehaviour
     {
         if (transform)
         {
+            //GameObject.Find("Indicator").
             this.IsPlaced = true;
             this.chair.transform.SetParent(transform);
             this.chair.GetComponent<MeshCollider>().gameObject.SetActive(true);
@@ -176,6 +177,7 @@ public class ProductPlacement : MonoBehaviour
             chair.transform.position = new Vector3(1000, 1000, 100);
             copy.transform.GetChild(0).gameObject.SetActive(false);
             copy.transform.GetChild(1).gameObject.SetActive(false);
+            GameObject.Find("Indicator").SetActive(true);
         }
     }
     #endregion // PUBLIC_METHODS

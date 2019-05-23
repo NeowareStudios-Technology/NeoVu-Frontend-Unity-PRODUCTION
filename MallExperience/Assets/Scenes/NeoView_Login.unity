@@ -8248,6 +8248,7 @@ GameObject:
   - component: {fileID: 1837821724}
   - component: {fileID: 1837821723}
   - component: {fileID: 1837821725}
+  - component: {fileID: 1837821726}
   m_Layer: 0
   m_Name: FireBaseLogin
   m_TagString: Untagged
@@ -8305,6 +8306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300b0b14a4d5b8348b13dd899008825d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vnj:
+    versionNumber: 
   vlj:
     views:
     - 
@@ -8316,6 +8319,18 @@ MonoBehaviour:
   viewsBucketName: neoware-neovu-views
   metaBucketName: neoware-neovu-meta
   filesDownloaded: 0
+--- !u!114 &1837821726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837821722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6c8b3bc7966db48a155ce7b540acd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1863319904
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,6 +48,10 @@ public class AWSManager : MonoBehaviour
 
     private void Start()
     {
+        if(File.Exists(Path.Combine(Application.persistentDataPath, "PlayerViews.json")))
+        { 
+            
+        }
         if (SceneManager.GetActiveScene().name == "mainmenu")
         {
             lsm = GameObject.Find("UI_Scripts").GetComponent<LoadScreenManager>();

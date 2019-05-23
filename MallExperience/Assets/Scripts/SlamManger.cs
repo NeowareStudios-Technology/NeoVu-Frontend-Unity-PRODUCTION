@@ -7,6 +7,7 @@ public class SlamManger : MonoBehaviour
     public GameObject productPlacement;
     public GameObject[] items;
     public GameObject currentItem;
+    public bool delete;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +30,17 @@ public class SlamManger : MonoBehaviour
                 // Create a particle if hit
                 if (Physics.Raycast(ray, out hit) && hit.transform.tag == "ARObject")
                 {
-                    if (productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject)
+                    if (productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject && delete == false)
                     {
                         productPlacement.GetComponent<ProductPlacement>().chair = hit.transform.gameObject;
                         productPlacement.GetComponent<ProductPlacement>().translationIndicator = hit.transform.gameObject.transform.GetChild(1).gameObject;
                         productPlacement.GetComponent<ProductPlacement>().rotationIndicator = hit.transform.gameObject.transform.GetChild(0).gameObject;
+                        productPlacement.GetComponent<TouchHandler>().augmentationObject = hit.transform;
+                    }
+                    else if(productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject && delete == true)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        delete = false;
                     }
 
                 }
@@ -46,13 +53,19 @@ public class SlamManger : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit) && hit.transform.tag == "ARObject")
             {
-               if(productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject)
+               if(productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject && delete == false)
                 {
                     productPlacement.GetComponent<ProductPlacement>().chair = hit.transform.gameObject;
                     productPlacement.GetComponent<ProductPlacement>().translationIndicator = hit.transform.gameObject.transform.GetChild(1).gameObject;
                     productPlacement.GetComponent<ProductPlacement>().rotationIndicator = hit.transform.gameObject.transform.GetChild(0).gameObject;
+                    productPlacement.GetComponent<TouchHandler>().augmentationObject = hit.transform;
                 }
-              
+                else if (productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject && delete == true)
+                {
+                    Destroy(hit.transform.gameObject);
+                    delete = false;
+                }
+
             }
         }
     }
@@ -72,6 +85,11 @@ public class SlamManger : MonoBehaviour
         items[i].SetActive(true);
         items[i].gameObject.transform.position = new Vector3(1000, 1000, 100);
         currentItem = items[i];
+        GameObject.Find("Indicator").SetActive(true);
 
+    }
+    public void SetDeleteItem()
+    {
+        delete = true;
     }
 }
