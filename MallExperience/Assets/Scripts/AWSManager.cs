@@ -23,6 +23,7 @@ using System.IO;
 
 public class AWSManager : MonoBehaviour
 {
+    public VersionNumberJSON vnj;
     public ViewListJSON vlj;
     public LoadScreenManager lsm;
     private AssetBundleCreateRequest bundleRequest;
@@ -168,13 +169,15 @@ public class AWSManager : MonoBehaviour
         if (File.Exists(Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".dat")))
         {
             Debug.Log("File Already Exists");
+
             //filesDownloaded = 2;
-            GetVersionNumber(nameOfView, nameOfView + "versionnumber.json");
-            SceneManager.LoadScene(nameOfSelectedView);
+            Debug.LogWarning("VersionNumberTesting");
+            GetVersionNumber(nameOfSelectedView, nameOfSelectedView + "versionnumber.json");
         }
         else
         {
             Debug.Log("starting download");
+            Debug.LogWarning(PlayerPrefs.GetString(nameOfSelectedView + "VN"));
             Debug.Log(Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".dat"));
             nameOfView = nameOfSelectedView;
 
@@ -240,9 +243,12 @@ public class AWSManager : MonoBehaviour
     private void GetVersionNumber(String folderName, String file)
     {
         string S3ObjectPath = folderName + "/" + file;
+        Debug.Log(S3ObjectPath);
         S3Client.GetObjectAsync(viewsBucketName, S3ObjectPath, (responseObj) =>
         {
+            Debug.Log(S3ObjectPath);
             string JsonData = null;
+            Debug.Log(S3ObjectPath);
             var response = responseObj.Response;
             Debug.Log(response);
             if (response.ResponseStream != null)
@@ -251,17 +257,36 @@ public class AWSManager : MonoBehaviour
                 {
                     JsonData = reader.ReadToEnd();
                     Debug.Log("found s3 object");
-                    Debug.Log(JsonData);
                 }
             }
             else
             {
                 Debug.Log("Could not find S3 object");
             }
-            Debug.Log(JsonData);
-
             //save downloaded JSON as a class in unity
-            vlj = JsonUtility.FromJson<ViewListJSON>(JsonData);
+            vnj = JsonUtility.FromJson<VersionNumberJSON>(JsonData);
+            Debug.Log(vnj.versionNumber);
+            Debug.Log(PlayerPrefs.GetString(folderName + "VN"));
+            if (PlayerPrefs.GetString(folderName + "VN") == (vnj.versionNumber))
+            {
+                Debug.LogWarning("VersionsMatch");
+                SceneManager.LoadScene(folderName);
+            }
+            else
+            {
+                Debug.LogWarning(folderName);
+                Debug.Log("starting download");
+                Debug.LogWarning(PlayerPrefs.GetString(folderName + "VN"));
+                Debug.Log(Path.Combine(Application.persistentDataPath, file + ".dat"));
+                nameOfView = folderName;
+                PlayerPrefs.SetString(folderName + "VN", vnj.versionNumber);
+                //if(PlayerPrefs)
+
+                string XMLFileName = nameOfView + ".xml";
+                string DATFileName = nameOfView + ".dat";
+                SaveS3ObjectLocally(nameOfView, XMLFileName);
+                SaveS3ObjectLocally(nameOfView, DATFileName);
+            }
         });
         Debug.Log("end get list");
     }

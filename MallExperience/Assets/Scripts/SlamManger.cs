@@ -43,6 +43,7 @@ public class SlamManger : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Debug.Log("RayCast Sent");
+            RaycastHit hit;
             if (Physics.Raycast(ray, out hit) && hit.transform.tag == "ARObject")
             {
                if(productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject)
