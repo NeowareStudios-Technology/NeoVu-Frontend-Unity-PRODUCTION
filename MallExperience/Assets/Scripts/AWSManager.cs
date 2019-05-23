@@ -169,8 +169,8 @@ public class AWSManager : MonoBehaviour
         {
             Debug.Log("File Already Exists");
             //filesDownloaded = 2;
+            GetVersionNumber(nameOfView, nameOfView + "versionnumber.json");
             SceneManager.LoadScene(nameOfSelectedView);
-            GetVersionNumber(nameOfView, nameOfView+"versionnumber.json");
         }
         else
         {

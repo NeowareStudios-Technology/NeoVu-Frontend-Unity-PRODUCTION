@@ -1604,6 +1604,11 @@ PrefabInstance:
       propertyPath: augmentationObject
       value: 
       objectReference: {fileID: 4582188142526310985}
+    - target: {fileID: 6077967529682974669, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: enablePinchScaling
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1913696302572007321, guid: d632fd2efb7df634fb387f43014b2a2c,
         type: 3}
       propertyPath: plane
