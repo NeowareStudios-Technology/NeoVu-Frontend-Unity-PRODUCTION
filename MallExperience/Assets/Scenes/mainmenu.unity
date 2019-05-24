@@ -3632,6 +3632,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Button
       objectReference: {fileID: 0}
+    - target: {fileID: 1392894939379556, guid: befdb7fcf38b6934e9ec2633d5a1a0ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224635062107639732, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5555,6 +5559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300b0b14a4d5b8348b13dd899008825d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vnj:
+    versionNumber: 
   vlj:
     views:
     - 
@@ -10992,7 +10998,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 41476735156973457}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11161,6 +11167,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: SLAM
       objectReference: {fileID: 0}
+    - target: {fileID: 3832828492679568236, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077967529682974670, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: chair
+      value: 
+      objectReference: {fileID: 864527479}
+    - target: {fileID: 6077967529682974670, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: chairShadow
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077967529682974670, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: productSize
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077967529682974670, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: translationIndicator
+      value: 
+      objectReference: {fileID: 1479262696}
+    - target: {fileID: 6077967529682974670, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: rotationIndicator
+      value: 
+      objectReference: {fileID: 1783258755}
     - target: {fileID: 3832828492679568235, guid: d632fd2efb7df634fb387f43014b2a2c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11236,36 +11272,21 @@ PrefabInstance:
       propertyPath: mMidAirReference
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6077967529682974670, guid: d632fd2efb7df634fb387f43014b2a2c,
-        type: 3}
-      propertyPath: chair
-      value: 
-      objectReference: {fileID: 864527479}
-    - target: {fileID: 6077967529682974670, guid: d632fd2efb7df634fb387f43014b2a2c,
-        type: 3}
-      propertyPath: chairShadow
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6077967529682974670, guid: d632fd2efb7df634fb387f43014b2a2c,
-        type: 3}
-      propertyPath: productSize
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 6077967529682974670, guid: d632fd2efb7df634fb387f43014b2a2c,
-        type: 3}
-      propertyPath: translationIndicator
-      value: 
-      objectReference: {fileID: 1479262696}
-    - target: {fileID: 6077967529682974670, guid: d632fd2efb7df634fb387f43014b2a2c,
-        type: 3}
-      propertyPath: rotationIndicator
-      value: 
-      objectReference: {fileID: 1783258755}
     - target: {fileID: 6077967529682974669, guid: d632fd2efb7df634fb387f43014b2a2c,
         type: 3}
       propertyPath: augmentationObject
       value: 
       objectReference: {fileID: 864527480}
+    - target: {fileID: 1913696302572007321, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: plane
+      value: 
+      objectReference: {fileID: 2100000, guid: 226ae0a911cd78144a5757e08a495bb6, type: 2}
+    - target: {fileID: 1913696302572007321, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: planeTex
+      value: 
+      objectReference: {fileID: 2800000, guid: c4c421fec75744e75b27b0d0f46240ed, type: 3}
     - target: {fileID: 74793378258019285, guid: d632fd2efb7df634fb387f43014b2a2c,
         type: 3}
       propertyPath: m_RootOrder
@@ -11346,16 +11367,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1913696302572007321, guid: d632fd2efb7df634fb387f43014b2a2c,
-        type: 3}
-      propertyPath: plane
-      value: 
-      objectReference: {fileID: 2100000, guid: 226ae0a911cd78144a5757e08a495bb6, type: 2}
-    - target: {fileID: 1913696302572007321, guid: d632fd2efb7df634fb387f43014b2a2c,
-        type: 3}
-      propertyPath: planeTex
-      value: 
-      objectReference: {fileID: 2800000, guid: c4c421fec75744e75b27b0d0f46240ed, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d632fd2efb7df634fb387f43014b2a2c, type: 3}
 --- !u!1001 &6340469233847809874
