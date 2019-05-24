@@ -304,10 +304,10 @@ public class AWSManager : MonoBehaviour
             System.IO.DirectoryInfo di = new DirectoryInfo(Application.persistentDataPath);
             
             //delete all downloaded streaming assets (ie. vuforia datasets)
-            /*foreach (FileInfo file in di.GetFiles())
+            foreach (FileInfo file in di.GetFiles())
             {
                 file.Delete(); 
-            }*/
+            }
         }
     }
   /*  public void mainMenu()
