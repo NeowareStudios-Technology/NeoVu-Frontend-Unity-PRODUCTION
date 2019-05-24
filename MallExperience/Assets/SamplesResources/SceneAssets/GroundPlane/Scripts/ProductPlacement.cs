@@ -12,6 +12,7 @@ public class ProductPlacement : MonoBehaviour
 {
     #region PUBLIC_MEMBERS
     public bool IsPlaced;
+    public GameObject indicator;
     #endregion // PUBLIC_MEMBERS
 
 
@@ -62,11 +63,13 @@ public class ProductPlacement : MonoBehaviour
 
     #region MONOBEHAVIOUR_METHODS
     void Start()
-    { 
+    {
+        indicator = GameObject.Find("Indicator");
         this.rotationIndicator.GetComponent<MeshRenderer>().enabled = true;
         this.mainCamera = Camera.main;
         this.groundPlaneUI = FindObjectOfType<GroundPlaneUI>();
        this.chairRenderer = this.chair.GetComponent<MeshRenderer>();
+        chair.GetComponent<MeshCollider>().enabled = true;
        // this.chairShadowRenderer = this.chairShadow.GetComponent<MeshRenderer>();
 
        // SetupMaterials();
@@ -95,8 +98,10 @@ public class ProductPlacement : MonoBehaviour
         {
             EnablePreviewModeTransparency(!this.IsPlaced);
             
-            if (!this.IsPlaced)
+            if (!this.IsPlaced) { 
                 UtilityHelper.RotateTowardCamera(this.chair);
+                chair.gameObject.GetComponent<MeshCollider>().gameObject.SetActive(true);
+            }
         }
 
         if (PlaneManager.CurrentPlaneMode == PlaneManager.PlaneMode.PLACEMENT && this.IsPlaced)
@@ -110,6 +115,7 @@ public class ProductPlacement : MonoBehaviour
             if (TouchHandler.IsSingleFingerDragging || (VuforiaRuntimeUtilities.IsPlayMode() && Input.GetMouseButton(0)))
             {
                 Debug.Log("moving Object");
+                indicator.transform.localPosition = new Vector3(0, 1, 0);
                 this.translationIndicator.SetActive(true);
                 this.translationIndicator.GetComponent<MeshRenderer>().enabled = true;
                 if (!this.groundPlaneUI.IsCanvasButtonPressed())
@@ -154,10 +160,12 @@ public class ProductPlacement : MonoBehaviour
             //GameObject.Find("Indicator").
             this.IsPlaced = true;
             this.chair.transform.SetParent(transform);
-            this.chair.GetComponent<MeshCollider>().gameObject.SetActive(true);
+            Debug.LogError("anchor set");
+            chair.gameObject.GetComponent<MeshCollider>().gameObject.SetActive(true);
            // this.chair.transform.localPosition = Vector3.zero;
             UtilityHelper.RotateTowardCamera(this.chair);
-            Debug.Log("anchor set");
+            Debug.LogError("anchor set");
+            indicator.transform.localPosition = new Vector3(0,1,0);
         }
         else
         {
@@ -177,7 +185,6 @@ public class ProductPlacement : MonoBehaviour
             chair.transform.position = new Vector3(1000, 1000, 100);
             copy.transform.GetChild(0).gameObject.SetActive(false);
             copy.transform.GetChild(1).gameObject.SetActive(false);
-            GameObject.Find("Indicator").SetActive(true);
         }
     }
     #endregion // PUBLIC_METHODS
