@@ -38,7 +38,7 @@ public class SlamManger : MonoBehaviour
                         productPlacement.GetComponent<ProductPlacement>().rotationIndicator = hit.transform.gameObject.transform.GetChild(0).gameObject;
                         productPlacement.GetComponent<TouchHandler>().augmentationObject = hit.transform;
                     }
-                    else if(productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject && delete == true)
+                    else if (productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject && delete == true)
                     {
                         Destroy(hit.transform.gameObject);
                         delete = false;
@@ -54,7 +54,7 @@ public class SlamManger : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit) && hit.transform.tag == "ARObject")
             {
-               if(productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject && delete == false)
+                if (productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject && delete == false)
                 {
                     productPlacement.GetComponent<ProductPlacement>().chair = hit.transform.gameObject;
                     productPlacement.GetComponent<ProductPlacement>().translationIndicator = hit.transform.gameObject.transform.GetChild(1).gameObject;
@@ -83,7 +83,7 @@ public class SlamManger : MonoBehaviour
     //Change the target of the product placement and touch handler script with an object from items array
     public void ChangeTarget(int i)
     {
-                    indicator.transform.localPosition = new Vector3(0, -.1f, 0);
+        indicator.transform.localPosition = new Vector3(0, -.1f, 0);
         if (indicator.GetComponent<MeshRenderer>().enabled)
         {
             if (currentItem != null)
@@ -103,23 +103,29 @@ public class SlamManger : MonoBehaviour
                 currentItem = items[i];
 
             }
-            GameObject copy;
-            Debug.LogError("Same Item Selected");
-            copy = Instantiate(productPlacement.GetComponent<ProductPlacement>().chair /*new Vector3(chair.transform.position.x, chair.transform.position.y, chair.transform.position.z)*/);
-            copy.transform.position = productPlacement.GetComponent<ProductPlacement>().chair.transform.position;
-            copy.transform.rotation = productPlacement.GetComponent<ProductPlacement>().chair.transform.rotation;
-            productPlacement.GetComponent<ProductPlacement>().chair.transform.position = new Vector3(1000, 1000, 100);
-            copy.transform.GetChild(0).gameObject.SetActive(false);
-            copy.transform.GetChild(1).gameObject.SetActive(false);
+            else
+            {
+                GameObject copy;
+                
+                copy = Instantiate(productPlacement.GetComponent<ProductPlacement>().chair /*new Vector3(chair.transform.position.x, chair.transform.position.y, chair.transform.position.z)*/);
+                copy.transform.position = productPlacement.GetComponent<ProductPlacement>().chair.transform.position;
+               // copy.transform.rotation = productPlacement.GetComponent<ProductPlacement>().chair.transform.rotation;
+                productPlacement.GetComponent<ProductPlacement>().chair.transform.position = new Vector3(1000, 1000, 100);
+                copy.transform.GetChild(0).gameObject.SetActive(false);
+                copy.transform.GetChild(1).gameObject.SetActive(false);
+                copy.GetComponent<MeshRenderer>().enabled = true;
+                Debug.LogError(copy.name);
 
 
-            productPlacement.GetComponent<ProductPlacement>().chair = items[i];
-            productPlacement.GetComponent<ProductPlacement>().translationIndicator = items[i].transform.GetChild(1).gameObject;
-            productPlacement.GetComponent<ProductPlacement>().rotationIndicator = items[i].transform.GetChild(0).gameObject;
-            productPlacement.GetComponent<TouchHandler>().augmentationObject = items[i].transform;
-            items[i].SetActive(true);
-            items[i].gameObject.transform.position = new Vector3(1000, 1000, 100);
-            currentItem = items[i];
+                productPlacement.GetComponent<ProductPlacement>().chair = items[i];
+                productPlacement.GetComponent<ProductPlacement>().translationIndicator = items[i].transform.GetChild(1).gameObject;
+                productPlacement.GetComponent<ProductPlacement>().rotationIndicator = items[i].transform.GetChild(0).gameObject;
+                productPlacement.GetComponent<TouchHandler>().augmentationObject = items[i].transform;
+                items[i].SetActive(true);
+                items[i].gameObject.transform.position = new Vector3(1000, 1000, 100);
+                currentItem = items[i];
+                productPlacement.GetComponent<ProductPlacement>().chair.GetComponent<MeshRenderer>().enabled = true;
+            }
         }
         else
         {

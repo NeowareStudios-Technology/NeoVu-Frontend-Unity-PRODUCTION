@@ -76,6 +76,7 @@ public class ButtonManager : MonoBehaviour
         }
         ARbutton.SetActive(false);
         CameraButton.SetActive(true);
+        productPlacement.GetComponent<ProductPlacement>().chair.gameObject.GetComponent<MeshCollider>().enabled = true;
 
     }
 

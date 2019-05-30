@@ -69,11 +69,12 @@ public class ProductPlacement : MonoBehaviour
         this.mainCamera = Camera.main;
         this.groundPlaneUI = FindObjectOfType<GroundPlaneUI>();
        this.chairRenderer = this.chair.GetComponent<MeshRenderer>();
-        chair.GetComponent<MeshCollider>().enabled = true;
+        this.chair.GetComponent<MeshCollider>().enabled = true;
        // this.chairShadowRenderer = this.chairShadow.GetComponent<MeshRenderer>();
 
        // SetupMaterials();
         SetupFloor();
+        Debug.LogWarning("ColliderTest1");
 
 
         /*this.augmentationScale = VuforiaRuntimeUtilities.IsPlayMode() ? 0.1f : this.productSize;
@@ -100,7 +101,6 @@ public class ProductPlacement : MonoBehaviour
             
             if (!this.IsPlaced) { 
                 UtilityHelper.RotateTowardCamera(this.chair);
-                chair.gameObject.GetComponent<MeshCollider>().gameObject.SetActive(true);
             }
         }
 
@@ -159,10 +159,11 @@ public class ProductPlacement : MonoBehaviour
         {
             //GameObject.Find("Indicator").
             this.IsPlaced = true;
-            this.chair.transform.SetParent(transform);
-            Debug.LogError("anchor set");
-            chair.gameObject.GetComponent<MeshCollider>().gameObject.SetActive(true);
-            // this.chair.transform.localPosition = Vector3.zero;
+            //this.chair.transform.SetParent(transform);
+            Debug.LogError(chair.name);
+            chair.gameObject.GetComponent<MeshCollider>().enabled = true;
+            Debug.LogWarning("ColliderTest3");
+            this.chair.transform.localPosition = Vector3.zero;
             UtilityHelper.RotateTowardCamera(this.chair);
             Debug.LogError("anchor set");
             indicator.transform.localPosition = new Vector3(0,1,0);
