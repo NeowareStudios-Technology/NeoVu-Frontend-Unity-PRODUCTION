@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SlamManger : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class SlamManger : MonoBehaviour
     public GameObject currentItem;
     public bool delete;
     public GameObject indicator;
+    public Text debugText;
+    public Text touchCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,11 @@ public class SlamManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (productPlacement.GetComponent<ProductPlacement>().chair != null)
+        {
+            debugText.text = productPlacement.GetComponent<ProductPlacement>().chair.name;
+        }
+        touchCounter.text = Input.touchCount.ToString();
         //Debug.Log(Input.touchCount);    
         for (var i = 0; i < Input.touchCount; ++i)
         {
@@ -37,11 +45,21 @@ public class SlamManger : MonoBehaviour
                         productPlacement.GetComponent<ProductPlacement>().translationIndicator = hit.transform.gameObject.transform.GetChild(1).gameObject;
                         productPlacement.GetComponent<ProductPlacement>().rotationIndicator = hit.transform.gameObject.transform.GetChild(0).gameObject;
                         productPlacement.GetComponent<TouchHandler>().augmentationObject = hit.transform;
+                        Debug.LogWarning(productPlacement.GetComponent<ProductPlacement>().chair.name);
                     }
                     else if(productPlacement.GetComponent<ProductPlacement>().chair != hit.transform.gameObject && delete == true)
                     {
-                        Destroy(hit.transform.gameObject);
+                        Debug.LogWarning("Delete Test");
                         delete = false;
+                        if (hit.transform.gameObject.name.Contains("(Clone)"))
+                        {
+                            Destroy(hit.transform.gameObject);
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Parent Object");
+                            hit.transform.position = new Vector3(1000, 1000, 1000);
+                        }
                     }
 
                 }
@@ -60,6 +78,7 @@ public class SlamManger : MonoBehaviour
                     productPlacement.GetComponent<ProductPlacement>().translationIndicator = hit.transform.gameObject.transform.GetChild(1).gameObject;
                     productPlacement.GetComponent<ProductPlacement>().rotationIndicator = hit.transform.gameObject.transform.GetChild(0).gameObject;
                     productPlacement.GetComponent<TouchHandler>().augmentationObject = hit.transform;
+                    Debug.LogWarning(productPlacement.GetComponent<ProductPlacement>().chair.name);
                 }
                 else if (delete == true)
                 {
@@ -83,9 +102,9 @@ public class SlamManger : MonoBehaviour
     //Change the target of the product placement and touch handler script with an object from items array
     public void ChangeTarget(int i)
     {
-                    indicator.transform.localPosition = new Vector3(0, -.1f, 0);
-        if (indicator.GetComponent<MeshRenderer>().enabled)
-        {
+        indicator.transform.localPosition = new Vector3(0, -.1f, 0);
+        //if (indicator.GetComponent<MeshRenderer>().enabled)
+        //{
             if (currentItem != null)
             {
                 currentItem.transform.GetChild(0).gameObject.SetActive(false); //Set the indicators at the bottom as false
@@ -101,8 +120,10 @@ public class SlamManger : MonoBehaviour
                 items[i].SetActive(true);
                 items[i].gameObject.transform.position = new Vector3(1000, 1000, 100);
                 currentItem = items[i];
+                productPlacement.GetComponent<ProductPlacement>().chair.GetComponent<MeshRenderer>().enabled = true;
+                productPlacement.GetComponent<ProductPlacement>().chair.GetComponent<MeshCollider>().enabled = true;
 
-            }
+        }
             GameObject copy;
             Debug.LogError("Same Item Selected");
             copy = Instantiate(productPlacement.GetComponent<ProductPlacement>().chair /*new Vector3(chair.transform.position.x, chair.transform.position.y, chair.transform.position.z)*/);
@@ -117,14 +138,16 @@ public class SlamManger : MonoBehaviour
             productPlacement.GetComponent<ProductPlacement>().translationIndicator = items[i].transform.GetChild(1).gameObject;
             productPlacement.GetComponent<ProductPlacement>().rotationIndicator = items[i].transform.GetChild(0).gameObject;
             productPlacement.GetComponent<TouchHandler>().augmentationObject = items[i].transform;
+            productPlacement.GetComponent<ProductPlacement>().chair.GetComponent<MeshRenderer>().enabled = true;
+            productPlacement.GetComponent<ProductPlacement>().chair.GetComponent<MeshCollider>().enabled = true;
             items[i].SetActive(true);
             items[i].gameObject.transform.position = new Vector3(1000, 1000, 100);
             currentItem = items[i];
-        }
-        else
+        //}
+        /*else
         {
             Debug.LogError("Reticle Not Active");
-        }
+        }*/
        
         //dindicator.GetComponent<MeshRenderer>().gameObject.SetActive(true);
         //productPlacement.GetComponent<ProductPlacement>().IsPlaced = false;
@@ -133,7 +156,7 @@ public class SlamManger : MonoBehaviour
     public void SetDeleteItem()
     {
         delete = true;
-       productPlacement.GetComponent<ProductPlacement>().chair = null;
-       productPlacement.GetComponent<TouchHandler>().augmentationObject = null;
+        productPlacement.GetComponent<ProductPlacement>().chair = null;
+        productPlacement.GetComponent<TouchHandler>().augmentationObject = null;
     }
 }
