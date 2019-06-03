@@ -56,7 +56,7 @@ public class TouchHandler : MonoBehaviour
     void Start()
     {
         this.cachedAugmentationScale = this.augmentationObject.localScale.x;
-        this.cachedAugmentationRotation = this.augmentationObject.localEulerAngles;
+        //this.cachedAugmentationRotation = this.augmentationObject.localEulerAngles;
     }
 
     void LateUpdate()

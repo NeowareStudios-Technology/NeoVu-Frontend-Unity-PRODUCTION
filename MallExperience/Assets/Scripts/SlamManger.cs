@@ -104,8 +104,8 @@ public class SlamManger : MonoBehaviour
     public void ChangeTarget(int i)
     {
         indicator.transform.localPosition = new Vector3(0, 0, 0);
-        if (indicator.GetComponent<MeshRenderer>().enabled)
-        {
+        //if (indicator.GetComponent<MeshRenderer>().enabled)
+       // {
             if(firstTime == false)
             {
                 productPlacement.GetComponent<ProductPlacement>().chair.transform.position = new Vector3(0, 1000, 0);
@@ -159,7 +159,7 @@ public class SlamManger : MonoBehaviour
             items[i].SetActive(true);
             items[i].gameObject.transform.position = new Vector3(1000, 1000, 100);
             currentItem = items[i];
-        }
+       // }
         /*else
         {
             Debug.LogError("Reticle Not Active");

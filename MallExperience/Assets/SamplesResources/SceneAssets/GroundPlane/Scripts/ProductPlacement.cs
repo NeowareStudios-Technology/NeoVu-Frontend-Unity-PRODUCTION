@@ -99,7 +99,7 @@ public class ProductPlacement : MonoBehaviour
             EnablePreviewModeTransparency(!this.IsPlaced);
             
             if (!this.IsPlaced) { 
-                UtilityHelper.RotateTowardCamera(this.chair);
+                //UtilityHelper.RotateTowardCamera(this.chair);
                 chair.gameObject.GetComponent<MeshCollider>().gameObject.SetActive(true);
             }
         }
@@ -115,7 +115,7 @@ public class ProductPlacement : MonoBehaviour
             if (TouchHandler.IsSingleFingerDragging || (VuforiaRuntimeUtilities.IsPlayMode() && Input.GetMouseButton(0)))
             {
                 Debug.Log("moving Object");
-                indicator.transform.localPosition = new Vector3(0, 1, 0);
+                indicator.transform.localPosition = new Vector3(0, 100, 0);
                 this.translationIndicator.SetActive(true);
                 this.translationIndicator.GetComponent<MeshRenderer>().enabled = true;
                 if (!this.groundPlaneUI.IsCanvasButtonPressed())
@@ -164,9 +164,14 @@ public class ProductPlacement : MonoBehaviour
             chair.gameObject.GetComponent<MeshCollider>().enabled = true;
             Debug.LogWarning("ColliderTest3");
             this.chair.transform.localPosition = Vector3.zero;
-            UtilityHelper.RotateTowardCamera(this.chair);
+            chair.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            chair.gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+            chair.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
+            this.translationIndicator = null;
+            this.rotationIndicator = null;
+            // UtilityHelper.RotateTowardCamera(this.chair);
             Debug.LogError("anchor set");
-            indicator.transform.localPosition = new Vector3(0,1,0);
+            indicator.transform.localPosition = new Vector3(0,100,0);
         }
         else
         {
