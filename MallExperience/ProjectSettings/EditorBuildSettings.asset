@@ -47,10 +47,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/SamplesResources/Scenes/3-VuMarks.unity
     guid: d9b53b25a285640cf8ac170a80603e34
-  - enabled: 1
-    path: Assets/UpdatedBusinesses/Businesses/Zoohealthclub/vuforiavu.unity
+  - enabled: 0
+    path: Assets/Scenes/TestScenes/vuforiavu.unity
     guid: 005688f5797e7d84ebfe00c5801d41f3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/mainmenu.unity
     guid: 32a51b2b32503994994fa741e98d3618
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/GPSTest.unity
+    guid: 9b9605556d0bb54419f617091bc3f7b5
   m_configObjects: {}
