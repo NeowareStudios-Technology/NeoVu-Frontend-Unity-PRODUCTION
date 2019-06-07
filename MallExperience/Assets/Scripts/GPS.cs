@@ -23,6 +23,10 @@ public class GPS : MonoBehaviour
     private int timeCheck;
     private bool latCheck = false;
     private bool longCheck = false;
+    public bool reward;
+    public bool redeemed = false;
+    public int value;
+
     public void Start()
     {
 #if PLATFORM_ANDROID
@@ -133,6 +137,11 @@ public class GPS : MonoBehaviour
          if(latCheck == true && longCheck == true)
         {
             Results.text = ("Target Location in Range, time: " + timeCheck.ToString());
+            if(reward == true && redeemed == false)
+            {
+                this.gameObject.GetComponent<VuPointHandler>().addPoints(value);
+                redeemed = true;
+            }
         }
         timeCheck++;
     }
