@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class DecodeByStaticPic : MonoBehaviour {
 
 	public Texture2D targetTex;
-	public Text resultText;
+	public TMPro.TextMeshProUGUI resultText;
+    public GameObject QRTarget;
 	// Use this for initialization
 	void Start () {
 	
@@ -19,6 +20,7 @@ public class DecodeByStaticPic : MonoBehaviour {
 	public void Decode()
 	{
 		string resultStr =QRCodeDecodeController.DecodeByStaticPic (targetTex);
+        Debug.Log(resultStr);
 		resultText.text = resultStr;
 	}
 }

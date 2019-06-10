@@ -22,6 +22,7 @@ namespace EasyMobile.Demo
         public GameObject targPare;
         public Texture2D ImgSave;
         public GameObject ButtonManagerScript;
+        public DecodeByStaticPic decoder;
 
         void Awake()
         {
@@ -74,6 +75,10 @@ namespace EasyMobile.Demo
             StartCoroutine(CaptureScreenshot());
         }
 
+        public void Decode()
+        {
+            StartCoroutine(DecodeScreenshot());
+        }
 
 
 
@@ -131,8 +136,29 @@ namespace EasyMobile.Demo
             Debug.Log("Texture Saved");
             targPare.SetActive(true);
             targImg.texture = texture;
+            if(decoder != null)
+            {
+                decoder.targetTex = texture;
+            }
             ImgSave = texture; //Display the taken photo on the users screen 
             
+        }
+        IEnumerator DecodeScreenshot()
+        {
+            yield return new WaitForEndOfFrame();
+
+            Texture2D texture = Sharing.CaptureScreenshot();
+            if (decoder != null)
+            {
+                decoder.targetTex = texture;
+                decoder.Decode();
+            }
+            else
+            {
+                Debug.LogError("Decoder hasnt been assigned dummy");
+            }
+            ImgSave = texture; //Display the taken photo on the users screen 
+
         }
     }
 }

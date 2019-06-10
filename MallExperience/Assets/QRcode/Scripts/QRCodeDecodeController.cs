@@ -52,7 +52,7 @@ public class QRCodeDecodeController : MonoBehaviour
 		}
 	}
 	
-	void Update()
+	/*void Update()
 	{
 		#if UNITY_EDITOR
 		if (framerate++ % 15== 0) {
@@ -130,7 +130,7 @@ public class QRCodeDecodeController : MonoBehaviour
 				tempDecodeing = decoding;
 			}
 		}
-	}
+	}*/
  	
 	/// <summary>
 	/// Reset this scan param
@@ -177,6 +177,7 @@ public class QRCodeDecodeController : MonoBehaviour
 		BarcodeReader codeReader = new BarcodeReader ();
 		codeReader.AutoRotate = true;
 		codeReader.TryInverted = true;
+        Debug.LogWarning("Decoding Started");
 		
 		Result data = codeReader.Decode (tex.GetPixels32 (), tex.width, tex.height);
 		if (data != null) {
