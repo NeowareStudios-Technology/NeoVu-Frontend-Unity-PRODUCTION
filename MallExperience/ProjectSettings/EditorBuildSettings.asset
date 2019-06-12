@@ -48,9 +48,9 @@ EditorBuildSettings:
     path: Assets/SamplesResources/Scenes/3-VuMarks.unity
     guid: d9b53b25a285640cf8ac170a80603e34
   - enabled: 0
-    path: Assets/Scenes/TestScenes/vuforiavu.unity
-    guid: 005688f5797e7d84ebfe00c5801d41f3
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/TestScenes/gpstest.unity
     guid: 9b9605556d0bb54419f617091bc3f7b5
   - enabled: 1

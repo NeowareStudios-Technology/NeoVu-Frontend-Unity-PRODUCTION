@@ -108,6 +108,7 @@ public class SlamManger : MonoBehaviour
        // {
             if(firstTime == false)
             {
+            Debug.LogWarning("FirstTimer");
                 productPlacement.GetComponent<ProductPlacement>().chair.transform.position = new Vector3(0, 1000, 0);
                 productPlacement.GetComponent<ProductPlacement>().chair = items[i];
                 productPlacement.GetComponent<ProductPlacement>().translationIndicator = items[i].transform.GetChild(1).gameObject;

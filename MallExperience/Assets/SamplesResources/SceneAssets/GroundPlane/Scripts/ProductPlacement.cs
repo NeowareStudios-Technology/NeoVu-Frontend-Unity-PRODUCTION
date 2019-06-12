@@ -165,10 +165,13 @@ public class ProductPlacement : MonoBehaviour
             Debug.LogWarning("ColliderTest3");
             this.chair.transform.localPosition = Vector3.zero;
             chair.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            chair.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            chair.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            this.rotationIndicator = chair.gameObject.transform.GetChild(1).gameObject;
             chair.gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
             chair.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
-            this.translationIndicator = null;
-            this.rotationIndicator = null;
+            //this.translationIndicator = null;
+            //this.rotationIndicator = null;
             // UtilityHelper.RotateTowardCamera(this.chair);
             Debug.LogError("anchor set");
             indicator.transform.localPosition = new Vector3(0,100,0);

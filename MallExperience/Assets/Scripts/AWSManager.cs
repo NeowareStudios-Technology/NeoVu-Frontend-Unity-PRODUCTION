@@ -170,7 +170,7 @@ public class AWSManager : MonoBehaviour
             lsm.SwitchLoadingPanel();
         }
 
-        if (File.Exists(Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".dat")))
+       /* if (File.Exists(Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".dat")))
         {
             Debug.Log("File Already Exists");
 
@@ -179,7 +179,7 @@ public class AWSManager : MonoBehaviour
             GetVersionNumber(nameOfSelectedView, nameOfSelectedView + "versionnumber.json");
         }
         else
-        {
+        {*/
             Debug.Log("starting download");
             Debug.LogWarning(PlayerPrefs.GetString(nameOfSelectedView + "VN"));
             Debug.Log(Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".dat"));
@@ -189,7 +189,7 @@ public class AWSManager : MonoBehaviour
             string DATFileName = nameOfView + ".dat";
             SaveS3ObjectLocally(nameOfView, XMLFileName);
             SaveS3ObjectLocally(nameOfView, DATFileName);
-        }
+       // }
     }
 
 
