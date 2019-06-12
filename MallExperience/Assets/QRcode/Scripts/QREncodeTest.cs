@@ -11,8 +11,9 @@ using UnityEngine.UI;
 public class QREncodeTest : MonoBehaviour {
 	public QRCodeEncodeController e_qrController;
 	public RawImage qrCodeImage;
-	public InputField m_inputfield;
-	public Text infoText;
+    public string CodeText;
+    public TMPro.TextMeshProUGUI Info;
+    public GameObject EncodeScreen;
 
     public Texture2D codeTex;
 	// Use this for initialization
@@ -33,7 +34,7 @@ public class QREncodeTest : MonoBehaviour {
 			int width = tex.width;
 			int height = tex.height;
 			float aspect = width * 1.0f / height;
-			qrCodeImage.GetComponent<RectTransform> ().sizeDelta = new Vector2 (170, 170.0f / aspect);
+			//qrCodeImage.GetComponent<RectTransform> ().sizeDelta = new Vector2 (170, 170.0f / aspect);
 			qrCodeImage.texture = tex;
             codeTex = tex;
         } else {
@@ -50,28 +51,29 @@ public class QREncodeTest : MonoBehaviour {
     public void Encode()
 	{
 		if (e_qrController != null) {
-			string valueStr = m_inputfield.text;
+            string valueStr = CodeText;
 			int errorlog = e_qrController.Encode(valueStr);
-			infoText.color = Color.red;
+            EncodeScreen.SetActive(true);
+            Info.color = Color.red;
 			if (errorlog == -13) {
-				infoText.text = "Must contain 12 digits,the 13th digit is automatically added !";
+				Info.text = "Must contain 12 digits,the 13th digit is automatically added !";
 
 			} else if (errorlog == -8) {
-				infoText.text = "Must contain 7 digits,the 8th digit is automatically added !";
+                Info.text = "Must contain 7 digits,the 8th digit is automatically added !";
 			}
             else if (errorlog == -39)
             {
-                infoText.text = "Only support digits";
+                Info.text = "Only support digits";
             }
             else if (errorlog == -128) {
-				infoText.text = "Contents length should be between 1 and 80 characters !";
+                Info.text = "Contents length should be between 1 and 80 characters !";
 
 			} else if (errorlog == -1) {
-				infoText.text = "Please select one code type !";
+                Info.text = "Please select one code type !";
 			}
 			else if (errorlog == 0) {
-				infoText.color = Color.green;
-				infoText.text = "Encode successfully !";
+                Info.color = Color.green;
+                Info.text = "Encode successfully !";
 			}
 		}
 	}
@@ -79,8 +81,9 @@ public class QREncodeTest : MonoBehaviour {
 	public void ClearCode()
 	{
 		qrCodeImage.texture = null;
-		m_inputfield.text = "";
-		infoText.text = "";
+		CodeText = "";
+        Info.text = "";
+        Info.text = "";
 	}
     
     public void SaveCode()
