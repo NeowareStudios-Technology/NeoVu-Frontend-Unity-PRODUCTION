@@ -29,9 +29,18 @@ public class ButtonManager : MonoBehaviour
                 ARButtons[i].SetActive(false);
             }
         }
-        productPlacement.SetActive(false);
-        PlaneManager.SetActive(false);
-        GroundPlaneUi.SetActive(false);
+        if (productPlacement != null)
+        {
+            productPlacement.SetActive(false);
+        }
+        if (PlaneManager != null)
+        {
+            PlaneManager.SetActive(false);
+        }
+        if (GroundPlaneUi != null)
+        {
+            GroundPlaneUi.SetActive(false);
+        }
     }
 
     // Update is called once per frame
