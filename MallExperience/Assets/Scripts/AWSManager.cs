@@ -191,10 +191,10 @@ public class AWSManager : MonoBehaviour
             SaveS3ObjectLocally(nameOfView, DATFileName);
 #if UNITY_IOS
             string ASFileName = nameOfView + ".ios";
-		    //SaveS3ObjectLocally(nameOfView, XMLFileName);
+		   SaveS3ObjectLocally(nameOfView, XMLFileName);
 #elif UNITY_ANDROID
             string ASFileName = nameOfView + ".and";
-            //SaveS3ObjectLocally(nameOfView, XMLFileName);
+            SaveS3ObjectLocally(nameOfView, XMLFileName);
 #else
             string ASFileName = nameOfView;
 #endif
