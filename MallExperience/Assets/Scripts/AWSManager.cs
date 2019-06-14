@@ -173,7 +173,7 @@ public class AWSManager : MonoBehaviour
         if (File.Exists(Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".dat")))
         {
             Debug.Log("File Already Exists");
-            Debug.LogError(Path.Combine(Application.persistentDataPath, nameOfSelectedView));
+
             filesDownloaded = 2;
             Debug.LogWarning("VersionNumberTesting");
             GetVersionNumber(nameOfSelectedView, nameOfSelectedView + "versionnumber.json");
@@ -189,6 +189,7 @@ public class AWSManager : MonoBehaviour
             string DATFileName = nameOfView + ".dat";
             SaveS3ObjectLocally(nameOfView, XMLFileName);
             SaveS3ObjectLocally(nameOfView, DATFileName);
+<<<<<<< HEAD
 #if UNITY_IOS
             string ASFileName = nameOfView + ".ios";
 		   SaveS3ObjectLocally(nameOfView, XMLFileName);
@@ -199,6 +200,8 @@ public class AWSManager : MonoBehaviour
             string ASFileName = nameOfView;
 #endif
             SaveS3ObjectLocally(nameOfView, ASFileName);
+=======
+>>>>>>> parent of 0f66534... AssetBundleSaving0.2
         }
     }
 
@@ -257,7 +260,7 @@ public class AWSManager : MonoBehaviour
     private void GetVersionNumber(String folderName, String file)
     {
         string S3ObjectPath = folderName + "/" + file;
-        Debug.LogError(S3ObjectPath);
+        Debug.Log(S3ObjectPath);
         S3Client.GetObjectAsync(viewsBucketName, S3ObjectPath, (responseObj) =>
         {
             Debug.Log(S3ObjectPath);
@@ -283,16 +286,14 @@ public class AWSManager : MonoBehaviour
             Debug.Log(PlayerPrefs.GetString(folderName + "VN"));
             if (PlayerPrefs.GetString(folderName + "VN") == (vnj.versionNumber))
             {
-                string path = (Path.Combine(Application.persistentDataPath, folderName));
-#if UNITY_IOS
-                                 AssetBundle.LoadFromFile(Path.Combine(Application.persistentDataPath, folderName +".ios"));
-#elif UNITY_ANDROID
-                AssetBundle.LoadFromFile(Path.Combine(Application.persistentDataPath, folderName +".and"));
-#else
-                                AssetBundle.LoadFromFile(Path.Combine(Application.persistentDataPath, folderName));
-#endif
+            #if UNITY_IOS
+		          var myLoadedAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, folderName+".ios"));
+            #elif UNITY_ANDROID
+                var myLoadedAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, folderName + ".and"));
+            #else
+                var myLoadedAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, folderName));
+            #endif
                 Debug.LogWarning("VersionsMatch");
-               // AssetBundle.LoadFromFile(path);
                 SceneManager.LoadScene(folderName);
             }
             else
