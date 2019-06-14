@@ -170,7 +170,7 @@ public class AWSManager : MonoBehaviour
             lsm.SwitchLoadingPanel();
         }
 
-       /* if (File.Exists(Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".dat")))
+        if (File.Exists(Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".dat")))
         {
             Debug.Log("File Already Exists");
 
@@ -179,7 +179,7 @@ public class AWSManager : MonoBehaviour
             GetVersionNumber(nameOfSelectedView, nameOfSelectedView + "versionnumber.json");
         }
         else
-        {*/
+        {
             Debug.Log("starting download");
             Debug.LogWarning(PlayerPrefs.GetString(nameOfSelectedView + "VN"));
             Debug.Log(Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".dat"));
@@ -189,7 +189,17 @@ public class AWSManager : MonoBehaviour
             string DATFileName = nameOfView + ".dat";
             SaveS3ObjectLocally(nameOfView, XMLFileName);
             SaveS3ObjectLocally(nameOfView, DATFileName);
-       // }
+#if UNITY_IOS
+            string ASFileName = nameOfView + ".ios";
+		    //SaveS3ObjectLocally(nameOfView, XMLFileName);
+#elif UNITY_ANDROID
+            string ASFileName = nameOfView + ".and";
+            //SaveS3ObjectLocally(nameOfView, XMLFileName);
+#else
+            string ASFileName = nameOfView;
+#endif
+            SaveS3ObjectLocally(nameOfView, ASFileName);
+        }
     }
 
 
@@ -273,8 +283,17 @@ public class AWSManager : MonoBehaviour
             Debug.Log(PlayerPrefs.GetString(folderName + "VN"));
             if (PlayerPrefs.GetString(folderName + "VN") == (vnj.versionNumber))
             {
+#if UNITY_IOS
+                                 AssetBundle.LoadFromFile(Path.Combine(Application.persistentDataPath, folderName +".ios"));
+#elif UNITY_ANDROID
+                AssetBundle.LoadFromFile(Path.Combine(Application.persistentDataPath, folderName + ".and"));
+#else
+                                AssetBundle.LoadFromFile(Path.Combine(Application.persistentDataPath, folderName));
+#endif
                 Debug.LogWarning("VersionsMatch");
+                // AssetBundle.LoadFromFile(path);
                 SceneManager.LoadScene(folderName);
+           
             }
             else
             {
@@ -304,10 +323,10 @@ public class AWSManager : MonoBehaviour
             System.IO.DirectoryInfo di = new DirectoryInfo(Application.persistentDataPath);
             
             //delete all downloaded streaming assets (ie. vuforia datasets)
-            foreach (FileInfo file in di.GetFiles())
+            /*foreach (FileInfo file in di.GetFiles())
             {
                 file.Delete(); 
-            }
+            }*/
         }
     }
   /*  public void mainMenu()
