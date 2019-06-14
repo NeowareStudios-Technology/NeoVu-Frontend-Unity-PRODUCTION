@@ -198,6 +198,7 @@ public class AWSManager : MonoBehaviour
 #else
             string ASFileName = nameOfView;
 #endif
+            Debug.Log("Saving ASFIle");
             SaveS3ObjectLocally(nameOfView, ASFileName);
         }
     }

@@ -2188,9 +2188,10 @@ GameObject:
   - component: {fileID: 1540089009}
   - component: {fileID: 1540089008}
   - component: {fileID: 1540089007}
+  - component: {fileID: 1540089011}
   m_Layer: 5
   m_Name: Instagram
-  m_TagString: Button
+  m_TagString: ARUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2325,6 +2326,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540089005}
   m_CullTransparentMesh: 0
+--- !u!114 &1540089011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540089005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1 &1651858344
 GameObject:
   m_ObjectHideFlags: 0
