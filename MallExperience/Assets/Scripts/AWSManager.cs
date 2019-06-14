@@ -189,19 +189,6 @@ public class AWSManager : MonoBehaviour
             string DATFileName = nameOfView + ".dat";
             SaveS3ObjectLocally(nameOfView, XMLFileName);
             SaveS3ObjectLocally(nameOfView, DATFileName);
-<<<<<<< HEAD
-#if UNITY_IOS
-            string ASFileName = nameOfView + ".ios";
-		   SaveS3ObjectLocally(nameOfView, XMLFileName);
-#elif UNITY_ANDROID
-            string ASFileName = nameOfView + ".and";
-            SaveS3ObjectLocally(nameOfView, XMLFileName);
-#else
-            string ASFileName = nameOfView;
-#endif
-            SaveS3ObjectLocally(nameOfView, ASFileName);
-=======
->>>>>>> parent of 0f66534... AssetBundleSaving0.2
         }
     }
 
