@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 44406710}
   - component: {fileID: 44406709}
   - component: {fileID: 44406708}
+  - component: {fileID: 44406712}
   m_Layer: 5
   m_Name: Facebook
   m_TagString: Button
@@ -262,6 +263,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44406706}
   m_CullTransparentMesh: 0
+--- !u!114 &44406712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44406706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1 &46770672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,6 +1078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963621079}
   - component: {fileID: 963621080}
+  - component: {fileID: 963621081}
   m_Layer: 5
   m_Name: Social Media Icons
   m_TagString: Button
@@ -1113,6 +1128,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &963621081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963621078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1 &992026109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,9 +1242,10 @@ GameObject:
   - component: {fileID: 1054552324}
   - component: {fileID: 1054552323}
   - component: {fileID: 1054552322}
+  - component: {fileID: 1054552326}
   m_Layer: 5
   m_Name: Back Button
-  m_TagString: Button
+  m_TagString: ARUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1351,6 +1380,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054552320}
   m_CullTransparentMesh: 0
+--- !u!114 &1054552326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054552320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1 &1126135841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,6 +2006,7 @@ GameObject:
   - component: {fileID: 1437952601}
   - component: {fileID: 1437952600}
   - component: {fileID: 1437952599}
+  - component: {fileID: 1437952603}
   m_Layer: 5
   m_Name: Twitter
   m_TagString: Button
@@ -2101,6 +2144,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437952597}
   m_CullTransparentMesh: 0
+--- !u!114 &1437952603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437952597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1 &1472258315
 GameObject:
   m_ObjectHideFlags: 0
@@ -2349,9 +2405,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1651858345}
   - component: {fileID: 1651858346}
+  - component: {fileID: 1651858347}
   m_Layer: 5
   m_Name: Flashlight
-  m_TagString: Button
+  m_TagString: FunctionManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2433,6 +2490,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &1651858347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651858344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1001 &1717235020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2896,6 +2966,19 @@ MonoBehaviour:
     m_Parameters:
       m_Parameters: []
     m_Name: MainSnapshotTaken
+--- !u!114 &1717235025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717235022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1 &1806911707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3613,6 +3696,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340469234371692754, guid: fe22f1988df5dd64cbcbc77c396f5052,
+        type: 3}
+      propertyPath: m_TagString
+      value: ARUI
       objectReference: {fileID: 0}
     - target: {fileID: 6340469234371692755, guid: fe22f1988df5dd64cbcbc77c396f5052,
         type: 3}

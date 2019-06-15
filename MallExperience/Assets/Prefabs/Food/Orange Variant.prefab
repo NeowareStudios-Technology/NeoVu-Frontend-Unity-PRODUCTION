@@ -154,6 +154,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &22587237717313676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019900724368515764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: ARObject
 --- !u!1001 &6021153020372332956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163,7 +176,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1571292956988200, guid: 91ee364e4a831384c887cde7a9381eac, type: 3}
       propertyPath: m_Name
-      value: Orange
+      value: Orange Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571292956988200, guid: 91ee364e4a831384c887cde7a9381eac, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4626045377235174, guid: 91ee364e4a831384c887cde7a9381eac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -219,6 +236,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91ee364e4a831384c887cde7a9381eac, type: 3}
+--- !u!1 &6019900724368515764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1571292956988200, guid: 91ee364e4a831384c887cde7a9381eac,
+    type: 3}
+  m_PrefabInstance: {fileID: 6021153020372332956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6025536580318198138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4626045377235174, guid: 91ee364e4a831384c887cde7a9381eac,

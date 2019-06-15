@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 44406710}
   - component: {fileID: 44406709}
   - component: {fileID: 44406708}
+  - component: {fileID: 44406712}
   m_Layer: 5
   m_Name: Facebook
   m_TagString: Button
@@ -262,6 +263,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44406706}
   m_CullTransparentMesh: 0
+--- !u!114 &44406712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44406706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1 &46770672
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +364,7 @@ GameObject:
   - component: {fileID: 128388763}
   - component: {fileID: 128388762}
   - component: {fileID: 128388761}
+  - component: {fileID: 128388765}
   m_Layer: 5
   m_Name: SignUp (2)
   m_TagString: ARUI
@@ -487,6 +502,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128388759}
   m_CullTransparentMesh: 0
+--- !u!114 &128388765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128388759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: ARUI
 --- !u!1 &213077645
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +602,7 @@ GameObject:
   - component: {fileID: 242006899}
   - component: {fileID: 242006898}
   - component: {fileID: 242006897}
+  - component: {fileID: 242006901}
   m_Layer: 5
   m_Name: SignUp (4)
   m_TagString: ARUI
@@ -711,6 +740,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242006895}
   m_CullTransparentMesh: 0
+--- !u!114 &242006901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242006895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: ARUI
 --- !u!1 &258436355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2112,6 +2154,7 @@ GameObject:
   - component: {fileID: 1054552324}
   - component: {fileID: 1054552323}
   - component: {fileID: 1054552322}
+  - component: {fileID: 1054552326}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Button
@@ -2249,6 +2292,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054552320}
   m_CullTransparentMesh: 0
+--- !u!114 &1054552326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054552320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1 &1122880809
 GameObject:
   m_ObjectHideFlags: 0
@@ -2951,6 +3007,7 @@ GameObject:
   - component: {fileID: 1254987621}
   - component: {fileID: 1254987620}
   - component: {fileID: 1254987619}
+  - component: {fileID: 1254987623}
   m_Layer: 5
   m_Name: SignUp (3)
   m_TagString: ARUI
@@ -3088,6 +3145,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254987617}
   m_CullTransparentMesh: 0
+--- !u!114 &1254987623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254987617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: ARUI
 --- !u!1 &1290017677
 GameObject:
   m_ObjectHideFlags: 0
@@ -3882,6 +3952,7 @@ GameObject:
   - component: {fileID: 1540089009}
   - component: {fileID: 1540089008}
   - component: {fileID: 1540089007}
+  - component: {fileID: 1540089011}
   m_Layer: 5
   m_Name: SignUp
   m_TagString: Button
@@ -4019,6 +4090,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540089005}
   m_CullTransparentMesh: 0
+--- !u!114 &1540089011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540089005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1001 &1563731026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4570,6 +4654,7 @@ GameObject:
   - component: {fileID: 1626963512}
   - component: {fileID: 1626963511}
   - component: {fileID: 1626963510}
+  - component: {fileID: 1626963514}
   m_Layer: 5
   m_Name: SignUp (5)
   m_TagString: ARUI
@@ -4707,6 +4792,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626963508}
   m_CullTransparentMesh: 0
+--- !u!114 &1626963514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626963508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: ARUI
 --- !u!1 &1651858344
 GameObject:
   m_ObjectHideFlags: 0
@@ -6066,7 +6164,7 @@ PrefabInstance:
     - target: {fileID: 6019900724368515764, guid: 80815154b18c19a4fab49a75161e90d6,
         type: 3}
       propertyPath: m_TagString
-      value: ARObject
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6025536580318198138, guid: 80815154b18c19a4fab49a75161e90d6,
         type: 3}

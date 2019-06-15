@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6340469234371692752}
   - component: {fileID: 6340469234371692755}
   - component: {fileID: 6340469234371692753}
+  - component: {fileID: 1690478345149078007}
   m_Layer: 0
   m_Name: VuFunctionManager
   m_TagString: FunctionManager
@@ -48,6 +49,7 @@ MonoBehaviour:
   targPare: {fileID: 0}
   ImgSave: {fileID: 0}
   ButtonManagerScript: {fileID: 0}
+  decoder: {fileID: 0}
 --- !u!114 &6340469234371692753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,3 +64,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashlight: {fileID: 0}
   buttons: []
+  productPlacement: {fileID: 0}
+  PlaneManager: {fileID: 0}
+  SwipeScript: {fileID: 0}
+  ARbutton: {fileID: 0}
+  CameraButton: {fileID: 0}
+  ButtonBlock: {fileID: 0}
+  ARButtons: []
+  SlamManager: {fileID: 0}
+  GroundPlaneUi: {fileID: 0}
+--- !u!114 &1690478345149078007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340469234371692754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: FunctionManager

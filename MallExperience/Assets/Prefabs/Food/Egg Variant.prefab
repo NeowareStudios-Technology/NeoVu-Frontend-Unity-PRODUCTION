@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5702388240473548605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576564829110154595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: ARObject
 --- !u!1 &4829523381438064919
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +176,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1495697218519372, guid: b46bdd571059e984d872d07b56459644, type: 3}
       propertyPath: m_Name
-      value: Egg
+      value: Egg Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495697218519372, guid: b46bdd571059e984d872d07b56459644, type: 3}
+      propertyPath: m_TagString
+      value: ARObject
       objectReference: {fileID: 0}
     - target: {fileID: 4885080074313318, guid: b46bdd571059e984d872d07b56459644, type: 3}
       propertyPath: m_LocalPosition.x
@@ -223,6 +240,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b46bdd571059e984d872d07b56459644, type: 3}
+--- !u!1 &4576564829110154595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1495697218519372, guid: b46bdd571059e984d872d07b56459644,
+    type: 3}
+  m_PrefabInstance: {fileID: 4577461669370721327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4582188142526310985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4885080074313318, guid: b46bdd571059e984d872d07b56459644,

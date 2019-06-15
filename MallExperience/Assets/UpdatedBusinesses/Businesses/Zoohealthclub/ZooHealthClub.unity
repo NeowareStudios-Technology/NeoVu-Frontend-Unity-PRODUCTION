@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 44406710}
   - component: {fileID: 44406709}
   - component: {fileID: 44406708}
+  - component: {fileID: 44406712}
   m_Layer: 5
   m_Name: Facebook
   m_TagString: Button
@@ -262,6 +263,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44406706}
   m_CullTransparentMesh: 0
+--- !u!114 &44406712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44406706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1 &46770672
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,6 +889,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashlight: {fileID: 0}
   buttons: []
+  productPlacement: {fileID: 0}
+  PlaneManager: {fileID: 0}
+  SwipeScript: {fileID: 0}
+  ARbutton: {fileID: 0}
+  CameraButton: {fileID: 0}
+  ButtonBlock: {fileID: 0}
+  ARButtons: []
+  SlamManager: {fileID: 0}
+  GroundPlaneUi: {fileID: 0}
 --- !u!1 &963621078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,6 +1058,7 @@ GameObject:
   - component: {fileID: 1054552324}
   - component: {fileID: 1054552323}
   - component: {fileID: 1054552322}
+  - component: {fileID: 1054552326}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Button
@@ -1172,6 +1196,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054552320}
   m_CullTransparentMesh: 0
+--- !u!114 &1054552326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054552320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1 &1126135841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,6 +2065,7 @@ GameObject:
   - component: {fileID: 1540089009}
   - component: {fileID: 1540089008}
   - component: {fileID: 1540089007}
+  - component: {fileID: 1540089011}
   m_Layer: 5
   m_Name: SignUp
   m_TagString: Button
@@ -2165,6 +2203,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540089005}
   m_CullTransparentMesh: 0
+--- !u!114 &1540089011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540089005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1001 &1563731026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2183,21 +2234,6 @@ PrefabInstance:
     - target: {fileID: 1392894939379556, guid: befdb7fcf38b6934e9ec2633d5a1a0ea, type: 3}
       propertyPath: m_TagString
       value: Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 114163387322287432, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114163387322287432, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114163387322287432, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224635062107639732, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
@@ -2317,6 +2353,21 @@ PrefabInstance:
     - target: {fileID: 224635062107639732, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114163387322287432, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114163387322287432, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114163387322287432, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
+        type: 3}
+      propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114971941403019840, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
@@ -2634,6 +2685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1651858345}
   - component: {fileID: 1651858346}
+  - component: {fileID: 1651858347}
   m_Layer: 5
   m_Name: Flashlight
   m_TagString: Button
@@ -2718,6 +2770,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &1651858347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651858344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7503fb6e94fda42ac5a5baecc37a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: Button
 --- !u!1001 &1782443960
 PrefabInstance:
   m_ObjectHideFlags: 0
