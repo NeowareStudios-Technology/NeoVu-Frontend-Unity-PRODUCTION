@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6340469234371692755}
   - component: {fileID: 6340469234371692753}
   - component: {fileID: 1690478345149078007}
+  - component: {fileID: 699770277768123010}
   m_Layer: 0
   m_Name: VuFunctionManager
   m_TagString: FunctionManager
@@ -86,3 +87,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTag: FunctionManager
+--- !u!114 &699770277768123010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340469234371692754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300b0b14a4d5b8348b13dd899008825d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vnj:
+    versionNumber: 
+  vlj:
+    views:
+    - 
+  lsm: {fileID: 0}
+  viewListText: {fileID: 0}
+  nameOfView: 
+  S3Region: us-east-1
+  dataSetPath: 
+  viewsBucketName: neoware-neovu-views
+  metaBucketName: neoware-neovu-meta
+  filesDownloaded: 0
