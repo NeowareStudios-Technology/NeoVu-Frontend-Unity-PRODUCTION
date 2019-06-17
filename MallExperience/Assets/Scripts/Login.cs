@@ -31,7 +31,7 @@ public class Login : MonoBehaviour
         System.DateTime newDate = System.DateTime.Today.AddYears(-13); //Set the date for 13 or older
         Debug.Log(newDate);
         Debug.Log((System.DateTime.Today - newDate).Days);
-        if (PlayerPrefs.GetString("Status") != "Signed In")
+        if (PlayerPrefs.GetString("Status") == "Signed In")
         {
             LogIn();
         }
@@ -232,7 +232,7 @@ public class Login : MonoBehaviour
     {
         string email;
         string password;
-        if (PlayerPrefs.GetString("Status") != "Signed In")
+        if (PlayerPrefs.GetString("Status") == "Signed In")
         {
             email = PlayerPrefs.GetString("Email");
             password = PlayerPrefs.GetString("Password");
