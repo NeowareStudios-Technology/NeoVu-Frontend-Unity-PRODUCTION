@@ -118,6 +118,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1366648523}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &19613062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1898743788076950, guid: f6d82199af7ca3743b7a21cc4398ba50,
+    type: 3}
+  m_PrefabInstance: {fileID: 893858118}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &48444692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -826,6 +832,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330973264}
   m_CullTransparentMesh: 0
+--- !u!95 &336796247 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95141713700349528, guid: f6d82199af7ca3743b7a21cc4398ba50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1222645655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &336796248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114045031172512476, guid: f6d82199af7ca3743b7a21cc4398ba50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1222645655}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &337913146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1102,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224862068371750312, guid: f6d82199af7ca3743b7a21cc4398ba50,
     type: 3}
   m_PrefabInstance: {fileID: 1222645655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &424239541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1898743788076950, guid: f6d82199af7ca3743b7a21cc4398ba50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1366648523}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &428862377
 GameObject:
@@ -2514,6 +2544,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!95 &802746506 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95141713700349528, guid: f6d82199af7ca3743b7a21cc4398ba50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1366648523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &802746507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114045031172512476, guid: f6d82199af7ca3743b7a21cc4398ba50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1366648523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &810422957
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,6 +3396,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2f17e8bb3967fe14093d5fec798fffd9,
         type: 2}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: inputFieldAnimator
+      value: 
+      objectReference: {fileID: 1285562572}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: inputText
+      value: 
+      objectReference: {fileID: 1682362944}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: fieldTrigger
+      value: 
+      objectReference: {fileID: 19613062}
     - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50,
         type: 3}
       propertyPath: m_fontColor.r
@@ -4137,6 +4200,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 597687139}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1057428695 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95141713700349528, guid: f6d82199af7ca3743b7a21cc4398ba50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1791062965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1071689414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4374,6 +4443,21 @@ PrefabInstance:
       propertyPath: m_Colors.m_PressedColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: inputFieldAnimator
+      value: 
+      objectReference: {fileID: 1626797187}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: inputText
+      value: 
+      objectReference: {fileID: 816657469}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: fieldTrigger
+      value: 
+      objectReference: {fileID: 1763300611}
     - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50,
         type: 3}
       propertyPath: m_fontColor.r
@@ -4516,7 +4600,7 @@ GameObject:
   - component: {fileID: 1089014519}
   - component: {fileID: 1089014518}
   m_Layer: 5
-  m_Name: Standard Dropdown(Clone)
+  m_Name: Gender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4684,6 +4768,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089014516}
   m_CullTransparentMesh: 0
+--- !u!1 &1110617170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1898743788076950, guid: f6d82199af7ca3743b7a21cc4398ba50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1222645655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1111719964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1898743788076950, guid: f6d82199af7ca3743b7a21cc4398ba50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1791062965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1143486893 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224862068371750312, guid: f6d82199af7ca3743b7a21cc4398ba50,
@@ -5124,6 +5220,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2f17e8bb3967fe14093d5fec798fffd9,
         type: 2}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: inputFieldAnimator
+      value: 
+      objectReference: {fileID: 336796247}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: inputText
+      value: 
+      objectReference: {fileID: 336796248}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: fieldTrigger
+      value: 
+      objectReference: {fileID: 1110617170}
     - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50,
         type: 3}
       propertyPath: m_fontColor.r
@@ -5641,9 +5752,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1837821725}
-        m_MethodName: DowloadDataSet
-        m_Mode: 5
+      - m_Target: {fileID: 1837821723}
+        m_MethodName: LogIn
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5691,6 +5802,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276725906}
   m_CullTransparentMesh: 0
+--- !u!95 &1285562572 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95141713700349528, guid: f6d82199af7ca3743b7a21cc4398ba50,
+    type: 3}
+  m_PrefabInstance: {fileID: 893858118}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1366648523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5903,6 +6020,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2f17e8bb3967fe14093d5fec798fffd9,
         type: 2}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: inputFieldAnimator
+      value: 
+      objectReference: {fileID: 802746506}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: inputText
+      value: 
+      objectReference: {fileID: 802746507}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: fieldTrigger
+      value: 
+      objectReference: {fileID: 424239541}
     - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50,
         type: 3}
       propertyPath: m_fontColor.r
@@ -6712,6 +6844,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608332066}
   m_CullTransparentMesh: 0
+--- !u!95 &1626797187 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95141713700349528, guid: f6d82199af7ca3743b7a21cc4398ba50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1071689414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1653875782
 GameObject:
   m_ObjectHideFlags: 0
@@ -7672,6 +7810,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760510232}
   m_CullTransparentMesh: 0
+--- !u!1 &1763300611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1898743788076950, guid: f6d82199af7ca3743b7a21cc4398ba50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1071689414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1791062965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7919,6 +8063,21 @@ PrefabInstance:
       propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: inputFieldAnimator
+      value: 
+      objectReference: {fileID: 1057428695}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: fieldTrigger
+      value: 
+      objectReference: {fileID: 1111719964}
+    - target: {fileID: 114089944458356966, guid: f6d82199af7ca3743b7a21cc4398ba50,
+        type: 3}
+      propertyPath: inputText
+      value: 
+      objectReference: {fileID: 1159229487}
     - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50,
         type: 3}
       propertyPath: m_fontColor.r
@@ -8277,8 +8436,8 @@ MonoBehaviour:
   loginWarning: {fileID: 1233349219}
   verifyButton: {fileID: 810422957}
   birthDate: {fileID: 1159229487}
-  gender: {fileID: 0}
-  phoneNum: {fileID: 0}
+  gender: {fileID: 1089014521}
+  phoneNum: {fileID: 336796248}
   genderVal: 
 --- !u!4 &1837821724
 Transform:
