@@ -106,22 +106,7 @@ public class SlamManger : MonoBehaviour
         indicator.transform.localPosition = new Vector3(0, 0, 0);
         //if (indicator.GetComponent<MeshRenderer>().enabled)
        // {
-            if(firstTime == false)
-            {
-            Debug.LogWarning("FirstTimer");
-                productPlacement.GetComponent<ProductPlacement>().chair.transform.position = new Vector3(0, 1000, 0);
-                productPlacement.GetComponent<ProductPlacement>().chair = items[i];
-                productPlacement.GetComponent<ProductPlacement>().translationIndicator = items[i].transform.GetChild(1).gameObject;
-                productPlacement.GetComponent<ProductPlacement>().rotationIndicator = items[i].transform.GetChild(0).gameObject;
-                productPlacement.GetComponent<TouchHandler>().augmentationObject = items[i].transform;
-                productPlacement.GetComponent<ProductPlacement>().chair.GetComponent<MeshRenderer>().enabled = true;
-                productPlacement.GetComponent<ProductPlacement>().chair.GetComponent<MeshCollider>().enabled = true;
-                items[i].SetActive(true);
-                items[i].gameObject.transform.position = new Vector3(1000, 1000, 100);
-                currentItem = items[i];
-                firstTime = true;
-
-            }
+           
             if (currentItem != null)
             {
                 currentItem.transform.GetChild(0).gameObject.SetActive(false); //Set the indicators at the bottom as false

@@ -164,7 +164,7 @@ public class ProductPlacement : MonoBehaviour
             chair.gameObject.GetComponent<MeshCollider>().enabled = true;
             Debug.LogWarning("ColliderTest3");
             this.chair.transform.localPosition = Vector3.zero;
-            chair.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //chair.gameObject.GetComponent<MeshRenderer>().enabled = false;
             chair.gameObject.transform.GetChild(0).gameObject.SetActive(true);
             chair.gameObject.transform.GetChild(1).gameObject.SetActive(true);
             this.rotationIndicator = chair.gameObject.transform.GetChild(1).gameObject;
