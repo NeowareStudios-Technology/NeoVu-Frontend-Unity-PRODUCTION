@@ -51,29 +51,29 @@ public class QREncodeTest : MonoBehaviour {
     public void Encode()
 	{
 		if (e_qrController != null) {
-            string valueStr = CodeText;
+            string valueStr = CodeText + " Redeemed: " + System.DateTime.Now;
 			int errorlog = e_qrController.Encode(valueStr);
             EncodeScreen.SetActive(true);
-            Info.color = Color.red;
+            //Info.color = Color.red;
 			if (errorlog == -13) {
-				Info.text = "Must contain 12 digits,the 13th digit is automatically added !";
+				//Info.text = "Must contain 12 digits,the 13th digit is automatically added !";
 
 			} else if (errorlog == -8) {
-                Info.text = "Must contain 7 digits,the 8th digit is automatically added !";
+               // Info.text = "Must contain 7 digits,the 8th digit is automatically added !";
 			}
             else if (errorlog == -39)
             {
-                Info.text = "Only support digits";
+                //Info.text = "Only support digits";
             }
             else if (errorlog == -128) {
-                Info.text = "Contents length should be between 1 and 80 characters !";
+                //Info.text = "Contents length should be between 1 and 80 characters !";
 
 			} else if (errorlog == -1) {
-                Info.text = "Please select one code type !";
+                //Info.text = "Please select one code type !";
 			}
 			else if (errorlog == 0) {
-                Info.color = Color.green;
-                Info.text = "Encode successfully !";
+                //Info.color = Color.green;
+                //Info.text = "Encode successfully !";
 			}
 		}
 	}
