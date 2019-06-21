@@ -15,6 +15,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject[] ARButtons;
     public GameObject SlamManager;
     public GameObject GroundPlaneUi;
+    public bool SLAM = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +30,12 @@ public class ButtonManager : MonoBehaviour
                 ARButtons[i].SetActive(false);
             }
         }
-        productPlacement.SetActive(false);
-        PlaneManager.SetActive(false);
-        GroundPlaneUi.SetActive(false);
+        if (SLAM == true)
+        {
+            productPlacement.SetActive(false);
+            PlaneManager.SetActive(false);
+            GroundPlaneUi.SetActive(false);
+        }
     }
 
     // Update is called once per frame

@@ -8,6 +8,7 @@ TagManager:
   - FunctionManager
   - ARUI
   - Button
+  - Socket
   layers:
   - Default
   - TransparentFX

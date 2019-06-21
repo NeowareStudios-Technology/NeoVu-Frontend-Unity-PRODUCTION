@@ -1,0 +1,35 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GPSPoint : MonoBehaviour
+{
+    public float latitude;
+    public float longitude;
+    public string type;
+    public string Value;
+    public GameObject Notification;
+    public float bufferLong;
+    public float bufferLat;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Notification.SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void DoSomething()
+    {
+        Notification.SetActive(true);
+    }
+    public void DoNothing()
+    {
+        Notification.SetActive(false);
+    }
+}

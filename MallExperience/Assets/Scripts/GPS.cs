@@ -12,13 +12,11 @@ using UnityEngine.Android;
 
 public class GPS : MonoBehaviour
 {
-    public TMPro.TextMeshProUGUI debugText;
+    //public TMPro.TextMeshProUGUI debugText;
     public TMPro.TextMeshProUGUI fatLat;
     public TMPro.TextMeshProUGUI wrongLong;
-    public float targLat;
-    public float targLong;
-    public TMPro.TextMeshProUGUI targetLong;
-    public TMPro.TextMeshProUGUI TargetLat;
+    //public TMPro.TextMeshProUGUI targetLong;
+   // public TMPro.TextMeshProUGUI TargetLat;
     public TMPro.TextMeshProUGUI Results;
     private int timeCheck;
     private bool latCheck = false;
@@ -26,17 +24,24 @@ public class GPS : MonoBehaviour
     public bool reward;
     public bool redeemed = false;
     public int value;
+    public bool newExperience = false;
+    public GPSPoint[] gpsPoints;
+    private float lastLat = 0.0f;
+    private float lastLong = 0.0f;
 
     public void Start()
     {
+        Debug.LogWarning(gpsPoints[1].longitude);
+        Debug.LogWarning(gpsPoints[0].longitude);
+        
 #if PLATFORM_ANDROID
         if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
         {
             Permission.RequestUserPermission(Permission.FineLocation);
         }
 #endif
-        targetLong.text = targLong.ToString();
-        TargetLat.text = (targLat - .00003f).ToString();
+        //targetLong.text = targLong.ToString();
+        //TargetLat.text = (targLat - .00003f).ToString();
         StartCoroutine(checkLocation());
     }
 
@@ -56,19 +61,19 @@ public class GPS : MonoBehaviour
         Input.location.Start();
 
         // Wait until service initializes
-        int maxWait = 10;
+        int maxWait = 2;
         while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
         {
             yield return new WaitForSeconds(1);
             maxWait--;
             Debug.Log("Time til Test " + maxWait + " Seconds");
-            debugText.text = ("Time til Test " + maxWait + " Seconds");
+            //debugText.text = ("Time til Test " + maxWait + " Seconds");
         }
 
         // Service didn't initialize in 20 seconds
         if (maxWait < 1)
         {
-            debugText.text = ("Timed out");
+           // debugText.text = ("Timed out");
             StartCoroutine(checkLocation());
             yield break;
         }
@@ -76,7 +81,7 @@ public class GPS : MonoBehaviour
         // Connection has failed
         if (Input.location.status == LocationServiceStatus.Failed)
         {
-            debugText.text = ("Unable to determine device location");
+            //debugText.text = ("Unable to determine device location");
             StartCoroutine(checkLocation());
             yield break;
         }
@@ -86,8 +91,16 @@ public class GPS : MonoBehaviour
             print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
             fatLat.text = ("Latitude: " + Input.location.lastData.latitude);
             wrongLong.text = ("Longitude: " + Input.location.lastData.longitude);
-            LocationVerify();
-            StartCoroutine(Retry());
+            if (Input.location.lastData.latitude != lastLat)
+            {
+                lastLat = Input.location.lastData.latitude;
+                LocationVerify();
+                StartCoroutine(Retry());
+            }
+            else
+            {
+                StartCoroutine(Retry());
+            }
         }
 
         // Stop service if there is no need to query location updates continuously
@@ -97,14 +110,14 @@ public class GPS : MonoBehaviour
     }
     IEnumerator Retry()
     {
-        int maxWait = 10;
+        int maxWait = 2;
 
         while (maxWait > 0)
         {
             yield return new WaitForSeconds(1);
             maxWait--;
             Debug.Log("Time til Test " + maxWait + " Seconds");
-            debugText.text = ("Time til Test " + maxWait + " Seconds");
+            //debugText.text = ("Time til Test " + maxWait + " Seconds");
         }
         if (maxWait < 1)
         {
@@ -113,34 +126,42 @@ public class GPS : MonoBehaviour
     }
     public void LocationVerify()
     {
-        if ((Input.location.lastData.latitude >= (targLat - .00003f)) && (Input.location.lastData.latitude <= (targLat + .00003f)))
-        {
-            Results.text = ("Latitude in Range,  time: " + timeCheck.ToString());
-            latCheck = true;
-        }
-        else
+        Debug.LogWarning("Location Verify");
+        for (int i = 0; i < gpsPoints.Length; i++)
         {
             latCheck = false;
-        }
-
-
-         if((Input.location.lastData.longitude >= (targLong - .00003f)) && (Input.location.lastData.longitude <= (targLong + .00003f)))
-        {
-            Results.text = ("longitude match, time: " + timeCheck.ToString());
-            longCheck = true;
-        }
-        else
-        {
             longCheck = false;
-        }
-
-         if(latCheck == true && longCheck == true)
-        {
-            Results.text = ("Target Location in Range, time: " + timeCheck.ToString());
-            if(reward == true && redeemed == false)
+            if ((Input.location.lastData.latitude >= (gpsPoints[i].latitude - gpsPoints[i].bufferLat)) && (Input.location.lastData.latitude <= (gpsPoints[i].latitude + gpsPoints[i].bufferLat)))
             {
-                this.gameObject.GetComponent<VuPointHandler>().addPoints(value);
-                redeemed = true;
+                Results.text = ("Latitude in Range,  name: " + gpsPoints[i].Value   );
+                latCheck = true;
+            }
+            else
+            {
+                latCheck = false;
+            }
+
+
+            if ((Input.location.lastData.longitude >= (gpsPoints[i].longitude - gpsPoints[i].bufferLong)) && (Input.location.lastData.longitude <= (gpsPoints[i].longitude + gpsPoints[i].bufferLong)))
+            {
+                Results.text = ("longitude match, name: " + gpsPoints[i].Value);
+                longCheck = true;
+            }
+            else
+            {
+                longCheck = false;
+            }
+            if (latCheck == true && longCheck == true)
+            {
+                 Results.text = ("Target Location in Range, Name: " + gpsPoints[i].Value);
+                gpsPoints[i].DoSomething();
+
+            }
+            else
+            {
+                latCheck = false;   //This resets both checks to avoid a possible albeit very unlikely overlap between seperate points
+                longCheck = false;
+                gpsPoints[i].DoNothing();
             }
         }
         timeCheck++;
