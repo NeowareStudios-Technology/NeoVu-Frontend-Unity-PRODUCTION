@@ -8,7 +8,11 @@ countries.
 public class VideoTrackableEventHandler : DefaultTrackableEventHandler
 {
     #region PROTECTED_METHODS
-
+    protected override void OnTrackingFound()
+    {
+        mTrackableBehaviour.GetComponentInChildren<VideoController>().Play();
+        base.OnTrackingFound();
+    }
     protected override void OnTrackingLost()
     {
         mTrackableBehaviour.GetComponentInChildren<VideoController>().Pause();

@@ -9,6 +9,7 @@ TagManager:
   - ARUI
   - Button
   - Socket
+  - Video
   layers:
   - Default
   - TransparentFX
