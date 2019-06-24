@@ -10,6 +10,7 @@ TagManager:
   - Button
   - Socket
   - Video
+  - ARLink
   layers:
   - Default
   - TransparentFX
