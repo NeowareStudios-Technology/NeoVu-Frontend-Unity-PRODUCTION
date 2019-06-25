@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 2553862800875056577}
   - component: {fileID: 8846306311078676229}
   - component: {fileID: 848854534913802274}
+  - component: {fileID: 5900497324128942645}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -262,3 +263,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTag: ARObject
+--- !u!54 &5900497324128942645
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617248090237682457}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

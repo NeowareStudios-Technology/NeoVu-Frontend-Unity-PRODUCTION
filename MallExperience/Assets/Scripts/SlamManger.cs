@@ -105,7 +105,8 @@ public class SlamManger : MonoBehaviour
     {
         indicator.transform.localPosition = new Vector3(0, 0, 0);
         //if (indicator.GetComponent<MeshRenderer>().enabled)
-       // {
+        // {
+        currentItem.GetComponent<Rigidbody>().isKinematic = false;
            
             if (currentItem != null)
             {
