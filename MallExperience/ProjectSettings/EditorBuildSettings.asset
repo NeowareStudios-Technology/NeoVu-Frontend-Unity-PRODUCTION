@@ -62,7 +62,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/NeoView_Login.unity
     guid: 14435eb976a3b4f61925e3f0835f3ed8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/kengreenberg.unity
     guid: 9b66ea2526b606e4fbea699666808137
   m_configObjects: {}
