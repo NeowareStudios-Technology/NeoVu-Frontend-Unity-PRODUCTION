@@ -62,7 +62,7 @@ public class BallThrow : MonoBehaviour
             direction = startPos - endPos;
             rb.isKinematic = false;
             rb.AddForce(-direction.x * throwForceInXamdY, -direction.y * throwForceInXamdY, throwForceInZ / timeInterval);
-            this.transform.parent = null;
+            //this.transform.parent = null;
 
             Destroy(gameObject, 3f);
         }
