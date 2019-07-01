@@ -9508,7 +9508,7 @@ MonoBehaviour:
   gender: {fileID: 1089014521}
   phoneNum: {fileID: 336796248}
   genderVal: 
-  loginScreen: {fileID: 0}
+  loginScreen: {fileID: 1916166236}
 --- !u!4 &1837821724
 Transform:
   m_ObjectHideFlags: 0

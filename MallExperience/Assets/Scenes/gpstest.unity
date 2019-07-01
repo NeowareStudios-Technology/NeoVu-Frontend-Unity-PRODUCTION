@@ -4930,11 +4930,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: thesockgallery
       objectReference: {fileID: 0}
-    - target: {fileID: 7705970884052954249, guid: dcd2a944126651d48b50a04c2b8c0c72,
-        type: 3}
-      propertyPath: m_Transition
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7705970883588770121, guid: dcd2a944126651d48b50a04c2b8c0c72,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -4969,11 +4964,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Dismiss
-      objectReference: {fileID: 0}
-    - target: {fileID: 7705970883020382518, guid: dcd2a944126651d48b50a04c2b8c0c72,
-        type: 3}
-      propertyPath: m_Transition
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7705970882634661176, guid: dcd2a944126651d48b50a04c2b8c0c72,
         type: 3}
@@ -9108,11 +9098,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: zoohealthclub
       objectReference: {fileID: 0}
-    - target: {fileID: 7705970884052954249, guid: dcd2a944126651d48b50a04c2b8c0c72,
-        type: 3}
-      propertyPath: m_Transition
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7705970883588770121, guid: dcd2a944126651d48b50a04c2b8c0c72,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -9147,11 +9132,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Dismiss
-      objectReference: {fileID: 0}
-    - target: {fileID: 7705970883020382518, guid: dcd2a944126651d48b50a04c2b8c0c72,
-        type: 3}
-      propertyPath: m_Transition
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7705970882634661176, guid: dcd2a944126651d48b50a04c2b8c0c72,
         type: 3}
@@ -12544,11 +12524,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: mooyah
       objectReference: {fileID: 0}
-    - target: {fileID: 7705970884052954249, guid: dcd2a944126651d48b50a04c2b8c0c72,
-        type: 3}
-      propertyPath: m_Transition
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7705970883588770121, guid: dcd2a944126651d48b50a04c2b8c0c72,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -12578,11 +12553,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Dismiss
-      objectReference: {fileID: 0}
-    - target: {fileID: 7705970883020382518, guid: dcd2a944126651d48b50a04c2b8c0c72,
-        type: 3}
-      propertyPath: m_Transition
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7705970882634661176, guid: dcd2a944126651d48b50a04c2b8c0c72,
         type: 3}

@@ -133,7 +133,7 @@ public class GPS : MonoBehaviour
             longCheck = false;
             if ((Input.location.lastData.latitude >= (gpsPoints[i].latitude - gpsPoints[i].bufferLat)) && (Input.location.lastData.latitude <= (gpsPoints[i].latitude + gpsPoints[i].bufferLat)))
             {
-                Results.text = ("Latitude in Range,  name: " + gpsPoints[i].Value   );
+                //Results.text = ("Latitude in Range,  name: " + gpsPoints[i].Value   );
                 latCheck = true;
             }
             else
@@ -144,7 +144,7 @@ public class GPS : MonoBehaviour
 
             if ((Input.location.lastData.longitude >= (gpsPoints[i].longitude - gpsPoints[i].bufferLong)) && (Input.location.lastData.longitude <= (gpsPoints[i].longitude + gpsPoints[i].bufferLong)))
             {
-                Results.text = ("longitude match, name: " + gpsPoints[i].Value);
+                //Results.text = ("longitude match, name: " + gpsPoints[i].Value);
                 longCheck = true;
             }
             else
@@ -153,7 +153,7 @@ public class GPS : MonoBehaviour
             }
             if (latCheck == true && longCheck == true)
             {
-                 Results.text = ("Target Location in Range, Name: " + gpsPoints[i].Value);
+                 //Results.text = ("Target Location in Range, Name: " + gpsPoints[i].Value);
                 gpsPoints[i].DoSomething();
                 gpsPoints[i].reached = true;
 
