@@ -12,6 +12,7 @@ public class GPSPoint : MonoBehaviour
     public float bufferLong;
     public float bufferLat;
     public bool reached = false;
+    public bool redeemed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +28,15 @@ public class GPSPoint : MonoBehaviour
 
     public void DoSomething()
     {
-        Notification.SetActive(true);
+        if (redeemed == false)
+        {
+            Notification.SetActive(true);
+            redeemed = true;
+        }
     }
     public void DoNothing()
     {
         Notification.SetActive(false);
+        redeemed = false;
     }
 }
