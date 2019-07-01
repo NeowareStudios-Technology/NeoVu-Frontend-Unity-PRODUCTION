@@ -298,6 +298,18 @@ public class AWSManager : MonoBehaviour
             }
             else
             {
+                System.IO.DirectoryInfo di = new DirectoryInfo(Application.persistentDataPath);
+
+                //delete all downloaded streaming assets (ie. vuforia datasets)
+                foreach (FileInfo files in di.GetFiles())
+                {
+                    //files.Delete(); 
+                    if (files.FullName.Contains(file))
+                    {
+                        Debug.LogError(files.FullName);
+                    }
+                }
+                Debug.LogError(di);
                 Debug.LogWarning(folderName);
                 Debug.Log("starting download");
                 Debug.LogWarning(PlayerPrefs.GetString(folderName + "VN"));
