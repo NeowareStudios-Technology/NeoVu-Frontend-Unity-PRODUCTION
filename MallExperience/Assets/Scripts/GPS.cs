@@ -89,8 +89,8 @@ public class GPS : MonoBehaviour
         {
             // Access granted and location value could be retrieved
             print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
-            fatLat.text = ("Latitude: " + Input.location.lastData.latitude);
-            wrongLong.text = ("Longitude: " + Input.location.lastData.longitude);
+            //fatLat.text = ("Latitude: " + Input.location.lastData.latitude);
+           // wrongLong.text = ("Longitude: " + Input.location.lastData.longitude);
             if (Input.location.lastData.latitude != lastLat)
             {
                 lastLat = Input.location.lastData.latitude;

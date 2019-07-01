@@ -6720,6 +6720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GPSSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 6047481173003909476, guid: ddd0b7fdb63f47c4c809a0006cdf63e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6047481173003909496, guid: ddd0b7fdb63f47c4c809a0006cdf63e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9452,7 +9457,7 @@ MonoBehaviour:
   longitude: -81.23361
   type: Experience
   Value: Sock
-  Notification: {fileID: 0}
+  Notification: {fileID: 2012485501}
   bufferLong: 0
   bufferLat: 0
   reached: 0
@@ -11770,7 +11775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00008580274}
+  m_AnchoredPosition: {x: 0, y: 0.000015881145}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &41476734705825646
