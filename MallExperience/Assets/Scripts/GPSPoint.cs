@@ -11,6 +11,7 @@ public class GPSPoint : MonoBehaviour
     public GameObject Notification;
     public float bufferLong;
     public float bufferLat;
+    public bool reached = false;
 
     // Start is called before the first frame update
     void Start()

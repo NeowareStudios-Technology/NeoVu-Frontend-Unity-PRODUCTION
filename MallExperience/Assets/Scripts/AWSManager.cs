@@ -335,8 +335,8 @@ public class AWSManager : MonoBehaviour
         SceneManager.LoadScene("mainmenu");
     }
 
-    public void kennyG()
+    public void kennyG(string name)
     {
-        SceneManager.LoadScene("kengreenberg");
+        SceneManager.LoadScene(name);
     }
 }

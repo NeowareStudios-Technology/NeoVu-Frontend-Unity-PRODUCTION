@@ -167,6 +167,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTag: ARObject
+--- !u!64 &6158626231412697237
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8998794702241717785}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300004, guid: 9b4cb47ca105ad645ae5ad54904e073f, type: 3}
 --- !u!1001 &9000036955367516299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -180,7 +194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1312780843579026, guid: 32c8f6013f2bca442a6dc7789b0c5022, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4674886283895956, guid: 32c8f6013f2bca442a6dc7789b0c5022, type: 3}
       propertyPath: m_LocalPosition.x

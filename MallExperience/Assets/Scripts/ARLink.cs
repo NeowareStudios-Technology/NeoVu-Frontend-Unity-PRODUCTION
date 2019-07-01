@@ -28,6 +28,9 @@ public class ARLink : MonoBehaviour
                 if (Physics.Raycast(ray, out hit) && hit.transform.tag == "ARLink")
                 {
                     linkScriptHolder.GetComponent<OpenExternalSource>().OpenLink(link);
+                    int playerVal = PlayerPrefs.GetInt("VuPoints");
+                    playerVal = playerVal + 500;
+                    PlayerPrefs.SetInt("VuPoints", playerVal);
                 }
             }
         }
@@ -39,6 +42,9 @@ public class ARLink : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.transform.tag == "ARLink")
             {
                 linkScriptHolder.GetComponent<OpenExternalSource>().OpenLink(link);
+                int playerVal = PlayerPrefs.GetInt("VuPoints");
+                playerVal = playerVal + 500;
+                PlayerPrefs.SetInt("VuPoints", playerVal);
 
             }
         }

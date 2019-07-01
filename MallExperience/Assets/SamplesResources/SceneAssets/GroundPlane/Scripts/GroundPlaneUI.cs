@@ -233,7 +233,7 @@ public class GroundPlaneUI : MonoBehaviour
                 break;
         }
 
-        StatusMessage.Instance.Display(statusMessage);
+      //  StatusMessage.Instance.Display(statusMessage);
         // Uncomment the following line to show Status and StatusInfo values
         //StatusMessage.Instance.Display(status.ToString() + " -- " + statusInfo.ToString());
     }

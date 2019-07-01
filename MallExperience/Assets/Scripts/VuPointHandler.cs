@@ -24,7 +24,7 @@ public class VuPointHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vuPointsVal.text = ("VuPoints: " + PlayerPrefs.GetInt("VuPoints").ToString());
+        vuPointsVal.text = (PlayerPrefs.GetInt("VuPoints").ToString());
     }
 
     public void addPoints(int value)

@@ -155,6 +155,7 @@ public class GPS : MonoBehaviour
             {
                  Results.text = ("Target Location in Range, Name: " + gpsPoints[i].Value);
                 gpsPoints[i].DoSomething();
+                gpsPoints[i].reached = true;
 
             }
             else
@@ -162,6 +163,7 @@ public class GPS : MonoBehaviour
                 latCheck = false;   //This resets both checks to avoid a possible albeit very unlikely overlap between seperate points
                 longCheck = false;
                 gpsPoints[i].DoNothing();
+                gpsPoints[i].reached = false;
             }
         }
         timeCheck++;
