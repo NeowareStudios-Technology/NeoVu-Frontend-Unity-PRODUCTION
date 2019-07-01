@@ -22,6 +22,7 @@ public class Login : MonoBehaviour
     public TMPro.TMP_InputField phoneNum;
     public string genderVal;
     System.DateTime birthCheck;
+    public GameObject loginScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,7 @@ public class Login : MonoBehaviour
         Debug.Log((System.DateTime.Today - newDate).Days);
         if (PlayerPrefs.GetString("Status") == "Signed In")
         {
+
             LogIn();
         }
         Debug.LogError(PlayerPrefs.GetString("Status"));
@@ -272,6 +274,7 @@ public class Login : MonoBehaviour
                 PlayerPrefs.SetString("Status", "Signed In");
                 Debug.Log("Email Verified");
                 this.GetComponent<AWSManager>().DowloadDataSet("mainmenu");
+                loginScreen.SetActive(true);
             }
 
             else
