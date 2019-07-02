@@ -38,6 +38,14 @@ public class GPS : MonoBehaviour
             Permission.RequestUserPermission(Permission.FineLocation);
         }
 #endif
+
+#if PLATFORM_IOS
+        if (!Input.location.isEnabledByUser)
+        {
+            Input.location.Start();
+        }
+
+#endif
         //targetLong.text = targLong.ToString();
         //TargetLat.text = (targLat - .00003f).ToString();
         StartCoroutine(checkLocation());
@@ -52,8 +60,8 @@ public class GPS : MonoBehaviour
                 Debug.Log("Location Services Not Enabled");
                 StartCoroutine(checkLocation());
                 yield break;
-            #endif*/
-        }
+#endif*/
+    }
 
         // Start service before querying location
         Input.location.Start();

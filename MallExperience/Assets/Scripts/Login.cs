@@ -34,7 +34,7 @@ public class Login : MonoBehaviour
         Debug.Log((System.DateTime.Today - newDate).Days);
         if (PlayerPrefs.GetString("Status") == "Signed In")
         {
-
+            loginScreen.SetActive(true);
             LogIn();
         }
         Debug.LogError(PlayerPrefs.GetString("Status"));
