@@ -28,15 +28,15 @@ public class GPSPoint : MonoBehaviour
 
     public void DoSomething()
     {
-        if (redeemed == false)
-        {
+       // if (redeemed == false)
+        //{
             Notification.SetActive(true);
-            redeemed = true;
-        }
+       //     redeemed = true;
+       // }
     }
     public void DoNothing()
     {
-        Notification.SetActive(false);
-        redeemed = false;
+      //  Notification.SetActive(false);
+       // redeemed = false;
     }
 }

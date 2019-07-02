@@ -13,11 +13,11 @@ using UnityEngine.Android;
 public class GPS : MonoBehaviour
 {
     //public TMPro.TextMeshProUGUI debugText;
-    public TMPro.TextMeshProUGUI fatLat;
-    public TMPro.TextMeshProUGUI wrongLong;
+    //public TMPro.TextMeshProUGUI fatLat;
+    //public TMPro.TextMeshProUGUI wrongLong;
     //public TMPro.TextMeshProUGUI targetLong;
-   // public TMPro.TextMeshProUGUI TargetLat;
-    public TMPro.TextMeshProUGUI Results;
+    // public TMPro.TextMeshProUGUI TargetLat;
+    //public TMPro.TextMeshProUGUI Results;
     private int timeCheck;
     private bool latCheck = false;
     private bool longCheck = false;
@@ -31,9 +31,7 @@ public class GPS : MonoBehaviour
 
     public void Start()
     {
-        Debug.LogWarning(gpsPoints[1].longitude);
-        Debug.LogWarning(gpsPoints[0].longitude);
-        
+
 #if PLATFORM_ANDROID
         if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
         {
@@ -50,11 +48,11 @@ public class GPS : MonoBehaviour
         // First, check if user has location service enabled
         if (!Input.location.isEnabledByUser)
         {
-        /*#if PLATFORM_ANDROID
-            Debug.Log("Location Services Not Enabled");
-            StartCoroutine(checkLocation());
-            yield break;
-        #endif*/
+            /*#if PLATFORM_ANDROID
+                Debug.Log("Location Services Not Enabled");
+                StartCoroutine(checkLocation());
+                yield break;
+            #endif*/
         }
 
         // Start service before querying location
@@ -73,7 +71,7 @@ public class GPS : MonoBehaviour
         // Service didn't initialize in 20 seconds
         if (maxWait < 1)
         {
-           // debugText.text = ("Timed out");
+            // debugText.text = ("Timed out");
             StartCoroutine(checkLocation());
             yield break;
         }
@@ -90,7 +88,7 @@ public class GPS : MonoBehaviour
             // Access granted and location value could be retrieved
             print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
             //fatLat.text = ("Latitude: " + Input.location.lastData.latitude);
-           // wrongLong.text = ("Longitude: " + Input.location.lastData.longitude);
+            //wrongLong.text = ("Longitude: " + Input.location.lastData.longitude);
             if (Input.location.lastData.latitude != lastLat)
             {
                 lastLat = Input.location.lastData.latitude;
@@ -133,7 +131,7 @@ public class GPS : MonoBehaviour
             longCheck = false;
             if ((Input.location.lastData.latitude >= (gpsPoints[i].latitude - gpsPoints[i].bufferLat)) && (Input.location.lastData.latitude <= (gpsPoints[i].latitude + gpsPoints[i].bufferLat)))
             {
-                //Results.text = ("Latitude in Range,  name: " + gpsPoints[i].Value   );
+                //Results.text = ("Latitude in Range,  name: " + gpsPoints[i].Value);
                 latCheck = true;
             }
             else
@@ -153,9 +151,8 @@ public class GPS : MonoBehaviour
             }
             if (latCheck == true && longCheck == true)
             {
-                 //Results.text = ("Target Location in Range, Name: " + gpsPoints[i].Value);
+                //Results.text = ("Target Location in Range, Name: " + gpsPoints[i].Value);
                 gpsPoints[i].DoSomething();
-                gpsPoints[i].reached = true;
 
             }
             else
@@ -163,7 +160,6 @@ public class GPS : MonoBehaviour
                 latCheck = false;   //This resets both checks to avoid a possible albeit very unlikely overlap between seperate points
                 longCheck = false;
                 gpsPoints[i].DoNothing();
-                gpsPoints[i].reached = false;
             }
         }
         timeCheck++;
