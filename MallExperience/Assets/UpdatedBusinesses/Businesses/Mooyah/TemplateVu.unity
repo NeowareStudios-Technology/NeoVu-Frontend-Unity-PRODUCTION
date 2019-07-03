@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3849,7 +3849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &258436356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4525,6 +4525,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ExitPhoto
       objectReference: {fileID: 0}
+    - target: {fileID: 2532816236095241639, guid: e28bc30302fcdc343bbfb7d31663ac47,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -783
+      objectReference: {fileID: 0}
     - target: {fileID: 2532816236095241638, guid: e28bc30302fcdc343bbfb7d31663ac47,
         type: 3}
       propertyPath: m_IsActive
@@ -4539,11 +4544,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2532816236095241639, guid: e28bc30302fcdc343bbfb7d31663ac47,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -783
       objectReference: {fileID: 0}
     - target: {fileID: 2532816237215841720, guid: e28bc30302fcdc343bbfb7d31663ac47,
         type: 3}
@@ -10514,6 +10514,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ExitPhoto
       objectReference: {fileID: 0}
+    - target: {fileID: 2532816236095241639, guid: e28bc30302fcdc343bbfb7d31663ac47,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -783
+      objectReference: {fileID: 0}
     - target: {fileID: 2532816236095241638, guid: e28bc30302fcdc343bbfb7d31663ac47,
         type: 3}
       propertyPath: m_IsActive
@@ -10528,11 +10533,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2532816236095241639, guid: e28bc30302fcdc343bbfb7d31663ac47,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -783
       objectReference: {fileID: 0}
     - target: {fileID: 2532816237215841720, guid: e28bc30302fcdc343bbfb7d31663ac47,
         type: 3}
@@ -11064,6 +11064,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ExitPhoto
       objectReference: {fileID: 0}
+    - target: {fileID: 2532816236095241639, guid: e28bc30302fcdc343bbfb7d31663ac47,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -783
+      objectReference: {fileID: 0}
     - target: {fileID: 2532816236095241638, guid: e28bc30302fcdc343bbfb7d31663ac47,
         type: 3}
       propertyPath: m_IsActive
@@ -11078,11 +11083,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2532816236095241639, guid: e28bc30302fcdc343bbfb7d31663ac47,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -783
       objectReference: {fileID: 0}
     - target: {fileID: 2532816237215841720, guid: e28bc30302fcdc343bbfb7d31663ac47,
         type: 3}
@@ -11617,6 +11617,8 @@ MonoBehaviour:
   Notification: {fileID: 37416025}
   bufferLong: 0.00005
   bufferLat: 0.00005
+  reached: 0
+  redeemed: 0
 --- !u!114 &714653807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11636,6 +11638,8 @@ MonoBehaviour:
   Notification: {fileID: 1438532774}
   bufferLong: 0.00005
   bufferLat: 0.00005
+  reached: 0
+  redeemed: 0
 --- !u!114 &714653808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11648,9 +11652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907e80d86fbc3ee4dbea3904a564152b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fatLat: {fileID: 420381062}
-  wrongLong: {fileID: 477840637}
-  Results: {fileID: 1338901666}
   reward: 0
   redeemed: 0
   value: 0
@@ -21128,7 +21129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1290017678
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22908,6 +22909,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ExitPhoto
       objectReference: {fileID: 0}
+    - target: {fileID: 2532816236095241639, guid: e28bc30302fcdc343bbfb7d31663ac47,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -783
+      objectReference: {fileID: 0}
     - target: {fileID: 2532816236095241638, guid: e28bc30302fcdc343bbfb7d31663ac47,
         type: 3}
       propertyPath: m_IsActive
@@ -22922,11 +22928,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2532816236095241639, guid: e28bc30302fcdc343bbfb7d31663ac47,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -783
       objectReference: {fileID: 0}
     - target: {fileID: 2532816237215841720, guid: e28bc30302fcdc343bbfb7d31663ac47,
         type: 3}
@@ -23709,6 +23710,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ExitPhoto
       objectReference: {fileID: 0}
+    - target: {fileID: 2532816236095241639, guid: e28bc30302fcdc343bbfb7d31663ac47,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -783
+      objectReference: {fileID: 0}
     - target: {fileID: 2532816236095241638, guid: e28bc30302fcdc343bbfb7d31663ac47,
         type: 3}
       propertyPath: m_IsActive
@@ -23723,11 +23729,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2532816236095241639, guid: e28bc30302fcdc343bbfb7d31663ac47,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -783
       objectReference: {fileID: 0}
     - target: {fileID: 2532816237215841720, guid: e28bc30302fcdc343bbfb7d31663ac47,
         type: 3}
