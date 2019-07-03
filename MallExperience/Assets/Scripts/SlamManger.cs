@@ -13,6 +13,7 @@ public class SlamManger : MonoBehaviour
     public Text debugText;
     public Text touchCounter;
     private bool firstTime = false;
+    public bool multiObject = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -158,8 +159,16 @@ public class SlamManger : MonoBehaviour
     }
     public void SetDeleteItem()
     {
-        delete = true;
-        productPlacement.GetComponent<ProductPlacement>().chair = null;
-        productPlacement.GetComponent<TouchHandler>().augmentationObject = null;
+        if (multiObject == true)
+        {
+            delete = true;
+            productPlacement.GetComponent<ProductPlacement>().chair = null;
+            productPlacement.GetComponent<TouchHandler>().augmentationObject = null;
+        }
+        else
+        {
+            //delete = true;
+            productPlacement.GetComponent<ProductPlacement>().chair.transform.position = new Vector3(0, 1000, 0);
+        }
     }
 }
