@@ -23,6 +23,9 @@ public class Login : MonoBehaviour
     public string genderVal;
     System.DateTime birthCheck;
     public GameObject loginScreen;
+    public TMPro.TMP_InputField firstName;
+    public TMPro.TMP_InputField lastName;
+    public int age;
     // Start is called before the first frame update
     void Start()
     {
@@ -144,7 +147,21 @@ public class Login : MonoBehaviour
                                     }
                                     else
                                     {
-                                        SignUp();
+                                        if( firstName.text == "First Name" || firstName.text == null)
+                                        {
+                                            loginWarning.text = "Please input your first name";
+                                        }
+                                        else
+                                        {
+                                            if (lastName.text == "Last Name" || lastName.text == null)
+                                            {
+                                                loginWarning.text = "Please input your last name";
+                                            }
+                                            else
+                                            {
+                                                SignUp();
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -192,10 +209,16 @@ public class Login : MonoBehaviour
     //Firebase Sign in Function
     public void SignUp()
     {
+        age = (System.DateTime.Now.Year - birthCheck.Year);
         var email = userEmail.text;
         var password = userPassword.text;
+        PlayerPrefs.SetString("First Name", firstName.text);
+        PlayerPrefs.SetString("Last Name", lastName.text);
+        PlayerPrefs.SetString("Email", loginEmail.text);
+        PlayerPrefs.SetInt("Age",(System.DateTime.Now.Year - birthCheck.Year));
+        PlayerPrefs.SetString("Gender", genderVal);
 
-            FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task =>
+        FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task =>
             {
                 if (task.IsCanceled)
                 {

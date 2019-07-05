@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6340469234371692753}
   - component: {fileID: 1690478345149078007}
   - component: {fileID: 699770277768123010}
+  - component: {fileID: 8252950811218173771}
   m_Layer: 0
   m_Name: VuFunctionManager
   m_TagString: FunctionManager
@@ -74,6 +75,7 @@ MonoBehaviour:
   ARButtons: []
   SlamManager: {fileID: 0}
   GroundPlaneUi: {fileID: 0}
+  SLAM: 0
 --- !u!114 &1690478345149078007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,3 +114,20 @@ MonoBehaviour:
   viewsBucketName: neoware-neovu-views
   metaBucketName: neoware-neovu-meta
   filesDownloaded: 0
+--- !u!114 &8252950811218173771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340469234371692754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5691d2b016ab044caa22e8a455ca959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstName: 
+  lastName: 
+  email: 
+  age: 0
+  gender: 
