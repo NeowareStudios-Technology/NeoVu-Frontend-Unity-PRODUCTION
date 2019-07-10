@@ -25,6 +25,11 @@ public class Login : MonoBehaviour
     public GameObject loginScreen;
     public TMPro.TMP_InputField firstName;
     public TMPro.TMP_InputField lastName;
+    public int ageAnalytics;
+    public string firstNameAnalytics;
+    public string lastNameAnalytics;
+    public string emailAnalytics;
+    public string genderAnalytics;
     public int age;
     // Start is called before the first frame update
     void Start()
@@ -41,7 +46,18 @@ public class Login : MonoBehaviour
             LogIn();
         }
         Debug.LogError(PlayerPrefs.GetString("Status"));
-        Debug.LogWarning(PlayerPrefs.GetString("Email"));
+
+        emailAnalytics = (PlayerPrefs.GetString("Email"));
+        firstNameAnalytics = (PlayerPrefs.GetString("First Name"));
+        lastNameAnalytics = (PlayerPrefs.GetString("Last Name"));
+        genderAnalytics = (PlayerPrefs.GetString("Gender"));
+        ageAnalytics = (PlayerPrefs.GetInt("Age"));
+
+        Debug.LogWarning(emailAnalytics);
+        Debug.LogWarning(firstNameAnalytics);
+        Debug.LogWarning(lastNameAnalytics);
+        Debug.LogWarning(genderAnalytics);
+        Debug.LogWarning(ageAnalytics);
     }
 
     // Update is called once per frame
@@ -214,7 +230,7 @@ public class Login : MonoBehaviour
         var password = userPassword.text;
         PlayerPrefs.SetString("First Name", firstName.text);
         PlayerPrefs.SetString("Last Name", lastName.text);
-        PlayerPrefs.SetString("Email", loginEmail.text);
+        PlayerPrefs.SetString("Email", userEmail.text);
         PlayerPrefs.SetInt("Age",(System.DateTime.Now.Year - birthCheck.Year));
         PlayerPrefs.SetString("Gender", genderVal);
 

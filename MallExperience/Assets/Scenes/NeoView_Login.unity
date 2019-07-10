@@ -6099,6 +6099,7 @@ GameObject:
   - component: {fileID: 1276725909}
   - component: {fileID: 1276725908}
   - component: {fileID: 1276725912}
+  - component: {fileID: 1276725913}
   m_Layer: 5
   m_Name: Login-Button
   m_TagString: Untagged
@@ -6293,7 +6294,7 @@ MonoBehaviour:
           m_Value: 
           m_Target:
             m_Target: {fileID: 1837821723}
-            m_Path: firstName.text
+            m_Path: firstNameAnalytics
             m_ValidTypeNames:
             - System.Int32
             - System.Boolean
@@ -6323,7 +6324,7 @@ MonoBehaviour:
           m_Value: 
           m_Target:
             m_Target: {fileID: 1837821723}
-            m_Path: lastName.text
+            m_Path: lastNameAnalytics
             m_ValidTypeNames:
             - System.Int32
             - System.Boolean
@@ -6353,7 +6354,7 @@ MonoBehaviour:
           m_Value: 
           m_Target:
             m_Target: {fileID: 1837821723}
-            m_Path: loginEmail.text
+            m_Path: emailAnalytics
             m_ValidTypeNames:
             - System.Int32
             - System.Boolean
@@ -6383,7 +6384,7 @@ MonoBehaviour:
           m_Value: 
           m_Target:
             m_Target: {fileID: 1837821723}
-            m_Path: age
+            m_Path: ageAnalytics
             m_ValidTypeNames:
             - System.Int32
             - System.Boolean
@@ -6413,7 +6414,7 @@ MonoBehaviour:
           m_Value: 0
           m_Target:
             m_Target: {fileID: 1837821723}
-            m_Path: genderVal
+            m_Path: genderAnalytics
             m_ValidTypeNames:
             - System.Int32
             - System.Boolean
@@ -6426,7 +6427,67 @@ MonoBehaviour:
             - enum
             m_Type: System.String
             m_EnumType: 
-    m_Name: Login
+    m_Name: UserLogin
+--- !u!114 &1276725913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276725906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Trigger:
+    m_IsTriggerExpanded: 1
+    m_Type: 1
+    m_LifecycleEvent: 0
+    m_ApplyRules: 0
+    m_Rules:
+      m_Rules: []
+    m_TriggerBool: 0
+    m_InitTime: 5
+    m_RepeatTime: 5
+    m_Repetitions: 0
+    repetitionCount: 0
+  m_EventPayload:
+    m_IsEventExpanded: 1
+    m_StandardEventType: CustomEvent
+    m_Parameters:
+      m_Parameters:
+      - m_RequirementType: 0
+        m_GroupID: 
+        m_Tooltip: 
+        m_Name: FirstName
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 0
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 2
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.Int32
+            - System.Boolean
+            - System.Decimal
+            - System.Double
+            - System.Single
+            - System.Int64
+            - System.Int16
+            - System.String
+            - enum
+            m_Type: System.String
+            m_EnumType: 
+    m_Name: UpdatedLogin
 --- !u!95 &1285562572 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95141713700349528, guid: f6d82199af7ca3743b7a21cc4398ba50,
@@ -9999,6 +10060,11 @@ MonoBehaviour:
   loginScreen: {fileID: 1916166236}
   firstName: {fileID: 896519205}
   lastName: {fileID: 2019017515}
+  ageAnalytics: 0
+  firstNameAnalytics: 
+  lastNameAnalytics: 
+  emailAnalytics: 
+  genderAnalytics: 
   age: 0
 --- !u!4 &1837821724
 Transform:
