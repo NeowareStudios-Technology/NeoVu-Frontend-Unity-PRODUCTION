@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Firebase.Auth;
 using Firebase;
+using Firebase.Analytics;
 
 public class Login : MonoBehaviour
 {
@@ -253,6 +254,7 @@ public class Login : MonoBehaviour
                 loginWarning.text = ("Sign Up Completed");
                 // Firebase user has been created.
                 Firebase.Auth.FirebaseUser newUser = task.Result;
+                Firebase.Analytics.FirebaseAnalytics.SetUserProperty("Gender", genderVal);
                 Debug.LogFormat("Firebase user created successfully: {0} ({1})",
                     newUser.DisplayName, newUser.UserId);
                 newUser.SendEmailVerificationAsync();
