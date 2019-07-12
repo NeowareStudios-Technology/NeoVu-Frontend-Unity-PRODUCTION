@@ -5,7 +5,8 @@ using UnityEngine;
 public class ARLink : MonoBehaviour
 {
     public string link;
-    public GameObject linkScriptHolder;
+    public int value;
+    public bool inApp = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +26,25 @@ public class ARLink : MonoBehaviour
                 RaycastHit hit;
                 Debug.Log("RayCast Sent");
                 // Create a particle if hit
-                if (Physics.Raycast(ray, out hit) && hit.transform.tag == "ARLink")
+                if (Physics.Raycast(ray, out hit))
                 {
-                    linkScriptHolder.GetComponent<OpenExternalSource>().OpenLink(link);
-                    int playerVal = PlayerPrefs.GetInt("VuPoints");
-                    playerVal = playerVal + 500;
-                    PlayerPrefs.SetInt("VuPoints", playerVal);
+                    if (hit.collider.gameObject == this.gameObject)
+                    {
+                        Debug.LogError("LinkerHit");
+                        Debug.LogWarning(this.name);
+                        if (inApp == false)
+                        {
+                            Application.OpenURL(link);
+                        }
+                        else
+                        {
+                            InAppBrowser.OpenURL(link);
+                        }
+
+                        int playerVal = PlayerPrefs.GetInt("VuPoints");
+                        playerVal = playerVal + value;
+                        PlayerPrefs.SetInt("VuPoints", playerVal);
+                    }
                 }
             }
         }
@@ -39,12 +53,25 @@ public class ARLink : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Debug.Log("RayCast Sent");
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit) && hit.transform.tag == "ARLink")
+            if (Physics.Raycast(ray, out hit))
             {
-                linkScriptHolder.GetComponent<OpenExternalSource>().OpenLink(link);
-                int playerVal = PlayerPrefs.GetInt("VuPoints");
-                playerVal = playerVal + 500;
-                PlayerPrefs.SetInt("VuPoints", playerVal);
+                if (hit.collider.gameObject == this.gameObject)
+                {
+                    Debug.LogError("LinkerHit");
+                    Debug.LogWarning(this.name);
+                    if (inApp == false)
+                    {
+                        Application.OpenURL(link);
+                    }
+                    else
+                    {
+                        InAppBrowser.OpenURL(link);
+                    }
+
+                    int playerVal = PlayerPrefs.GetInt("VuPoints");
+                    playerVal = playerVal + value;
+                    PlayerPrefs.SetInt("VuPoints", playerVal);
+                }
 
             }
         }
