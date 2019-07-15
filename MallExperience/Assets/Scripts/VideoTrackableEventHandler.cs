@@ -5,14 +5,22 @@ Vuforia is a trademark of PTC Inc., registered in the United States and other
 countries.
 ===============================================================================*/
 using UnityEngine;
+using UnityEngine.Video;
 public class VideoTrackableEventHandler : DefaultTrackableEventHandler
 {
     public bool animated = false;
     public Animator[] anims;
+    public YoutubePlayer player;
+    public VideoPlayer video;
     #region PROTECTED_METHODS
+    
     protected override void OnTrackingFound()
     {
-        mTrackableBehaviour.GetComponentInChildren<VideoController>().Play();
+        //mTrackableBehaviour.transform.GetChild(0).gameObject.SetActive(true);
+        player.Play();
+        video.enabled = true;
+        //player.enabled = true;
+        //mTrackableBehaviour.GetComponentInChildren<VideoController>().Play();
         base.OnTrackingFound();
         if (animated == true)
         {
@@ -29,8 +37,10 @@ public class VideoTrackableEventHandler : DefaultTrackableEventHandler
     }
     protected override void OnTrackingLost()
     {
-        mTrackableBehaviour.GetComponentInChildren<VideoController>().Pause();
-
+        player.Pause();
+        //player.enabled = false;
+        //mTrackableBehaviour.GetComponentInChildren<VideoController>().Pause();
+       // mTrackableBehaviour.transform.GetChild(0).gameObject.SetActive(false);
         base.OnTrackingLost();
     }
 

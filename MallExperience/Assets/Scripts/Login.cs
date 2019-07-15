@@ -79,6 +79,11 @@ public class Login : MonoBehaviour
         loginWarning.text = ("Verification Email sent!");
     }
 
+    public void CloseSignup()
+    {
+        signUpScreen.SetActive(false);
+    }
+
 
     public void PasswordCheck()
     {
