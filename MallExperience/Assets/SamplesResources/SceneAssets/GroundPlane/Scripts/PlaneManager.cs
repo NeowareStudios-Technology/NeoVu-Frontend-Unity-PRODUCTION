@@ -239,11 +239,13 @@ public class PlaneManager : MonoBehaviour
                         // has already been placed and positioned, then a new anchor
                         // is placed and the stage is centered to it, but the content
                         // retains its offset in relation to the stage.
-                        if (!this.productPlacement.IsPlaced || TouchHandler.DoubleTap)
+                        if (!this.productPlacement.IsPlaced /*|| TouchHandler.DoubleTap*/)
                         {
                             this.contentPositioningBehaviour.AnchorStage = this.placementAnchor;
                             this.contentPositioningBehaviour.PositionContentAtPlaneAnchor(result);
                             UtilityHelper.EnableRendererColliderCanvas(placementAugmentation, true);
+                                                        this.productPlacement.SetProductAnchor(this.placementAnchor.transform);
+                            this.touchHandler.enableRotation = true;
                         }
 
                         // Immediately following the steps above, we again confirm that the
@@ -255,11 +257,11 @@ public class PlaneManager : MonoBehaviour
                         // relation to the stage collision plane as well as its rotation.
                         // The SetProductAnchor() will set the IsPlaced flag to true if the
                         // transform argument is valid and to false if it is null.
-                        if (!this.productPlacement.IsPlaced)
+                        /*if (!this.productPlacement.IsPlaced)
                         {
                             this.productPlacement.SetProductAnchor(this.placementAnchor.transform);
                             this.touchHandler.enableRotation = true;
-                        }
+                        }*/
                     }
 
                     break;

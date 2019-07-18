@@ -59,10 +59,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/UpdatedBusinesses/Businesses/Mooyah/oviedosummer.unity
     guid: e91d9a9b36a812549b78073288848cbd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NeoView_Login.unity
     guid: 14435eb976a3b4f61925e3f0835f3ed8
   - enabled: 0
     path: Assets/Scenes/kengreenberg.unity
     guid: 9b66ea2526b606e4fbea699666808137
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/vuforiavu.unity
+    guid: 005688f5797e7d84ebfe00c5801d41f3
   m_configObjects: {}
