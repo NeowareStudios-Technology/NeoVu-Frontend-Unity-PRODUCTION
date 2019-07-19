@@ -244,7 +244,7 @@ public class PlaneManager : MonoBehaviour
                             this.contentPositioningBehaviour.AnchorStage = this.placementAnchor;
                             this.contentPositioningBehaviour.PositionContentAtPlaneAnchor(result);
                             UtilityHelper.EnableRendererColliderCanvas(placementAugmentation, true);
-                                                        this.productPlacement.SetProductAnchor(this.placementAnchor.transform);
+                            this.productPlacement.SetProductAnchor(this.placementAnchor.transform);
                             this.touchHandler.enableRotation = true;
                         }
 

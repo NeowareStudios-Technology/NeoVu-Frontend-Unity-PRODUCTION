@@ -16,6 +16,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject SlamManager;
     public GameObject GroundPlaneUi;
     public bool SLAM = false;
+    private bool firstStart = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,18 +31,16 @@ public class ButtonManager : MonoBehaviour
                 ARButtons[i].SetActive(false);
             }
         }
-        if (SLAM == true)
-        {
-            productPlacement.SetActive(false);
-            PlaneManager.SetActive(false);
-            GroundPlaneUi.SetActive(false);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(SLAM == true && firstStart == false)
+        {
+            CameraMode();
+            firstStart = true;
+        }
     }
 
     //Disable flashlight when called
@@ -69,6 +68,7 @@ public class ButtonManager : MonoBehaviour
         productPlacement.SetActive(true);
         PlaneManager.SetActive(true);
         GroundPlaneUi.SetActive(true);
+        
         if (SwipeScript != null)
         {
             SwipeScript.GetComponent<SwipeDetector>().gameObject.SetActive(false);

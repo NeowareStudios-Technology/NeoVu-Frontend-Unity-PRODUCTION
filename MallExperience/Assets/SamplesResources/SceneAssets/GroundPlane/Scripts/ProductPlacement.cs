@@ -137,10 +137,6 @@ public class ProductPlacement : MonoBehaviour
             this.rotationIndicator.SetActive(false);
             this.translationIndicator.SetActive(false);
         }
-        if (!this.IsPlaced)
-        {
-            SetVisible(this.ChairVisibilityConditionsMet);
-        }
     }
     #endregion // MONOBEHAVIOUR_METHODS
 
@@ -162,6 +158,7 @@ public class ProductPlacement : MonoBehaviour
             //this.chair.transform.SetParent(transform);
             Debug.LogError(chair.name);
             chair.gameObject.GetComponent<MeshCollider>().enabled = true;
+            chair.gameObject.GetComponent<MeshRenderer>().enabled = true;
             Debug.LogWarning("ColliderTest3");
             this.chair.transform.localPosition = Vector3.zero;
             //chair.gameObject.GetComponent<MeshRenderer>().enabled = false;

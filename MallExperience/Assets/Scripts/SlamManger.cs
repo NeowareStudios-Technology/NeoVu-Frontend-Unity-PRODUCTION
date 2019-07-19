@@ -167,8 +167,10 @@ public class SlamManger : MonoBehaviour
         }
         else
         {
-            //delete = true;
-            productPlacement.GetComponent<ProductPlacement>().chair.transform.position = new Vector3(0, 1000, 0);
+            delete = true;
+            productPlacement.GetComponent<ProductPlacement>().chair = null;
+            productPlacement.GetComponent<TouchHandler>().augmentationObject = null;
+            //productPlacement.GetComponent<ProductPlacement>().chair.transform.position = new Vector3(0, 1000, 0);
         }
     }
 }

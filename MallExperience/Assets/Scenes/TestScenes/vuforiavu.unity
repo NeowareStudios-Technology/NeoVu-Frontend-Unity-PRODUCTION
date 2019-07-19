@@ -1507,6 +1507,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SLAM
       objectReference: {fileID: 0}
+    - target: {fileID: 6077967529682974668, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6077967529682974670, guid: d632fd2efb7df634fb387f43014b2a2c,
         type: 3}
       propertyPath: chair
@@ -1631,6 +1636,36 @@ PrefabInstance:
         type: 3}
       propertyPath: DuplicateStage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962944460278271864, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913696302572007323, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 74793378258019282, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 512518468972636893, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290254961829201743, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160.18176
+      objectReference: {fileID: 0}
+    - target: {fileID: 290254961829201743, guid: d632fd2efb7df634fb387f43014b2a2c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 35.424812
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d632fd2efb7df634fb387f43014b2a2c, type: 3}
@@ -5118,6 +5153,11 @@ PrefabInstance:
       propertyPath: GroundPlaneUi
       value: 
       objectReference: {fileID: 1324392584}
+    - target: {fileID: 6340469234371692753, guid: fe22f1988df5dd64cbcbc77c396f5052,
+        type: 3}
+      propertyPath: SLAM
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6340469234371692752, guid: fe22f1988df5dd64cbcbc77c396f5052,
         type: 3}
       propertyPath: m_LocalPosition.x
