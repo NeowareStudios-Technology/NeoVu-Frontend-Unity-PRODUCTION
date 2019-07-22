@@ -64,6 +64,7 @@ public class DeviceCameraController : MonoBehaviour {
 	/// </summary>
 	public void StartWork()
 	{
+        Debug.LogWarning("Device Run");
 		if (this.webcam != null) {
 			this.webcam.Play ();
 		}

@@ -52,7 +52,7 @@ public class QRCodeDecodeController : MonoBehaviour
 		}
 	}
 	
-	/*void Update()
+	void Update()
 	{
 		#if UNITY_EDITOR
 		if (framerate++ % 15== 0) {
@@ -130,7 +130,7 @@ public class QRCodeDecodeController : MonoBehaviour
 				tempDecodeing = decoding;
 			}
 		}
-	}*/
+	}
  	
 	/// <summary>
 	/// Reset this scan param
