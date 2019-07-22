@@ -294,22 +294,10 @@ public class AWSManager : MonoBehaviour
                 Debug.LogWarning("VersionsMatch");
                 // AssetBundle.LoadFromFile(path);
                 SceneManager.LoadScene(folderName);
-           
-            }
-            else
-            {
-                System.IO.DirectoryInfo di = new DirectoryInfo(Application.persistentDataPath);
 
-                //delete all downloaded streaming assets (ie. vuforia datasets)
-                foreach (FileInfo files in di.GetFiles())
-                {
-                    //files.Delete(); 
-                    if (files.FullName.Contains(file))
-                    {
-                        Debug.LogError(files.FullName);
-                    }
-                }
-                Debug.LogError(di);
+            }
+            else //overwrite data with new files after detecting an out of date version
+            {
                 Debug.LogWarning(folderName);
                 Debug.Log("starting download");
                 Debug.LogWarning(PlayerPrefs.GetString(folderName + "VN"));
@@ -322,6 +310,15 @@ public class AWSManager : MonoBehaviour
                 string DATFileName = nameOfView + ".dat";
                 SaveS3ObjectLocally(nameOfView, XMLFileName);
                 SaveS3ObjectLocally(nameOfView, DATFileName);
+                #if UNITY_IOS
+                    string ASFileName = nameOfView + ".ios";
+                #elif UNITY_ANDROID
+                    string ASFileName = nameOfView + ".and";
+                #else
+                    string ASFileName = nameOfView;
+                #endif
+                    Debug.Log("Saving ASFIle");
+                    SaveS3ObjectLocally(nameOfView, ASFileName);
             }
         });
         Debug.Log("end get list");
