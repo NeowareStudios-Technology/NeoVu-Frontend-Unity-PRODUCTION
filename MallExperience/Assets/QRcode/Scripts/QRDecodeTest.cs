@@ -8,7 +8,7 @@ public class QRDecodeTest : MonoBehaviour
 {
 	public QRCodeDecodeController e_qrController;
 
-	public Text UiText;
+	public TMPro.TextMeshProUGUI UiText;
 
 	public GameObject resetBtn;
 
