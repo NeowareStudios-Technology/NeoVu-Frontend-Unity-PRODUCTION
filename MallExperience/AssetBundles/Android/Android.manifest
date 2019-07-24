@@ -1,7 +1,10 @@
 ManifestFileVersion: 0
-CRC: 3941978126
+CRC: 430526946
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: kengreenberg
+      Name: qrreader
+      Dependencies: {}
+    Info_1:
+      Name: aquarium
       Dependencies: {}
