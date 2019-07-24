@@ -326,7 +326,7 @@ public class AWSManager : MonoBehaviour
 
 
     //call this when returning to main scene from any downloaded lens
-    public void DeleteDownloadedFilesAndResetCheck(Scene current, Scene next)
+    public void DeleteDownloadedFilesAndResetCheck(Scene current, Scene next)  //Depreceated function, new files override
     {
         if (next.name == "mainmenu")
         {
@@ -339,12 +339,12 @@ public class AWSManager : MonoBehaviour
             }*/
         }
     }
-   public void mainMenu()
+   public void mainMenu() //Just download data set instead
     {
         SceneManager.LoadScene("mainmenu");
     }
 
-    public void kennyG(string name)
+    public void kennyG(string name) //only for demo purposes
     {
         SceneManager.LoadScene(name);
     }
