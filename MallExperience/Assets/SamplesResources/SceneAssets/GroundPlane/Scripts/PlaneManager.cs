@@ -203,7 +203,7 @@ public class PlaneManager : MonoBehaviour
 
             // PlaneMode.Ground and PlaneMode.Placement both use PlaneFinder's ContentPositioningBehaviour
             this.contentPositioningBehaviour = this.planeFinder.GetComponent<ContentPositioningBehaviour>();
-            this.contentPositioningBehaviour.DuplicateStage = false;
+            //this.contentPositioningBehaviour.DuplicateStage = false;
 
             // Place object based on Ground Plane mode
             switch (CurrentPlaneMode)
@@ -239,14 +239,14 @@ public class PlaneManager : MonoBehaviour
                         // has already been placed and positioned, then a new anchor
                         // is placed and the stage is centered to it, but the content
                         // retains its offset in relation to the stage.
-                        if (!this.productPlacement.IsPlaced /*|| TouchHandler.DoubleTap*/)
-                        {
+                      //  if (!this.productPlacement.IsPlaced /*|| TouchHandler.DoubleTap*/)
+                      //  {
                             this.contentPositioningBehaviour.AnchorStage = this.placementAnchor;
                             this.contentPositioningBehaviour.PositionContentAtPlaneAnchor(result);
                             UtilityHelper.EnableRendererColliderCanvas(placementAugmentation, true);
                             this.productPlacement.SetProductAnchor(this.placementAnchor.transform);
                             this.touchHandler.enableRotation = true;
-                        }
+                       // }
 
                         // Immediately following the steps above, we again confirm that the
                         // IsPlaced flag has not been set and call SetProductAnchor to

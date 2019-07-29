@@ -172,6 +172,7 @@ public class ProductPlacement : MonoBehaviour
             // UtilityHelper.RotateTowardCamera(this.chair);
             Debug.LogError("anchor set");
             indicator.transform.localPosition = new Vector3(0,100,0);
+            Handheld.Vibrate();
         }
         else
         {

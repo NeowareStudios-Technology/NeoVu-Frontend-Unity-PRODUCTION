@@ -4260,6 +4260,11 @@ PrefabInstance:
       propertyPath: GroundPlaneUi
       value: 
       objectReference: {fileID: 1324392584}
+    - target: {fileID: 6340469234371692753, guid: fe22f1988df5dd64cbcbc77c396f5052,
+        type: 3}
+      propertyPath: SLAM
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6340469234371692752, guid: fe22f1988df5dd64cbcbc77c396f5052,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4491,6 +4496,8 @@ MonoBehaviour:
   indicator: {fileID: 0}
   debugText: {fileID: 1623454688}
   touchCounter: {fileID: 1029089352}
+  multiObject: 0
+  singleObj: 1
 --- !u!1 &1830548139
 GameObject:
   m_ObjectHideFlags: 0

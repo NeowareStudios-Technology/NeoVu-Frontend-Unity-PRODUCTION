@@ -11,6 +11,7 @@ TagManager:
   - Socket
   - Video
   - ARLink
+  - Plane
   layers:
   - Default
   - TransparentFX

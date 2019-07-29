@@ -14,6 +14,7 @@ public class SlamManger : MonoBehaviour
     public Text touchCounter;
     private bool firstTime = false;
     public bool multiObject = false;
+    public bool singleObj = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +66,10 @@ public class SlamManger : MonoBehaviour
                     }
 
                 }
+                else if(Physics.Raycast(ray, out hit) && hit.transform.tag == "Plane")
+                {
+                    Debug.LogError("Plane Hit");
+                }
             }
         }
         if (Input.GetMouseButtonDown(0))
@@ -97,6 +102,10 @@ public class SlamManger : MonoBehaviour
                     }
                 }
 
+            }
+            else if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Plane")
+            {
+                Debug.LogError("Plane Hit");
             }
         }
     }
@@ -165,11 +174,10 @@ public class SlamManger : MonoBehaviour
             productPlacement.GetComponent<ProductPlacement>().chair = null;
             productPlacement.GetComponent<TouchHandler>().augmentationObject = null;
         }
-        else
+        else if(singleObj == true)
         {
             delete = true;
-            productPlacement.GetComponent<ProductPlacement>().chair = null;
-            productPlacement.GetComponent<TouchHandler>().augmentationObject = null;
+            productPlacement.GetComponent<ProductPlacement>().chair.transform.position = new Vector3(1000, 1000, 1000);
             //productPlacement.GetComponent<ProductPlacement>().chair.transform.position = new Vector3(0, 1000, 0);
         }
     }
