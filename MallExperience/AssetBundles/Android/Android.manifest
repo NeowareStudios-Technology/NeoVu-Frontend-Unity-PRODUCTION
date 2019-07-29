@@ -1,10 +1,7 @@
 ManifestFileVersion: 0
-CRC: 430526946
+CRC: 2066727672
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: qrreader
-      Dependencies: {}
-    Info_1:
-      Name: aquarium
+      Name: mooooyah
       Dependencies: {}
