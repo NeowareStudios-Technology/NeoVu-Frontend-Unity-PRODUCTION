@@ -533,8 +533,8 @@ public class YoutubePlayer : MonoBehaviour
 
     private void ShowLoading()
     {
-        //if (loadingContent != null)
-            //loadingContent.SetActive(true);
+        if (loadingContent != null)
+            loadingContent.SetActive(true);
     }
 
     private void HideLoading()
@@ -669,7 +669,7 @@ public class YoutubePlayer : MonoBehaviour
                 TryToLoadThumbnailBeforeOpenVideo(_videoId);
             youtubeUrlReady = false;
             //Show loading
-            ShowLoading();
+            //ShowLoading();
 
             youtubeUrl = _videoId;
             //loading for fist time, so it's not a retry
@@ -796,6 +796,7 @@ public class YoutubePlayer : MonoBehaviour
                     }
                     else
                     {
+                        _temporaryAudio = info.DownloadUrl;
                         audioUrl = info.DownloadUrl;
                     }
                     videoTitle = info.Title;
@@ -842,6 +843,7 @@ public class YoutubePlayer : MonoBehaviour
                     }
                     else
                     {
+                        _temporaryVideo = info.DownloadUrl;
                         videoUrl = info.DownloadUrl;
                         videoAreReadyToPlay = true;
                         OnYoutubeUrlsLoaded();
@@ -879,6 +881,7 @@ public class YoutubePlayer : MonoBehaviour
                         }
                         else
                         {
+                            _temporaryVideo = info.DownloadUrl;
                             videoUrl = info.DownloadUrl;
                             videoAreReadyToPlay = true;
                             OnYoutubeUrlsLoaded();
@@ -918,6 +921,7 @@ public class YoutubePlayer : MonoBehaviour
                         }
                         else
                         {
+                            _temporaryVideo = info.DownloadUrl;
                             videoUrl = info.DownloadUrl;
                             videoAreReadyToPlay = true;
                             OnYoutubeUrlsLoaded();
@@ -958,6 +962,7 @@ public class YoutubePlayer : MonoBehaviour
                         }
                         else
                         {
+                            _temporaryVideo = info.DownloadUrl;
                             videoUrl = info.DownloadUrl;
                             videoAreReadyToPlay = true;
                             OnYoutubeUrlsLoaded();
@@ -1265,8 +1270,6 @@ public class YoutubePlayer : MonoBehaviour
 
     public void OnYoutubeUrlsLoaded()
     {
-        Debug.LogWarning("Test");
-        Pause();
         youtubeUrlReady = true;
         if (!loadYoutubeUrlsOnly) //If want to load urls only the video will not play
         {
@@ -2000,7 +2003,9 @@ public class YoutubePlayer : MonoBehaviour
     {
         string js = masterURLForVideo;
         //Find "C" in this: var A = B.sig||C (B.s)
-        string functNamePattern = @"(\w+)\s*=\s*function\(\s*(\w+)\s*\)\s*{\s*\2\s*=\s*\2\.split\(\""\""\)\s*;(.+)return\s*\2\.join\(\""\""\)\s*}\s*;";
+        //string functNamePattern = @"(\w+)\s*=\s*function\(\s*(\w+)\s*\)\s*{\s*\2\s*=\s*\2\.split\(\""\""\)\s*;(.+)return\s*\2\.join\(\""\""\)\s*}\s*;";
+        string functNamePattern = @"\b[cs]\s*&&\s*[adf]\.set\([^,]+\s*,\s*encodeURIComponent\s*\(\s*([\w$]+)\(";
+
 
         var funcName = Regex.Match(js, functNamePattern).Groups[1].Value;
 
@@ -2159,7 +2164,9 @@ public class YoutubePlayer : MonoBehaviour
         string js = masterURLForAudio;
 
         //Find "C" in this: var A = B.sig||C (B.s)
-        string functNamePattern = @"(\w+)\s*=\s*function\(\s*(\w+)\s*\)\s*{\s*\2\s*=\s*\2\.split\(\""\""\)\s*;(.+)return\s*\2\.join\(\""\""\)\s*}\s*;";
+        //string functNamePattern = @"(\w+)\s*=\s*function\(\s*(\w+)\s*\)\s*{\s*\2\s*=\s*\2\.split\(\""\""\)\s*;(.+)return\s*\2\.join\(\""\""\)\s*}\s*;";
+
+        string functNamePattern = @"\b[cs]\s*&&\s*[adf]\.set\([^,]+\s*,\s*encodeURIComponent\s*\(\s*([\w$]+)\(";
 
         var funcName = Regex.Match(js, functNamePattern).Groups[1].Value;
 
@@ -2322,7 +2329,7 @@ public class YoutubePlayer : MonoBehaviour
             {
                 if (!loadYoutubeUrlsOnly)
                 {
-                    Debug.Log("Resolver Exception!: " + e.Message);
+  	                  Debug.Log("Resolver Exception!: " + e.Message);
                     //string filePath = Application.persistentDataPath + "/log_download_exception_" + DateTime.Now.ToString("ddMMyyyyhhmmssffff") + ".txt";
                     //Debug.Log("DownloadUrl content saved to " + filePath);
                     //File.WriteAllText(filePath, downloadUrlResponse.data);

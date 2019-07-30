@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -46,7 +47,16 @@ namespace YoutubeLight
             foreach (string vp in Regex.Split(s, "&"))
             {
                 string[] strings = Regex.Split(vp, "=");
-                dictionary.Add(strings[0], strings.Length == 2 ? UrlDecode(strings[1]) : string.Empty);
+                //dictionary.Add(strings[0], strings.Length == 2 ? UrlDecode(strings[1]) : string.Empty); //old
+                string key = strings[0];
+                string value = string.Empty;
+
+                if (strings.Length == 2)
+                    value = strings[1];
+                else if (strings.Length > 2)
+                    value = string.Join("=", strings.Skip(1).Take(strings.Length).ToArray());
+
+                dictionary.Add(key, value);
             }
 
             return dictionary;
