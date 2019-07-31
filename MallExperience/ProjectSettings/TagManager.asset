@@ -12,6 +12,7 @@ TagManager:
   - Video
   - ARLink
   - Plane
+  - Reticle
   layers:
   - Default
   - TransparentFX
