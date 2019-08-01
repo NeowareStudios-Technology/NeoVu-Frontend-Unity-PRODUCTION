@@ -276,6 +276,27 @@ public class Login : MonoBehaviour
     }
 
     //Firebase Login Function
+    public void resetPassword()
+    {
+        if (emailAnalytics != null)
+        {
+             Firebase.Auth.FirebaseAuth.DefaultInstance.SendPasswordResetEmailAsync(emailAnalytics).ContinueWith(task => {
+                if (task.IsCanceled)
+                {
+                    Debug.LogError("SendPasswordResetEmailAsync was canceled.");
+                    return;
+                }
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("SendPasswordResetEmailAsync encountered an error: " + task.Exception);
+                    return;
+                }
+
+                Debug.Log("Password reset email sent successfully.");
+            });
+        }
+
+    }
     public void LogIn()
     {
         string email;

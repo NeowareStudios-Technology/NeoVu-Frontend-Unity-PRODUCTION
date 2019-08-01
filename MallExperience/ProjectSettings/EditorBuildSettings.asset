@@ -53,7 +53,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestScenes/GPSTest.unity
     guid: 9b9605556d0bb54419f617091bc3f7b5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/mainmenu.unity
     guid: 32a51b2b32503994994fa741e98d3618
   - enabled: 0
@@ -71,7 +71,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestScenes/wintleyphipps.unity
     guid: 87a682a8f8259b844989f053e19ea84e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/scaleadjust.unity
     guid: f9b089673e1fc00488c3e5d016be46f1
   m_configObjects: {}
