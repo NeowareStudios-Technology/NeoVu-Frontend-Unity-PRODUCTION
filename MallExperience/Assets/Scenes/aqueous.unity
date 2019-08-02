@@ -1826,10 +1826,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: https://www.facebook.com/aqueousfilms/
       objectReference: {fileID: 0}
-    - target: {fileID: 1497814800, guid: 95353d824f1ef1e4aba93050eae70e3e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 86.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1422274110, guid: 95353d824f1ef1e4aba93050eae70e3e, type: 3}
       propertyPath: m_Color.r
       value: 1
@@ -1892,6 +1888,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: a60adfe5a1124a541bcccd7b27d37a2c,
         type: 3}
+    - target: {fileID: 1497814800, guid: 95353d824f1ef1e4aba93050eae70e3e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 86.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95353d824f1ef1e4aba93050eae70e3e, type: 3}
 --- !u!1 &532537707 stripped
@@ -4584,11 +4584,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1407320870575576, guid: befdb7fcf38b6934e9ec2633d5a1a0ea, type: 3}
+    - target: {fileID: 1755558773939284, guid: befdb7fcf38b6934e9ec2633d5a1a0ea, type: 3}
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1755558773939284, guid: befdb7fcf38b6934e9ec2633d5a1a0ea, type: 3}
+    - target: {fileID: 1407320870575576, guid: befdb7fcf38b6934e9ec2633d5a1a0ea, type: 3}
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
@@ -5719,6 +5719,61 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
+        type: 3}
+      propertyPath: youtubeUrl
+      value: /watch?v=Enr5pK_0Fs0&feature=youtu.bepK_0Fs0&feature=youtu.be
+      objectReference: {fileID: 0}
+    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
+        type: 3}
+      propertyPath: videoQuality
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
+        type: 3}
+      propertyPath: autoPlayOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
+        type: 3}
+      propertyPath: autoPlayOnEnable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
+        type: 3}
+      propertyPath: startFromSecond
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
+        type: 3}
+      propertyPath: loadYoutubeUrlsOnly
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
+        type: 3}
+      propertyPath: startFromSecondTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
+        type: 3}
+      propertyPath: showPlayerControls
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 328859383501234498, guid: 81f777b4a89041a45b4d99677844cbf8,
+        type: 3}
+      propertyPath: m_SkipOnDrop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 328859383501234498, guid: 81f777b4a89041a45b4d99677844cbf8,
+        type: 3}
+      propertyPath: m_WaitForFirstFrame
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 328859383501234498, guid: 81f777b4a89041a45b4d99677844cbf8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4732361055251910, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0000041723
@@ -5774,61 +5829,6 @@ PrefabInstance:
     - target: {fileID: 4732361055251910, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.007843368
-      objectReference: {fileID: 0}
-    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
-        type: 3}
-      propertyPath: youtubeUrl
-      value: ' https://www.youtube.com/watch?v=Enr5pK_0Fs0&feature=youtu.be'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
-        type: 3}
-      propertyPath: videoQuality
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
-        type: 3}
-      propertyPath: autoPlayOnStart
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
-        type: 3}
-      propertyPath: autoPlayOnEnable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
-        type: 3}
-      propertyPath: startFromSecond
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
-        type: 3}
-      propertyPath: loadYoutubeUrlsOnly
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
-        type: 3}
-      propertyPath: startFromSecondTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114024145124156616, guid: 81f777b4a89041a45b4d99677844cbf8,
-        type: 3}
-      propertyPath: showPlayerControls
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 328859383501234498, guid: 81f777b4a89041a45b4d99677844cbf8,
-        type: 3}
-      propertyPath: m_SkipOnDrop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 328859383501234498, guid: 81f777b4a89041a45b4d99677844cbf8,
-        type: 3}
-      propertyPath: m_WaitForFirstFrame
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 328859383501234498, guid: 81f777b4a89041a45b4d99677844cbf8,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4338834287986136, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
       propertyPath: m_LocalPosition.x
