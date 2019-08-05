@@ -31,6 +31,7 @@ public class ARButton : MonoBehaviour
                 {
                     if (hit.collider.gameObject == this.gameObject)
                     {
+                        this.GetComponent<Button>().onClick.Invoke();
                     }
                 }
             }
@@ -46,14 +47,7 @@ public class ARButton : MonoBehaviour
                 {
                     Debug.LogError("ButtonHit");
                     Debug.LogWarning(this.name);
-                    if (inApp == false)
-                    {
-                    	this.GetComponent<Button>().OnClick.Invoke();
-                    }
-                    else
-                    {
-                        //InAppBrowser.OpenURL(link);
-                    }
+                    this.GetComponent<Button>().onClick.Invoke();
 
                     int playerVal = PlayerPrefs.GetInt("VuPoints");
                     playerVal = playerVal + value;
