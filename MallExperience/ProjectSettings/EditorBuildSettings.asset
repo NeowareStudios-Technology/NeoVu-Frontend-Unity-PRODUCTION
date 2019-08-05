@@ -71,7 +71,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestScenes/wintleyphipps.unity
     guid: 87a682a8f8259b844989f053e19ea84e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scaleadjust.unity
     guid: f9b089673e1fc00488c3e5d016be46f1
   m_configObjects: {}
