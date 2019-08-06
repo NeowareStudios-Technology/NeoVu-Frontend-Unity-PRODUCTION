@@ -293,7 +293,8 @@ public class Login : MonoBehaviour
                 }
 
                 Debug.Log("Password reset email sent successfully.");
-            });
+                 loginWarning.text = "Password reset email sent.";
+             });
         }
 
     }
