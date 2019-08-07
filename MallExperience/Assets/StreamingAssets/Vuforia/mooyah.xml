@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="MooyahFreeBurger" size="1.000000 1.250000" />
+    <ImageTarget name="MOOYAHimage" size="1.000000 1.000000" />
     <ImageTarget name="MooyahShakes" size="1.000000 1.333333" />
     <ImageTarget name="mooyah_logo" size="1.000000 0.389513" />
   </Tracking>
