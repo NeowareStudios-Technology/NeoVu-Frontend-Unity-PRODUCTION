@@ -27,7 +27,7 @@ public class VideoTrackableEventHandler : DefaultTrackableEventHandler
             for(int i = 0; i<anims.Length; i++)
             {
 
-                anims[i].Play("Main",0,.5f);
+				anims[i].Play("Main",0,.5f);
             }
         }
         else
