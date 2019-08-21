@@ -20,8 +20,6 @@ MonoBehaviour:
     maxSimultaneousImageTargets: 4
     maxSimultaneousObjectTargets: 1
     useDelayedLoadingObjectTargets: 0
-    cameraDirection: 0
-    mirrorVideoBackground: 0
     version: 8.1.10
     eulaAcceptedVersions: '{"Values":["7.5","7.1","7.2","7.7","8.0","8.1","0.0"]}'
   digitalEyewear:
@@ -45,6 +43,8 @@ MonoBehaviour:
       DistortionCoefficients: {x: 0, y: 0}
       FieldOfView: {x: 0, y: 0, z: 0, w: 0}
       ContainsMagnet: 0
+  database:
+    disableModelExtraction: 0
   videoBackground:
     clippingMode: 0
     numDivisions: 2
@@ -60,12 +60,10 @@ MonoBehaviour:
     modelCorrectionMode: 0
     modelTransformEnabled: 0
     modelTransform: {x: 0, y: 0.1, z: -0.1}
-    fusionMode: 7
   smartTerrain:
     autoInitTracker: 0
     autoStartTracker: 0
   webcam:
-    deviceNameSetInEditor: "Microsoft\xAE LifeCam Cinema(TM)"
-    flipHorizontally: 0
+    deviceNameSetInEditor: Logitech HD Webcam C270
     turnOffWebCam: 0
     renderTextureLayer: 30
