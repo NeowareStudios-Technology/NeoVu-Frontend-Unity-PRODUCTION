@@ -35,6 +35,7 @@ public class AWSManager : MonoBehaviour
     public string dataSetPath;
     public string viewsBucketName = "neoware-neovu-views";
     public string metaBucketName = "neoware-neovu-meta";
+    public GameObject dataHold;
 
     //need to download .xml and .dat file (ie. 2 files)
     private int numFilesToDownload = 2;
@@ -48,6 +49,7 @@ public class AWSManager : MonoBehaviour
 
     private void Start()
     {
+        dataHold = GameObject.Find("Data");
         if(File.Exists(Path.Combine(Application.persistentDataPath, "PlayerViews.json")))
         { 
             
@@ -163,6 +165,7 @@ public class AWSManager : MonoBehaviour
     //download Vuforia DataSet seperately from asset bundle because it cant be packaged in the asset bundle
     public void DowloadDataSet(string nameOfSelectedView)
     {
+        dataHold.GetComponent<DataSetHolder>().XMLHolder = Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".xml");
         //TODO: Check for existing files before downloading one if it doesnt exist
         if (SceneManager.GetActiveScene().name == "mainmenu")
         {

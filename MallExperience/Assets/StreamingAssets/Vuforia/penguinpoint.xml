@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="versussign" size="10.000000 2.295606" />
+    <ImageTarget name="5C27EDE3-C3A1-4207-B309-AA7BE16281C0" size="10.000000 2.515759" />
   </Tracking>
 </QCARConfig>
