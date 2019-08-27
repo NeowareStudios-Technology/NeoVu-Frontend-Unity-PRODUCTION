@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="NeoLogo" size="0.500000 0.298438" />
+    <ImageTarget name="6476EAC2-48CB-4F9E-8CD1-338ABFC8FF6A" size="10.000000 7.311657" />
+  </Tracking>
+</QCARConfig>

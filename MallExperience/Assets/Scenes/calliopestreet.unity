@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2142,22 +2142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300b0b14a4d5b8348b13dd899008825d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &656983219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656983216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b4e862917969b640b2159c3f540fc72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObjectName: []
-  targetObjects: []
-  dataSetName: 
-  targetsArePreset: 0
 --- !u!1001 &711662884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3100,34 +3084,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146504025}
   m_CullTransparentMesh: 0
---- !u!21 &1157596137
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'sign2Material
-
-    -74212'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f950db1bb4b24348b41d57cbae954d59, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1167585899
 GameObject:
   m_ObjectHideFlags: 0
@@ -4702,6 +4658,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 260, y: 260, z: 89.38545}
   m_Center: {x: 0.061498784, y: 0, z: 54.492905}
+--- !u!21 &1659921615
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'sign2Material
+
+    -14872'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: f950db1bb4b24348b41d57cbae954d59, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!4 &1677335836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 430562, guid: 21071f90a50be4657a996d42f1eb96eb,
@@ -5696,7 +5680,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1157596137}
+      objectReference: {fileID: 1659921615}
     - target: {fileID: 7534430019163464289, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_Mesh
@@ -5732,20 +5716,20 @@ PrefabInstance:
       propertyPath: mHeight
       value: 1.8093529
       objectReference: {fileID: 0}
-    - target: {fileID: 5570402704208184097, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
-        type: 3}
-      propertyPath: animated
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5570402705983992082, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5570402704208184097, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
+        type: 3}
+      propertyPath: animated
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2025860762837560141, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: youtubeUrl
-      value: https://www.youtube.com/watch?v=ZAH-oIPwAAc&t=1s
+      value: https://www.youtube.com/watch?v=4q5L43tUPus
       objectReference: {fileID: 0}
     - target: {fileID: 2026610751823499585, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
