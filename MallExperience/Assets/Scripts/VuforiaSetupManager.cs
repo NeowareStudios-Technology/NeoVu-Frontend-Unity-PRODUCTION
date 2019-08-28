@@ -23,6 +23,7 @@ public class VuforiaSetupManager : MonoBehaviour
 	private int targetObjectNameCount;
 	private int targetCount = 0;
 	public bool targetsArePreset;
+    public float yAdjust;
 
     // Start is called before the first frame update
     void Start()
@@ -127,7 +128,7 @@ public class VuforiaSetupManager : MonoBehaviour
 				// Attach the cube to the Trackable and make sure it has a proper size.
 				targetObjects[targetCount].transform.parent = trackableBehaviour.transform;
 				targetObjects[targetCount].transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-				targetObjects[targetCount].transform.localPosition = new Vector3(0.0f, 0.35f, 0.0f);
+				//targetObjects[targetCount].transform.localPosition = new Vector3(0.0f, yAdjust, 0.0f);
 				targetObjects[targetCount].transform.localRotation = Quaternion.identity;
 				targetObjects[targetCount].SetActive(true);
 				trackableBehaviour.gameObject.SetActive(true);
