@@ -674,6 +674,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141747518}
   m_CullTransparentMesh: 0
+--- !u!21 &151184585
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'versussignMaterial
+
+    -41230'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 57936b3e04fc4b2e9d622fbe76c30bd3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &176587635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,7 +1341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.26666668, g: 0.26666668, b: 0.26666668, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1387,7 +1415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.40000004, g: 0.40000004, b: 0.40000004, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1620,15 +1648,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1422274110, guid: 95353d824f1ef1e4aba93050eae70e3e, type: 3}
       propertyPath: m_Color.r
-      value: 0.40000004
+      value: 0.9921569
       objectReference: {fileID: 0}
     - target: {fileID: 1422274110, guid: 95353d824f1ef1e4aba93050eae70e3e, type: 3}
       propertyPath: m_Color.g
-      value: 0.40000004
+      value: 0.003921569
       objectReference: {fileID: 0}
     - target: {fileID: 1422274110, guid: 95353d824f1ef1e4aba93050eae70e3e, type: 3}
       propertyPath: m_Color.b
-      value: 0.40000004
+      value: 0.003921569
       objectReference: {fileID: 0}
     - target: {fileID: 1497814799, guid: 95353d824f1ef1e4aba93050eae70e3e, type: 3}
       propertyPath: m_IsActive
@@ -1669,15 +1697,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 439551371, guid: 95353d824f1ef1e4aba93050eae70e3e, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.26666668
       objectReference: {fileID: 0}
     - target: {fileID: 439551371, guid: 95353d824f1ef1e4aba93050eae70e3e, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.26666668
       objectReference: {fileID: 0}
     - target: {fileID: 439551371, guid: 95353d824f1ef1e4aba93050eae70e3e, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.26666668
       objectReference: {fileID: 0}
     - target: {fileID: 439551371, guid: 95353d824f1ef1e4aba93050eae70e3e, type: 3}
       propertyPath: m_Sprite
@@ -1854,27 +1882,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1728890554, guid: b0c5baf96283afc4385a5c037d59de08, type: 3}
       propertyPath: m_Color.r
-      value: 0.40000004
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1728890554, guid: b0c5baf96283afc4385a5c037d59de08, type: 3}
       propertyPath: m_Color.g
-      value: 0.40000004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1728890554, guid: b0c5baf96283afc4385a5c037d59de08, type: 3}
       propertyPath: m_Color.b
-      value: 0.40000004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 104862417, guid: b0c5baf96283afc4385a5c037d59de08, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.26666668
       objectReference: {fileID: 0}
     - target: {fileID: 104862417, guid: b0c5baf96283afc4385a5c037d59de08, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.26666668
       objectReference: {fileID: 0}
     - target: {fileID: 104862417, guid: b0c5baf96283afc4385a5c037d59de08, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.26666668
       objectReference: {fileID: 0}
     - target: {fileID: 104862417, guid: b0c5baf96283afc4385a5c037d59de08, type: 3}
       propertyPath: m_Sprite
@@ -2142,22 +2170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300b0b14a4d5b8348b13dd899008825d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &656983219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656983216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b4e862917969b640b2159c3f540fc72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObjectName: []
-  targetObjects: []
-  dataSetName: 
-  targetsArePreset: 0
 --- !u!1001 &711662884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4754,34 +4766,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708731681}
   m_CullTransparentMesh: 0
---- !u!21 &1801243229
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'versussignMaterial
-
-    -1968'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 47b6dd48e3054e6598fd066306663d7d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1928933346
 GameObject:
   m_ObjectHideFlags: 0
@@ -5190,17 +5174,17 @@ PrefabInstance:
     - target: {fileID: 114163387322287432, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.40000004
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114163387322287432, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.40000004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114163387322287432, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.40000004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114971941403019840, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
@@ -5405,17 +5389,17 @@ PrefabInstance:
     - target: {fileID: 114785782684889134, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.26666668
       objectReference: {fileID: 0}
     - target: {fileID: 114785782684889134, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.26666668
       objectReference: {fileID: 0}
     - target: {fileID: 114785782684889134, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.26666668
       objectReference: {fileID: 0}
     - target: {fileID: 114677397797099772, guid: befdb7fcf38b6934e9ec2633d5a1a0ea,
         type: 3}
@@ -5696,7 +5680,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1801243229}
+      objectReference: {fileID: 151184585}
     - target: {fileID: 7534430019163464289, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_Mesh
