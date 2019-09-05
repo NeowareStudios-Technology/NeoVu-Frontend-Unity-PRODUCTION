@@ -12,6 +12,7 @@ using Vuforia;
 using System.Linq;
 using System.IO;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class VuforiaSetupManager : MonoBehaviour
 {
@@ -119,19 +120,26 @@ public class VuforiaSetupManager : MonoBehaviour
 			// check if the Trackable of the current Behaviour is part of this dataset
 			if (dataSet.Contains(trackableBehaviour.Trackable))
 			{
+                Debug.LogError(trackableBehaviour.TrackableName);
 				GameObject go = trackableBehaviour.gameObject;
 
-				// Add a Trackable event handler to the Trackable.
-				// This Behaviour handles Trackable lost/found callbacks.
-				go.AddComponent<DefaultTrackableEventHandler>();
-
+                // Add a Trackable event handler to the Trackable.
+                targetObjects[targetCount].transform.parent = go.transform;
+                targetObjects[targetCount].transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                targetObjects[targetCount].transform.localPosition = new Vector3(0.0f, yAdjust, 0.0f);
+                targetObjects[targetCount].transform.localRotation = Quaternion.identity;
+                targetObjects[targetCount].SetActive(true);
+                trackableBehaviour.gameObject.SetActive(true);
+                // This Behaviour handles Trackable lost/found callbacks.
+                go.AddComponent<DefaultTrackableEventHandler>();
+                if (go.GetComponentInChildren<VideoTrackableEventHandler>()!= null)
+                {
+                    go.AddComponent<VideoTrackableEventHandler>();
+                    go.GetComponent<VideoTrackableEventHandler>().video = go.GetComponentInChildren<VideoPlayer>();
+                    go.GetComponent<VideoTrackableEventHandler>().player = go.GetComponentInChildren<YoutubePlayer>();
+                    go.GetComponent<DefaultTrackableEventHandler>().dynamic = true;
+                }
 				// Attach the cube to the Trackable and make sure it has a proper size.
-				targetObjects[targetCount].transform.parent = trackableBehaviour.transform;
-				targetObjects[targetCount].transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-				//targetObjects[targetCount].transform.localPosition = new Vector3(0.0f, yAdjust, 0.0f);
-				targetObjects[targetCount].transform.localRotation = Quaternion.identity;
-				targetObjects[targetCount].SetActive(true);
-				trackableBehaviour.gameObject.SetActive(true);
 
                 targetCount++;
 			}

@@ -2159,13 +2159,14 @@ MonoBehaviour:
   targetObjects: []
   dataSetName: testingdata
   targetsArePreset: 0
---- !u!43 &682414225
+  yAdjust: -0.625
+--- !u!43 &701735203
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh-2104
+  m_Name: ImageTargetMesh-35612
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -2177,7 +2178,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0, z: 0.298438}
+      m_Extent: {x: 0.5, y: 0, z: 0.5}
   m_Shapes:
     vertices: []
     shapes: []
@@ -2253,7 +2254,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 000000bf00000000decc98be000000000000803f000000000000000000000000000000bf00000000decc983e000000000000803f00000000000000000000803f0000003f00000000decc98be000000000000803f000000000000803f000000000000003f00000000decc983e000000000000803f000000000000803f0000803f
+    _typelessdata: 000000bf00000000000000bf000000000000803f000000000000000000000000000000bf000000000000003f000000000000803f00000000000000000000803f0000003f00000000000000bf000000000000803f000000000000803f000000000000003f000000000000003f000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -4501,16 +4502,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: befdb7fcf38b6934e9ec2633d5a1a0ea, type: 3}
---- !u!21 &1586688426
+--- !u!21 &1608341927
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'NeoLogoMaterial
+  m_Name: 'neowareMaterial
 
-    -2112'
+    -35620'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -4523,7 +4524,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 63d4f01eaa38441a88f4a8de0f87cc15, type: 3}
+        m_Texture: {fileID: 2800000, guid: ee6c2250f71c47038e5c94c5ed020fd1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -5626,17 +5627,17 @@ PrefabInstance:
     - target: {fileID: 5570402704208184123, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1131.7064
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5570402704208184123, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1280.1512
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5570402704208184123, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 32.606
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5570402704208184123, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
@@ -5681,28 +5682,28 @@ PrefabInstance:
     - target: {fileID: 5570402704208184123, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5570402704208184123, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5570402704208184123, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1951229760766053583, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1586688426}
+      objectReference: {fileID: 1608341927}
     - target: {fileID: 7534430019163464289, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 682414225}
+      objectReference: {fileID: 701735203}
     - target: {fileID: 5570402705582433575, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_IsActive
@@ -5711,27 +5712,27 @@ PrefabInstance:
     - target: {fileID: 6248109886800778655, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: mTrackableName
-      value: NeoLogo
+      value: neoware
       objectReference: {fileID: 0}
     - target: {fileID: 6248109886800778655, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: mDataSetPath
-      value: Vuforia/testingdata.xml
+      value: Vuforia/Neoware.xml
       objectReference: {fileID: 0}
     - target: {fileID: 6248109886800778655, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: mAspectRatio
-      value: 0.596876
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6248109886800778655, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: mWidth
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6248109886800778655, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: mHeight
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5570402704208184097, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
@@ -5751,17 +5752,17 @@ PrefabInstance:
     - target: {fileID: 2132601710588289603, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2132601710588289603, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.052061
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2132601710588289603, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2132601710588289603, guid: 7d2d0583fc2f7f24a8c2fbde52105864,
         type: 3}
