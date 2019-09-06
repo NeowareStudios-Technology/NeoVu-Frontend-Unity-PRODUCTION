@@ -122,11 +122,12 @@ public class VuforiaSetupManager : MonoBehaviour
 			{
                 Debug.LogError(trackableBehaviour.TrackableName);
 				GameObject go = trackableBehaviour.gameObject;
+                go.transform.localScale = new Vector3(1f, 1f, 1f);
 
                 // Add a Trackable event handler to the Trackable.
                 targetObjects[targetCount].transform.parent = go.transform;
-                targetObjects[targetCount].transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-                targetObjects[targetCount].transform.localPosition = new Vector3(0.0f, yAdjust, 0.0f);
+                targetObjects[targetCount].transform.localScale = new Vector3(.7f, .7f, .7f);
+                targetObjects[targetCount].transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
                 targetObjects[targetCount].transform.localRotation = Quaternion.identity;
                 targetObjects[targetCount].SetActive(true);
                 trackableBehaviour.gameObject.SetActive(true);
