@@ -11,6 +11,7 @@ public class VideoTrackableEventHandler : DefaultTrackableEventHandler
     public bool animated = false;
     public Animator[] anims;
     public YoutubePlayer player;
+    public VideoPlayer[] VPlayer;
     public VideoPlayer video;
     #region PROTECTED_METHODS
     
@@ -19,6 +20,10 @@ public class VideoTrackableEventHandler : DefaultTrackableEventHandler
         //mTrackableBehaviour.transform.GetChild(0).gameObject.SetActive(true);
         player.Play();
         video.enabled = true;
+        for(int i = 0; i < VPlayer.Length; i++)
+        {
+            VPlayer[i].Play();
+        }
         //player.enabled = true;
         //mTrackableBehaviour.GetComponentInChildren<VideoController>().Play();
         base.OnTrackingFound();
@@ -38,10 +43,15 @@ public class VideoTrackableEventHandler : DefaultTrackableEventHandler
     protected override void OnTrackingLost()
     {
         player.Pause();
+        for (int i = 0; i < VPlayer.Length; i++)
+        {
+            VPlayer[i].Pause();
+        }
         //player.enabled = false;
         //mTrackableBehaviour.GetComponentInChildren<VideoController>().Pause();
-       // mTrackableBehaviour.transform.GetChild(0).gameObject.SetActive(false);
+        // mTrackableBehaviour.transform.GetChild(0).gameObject.SetActive(false);
         base.OnTrackingLost();
+
     }
 
     #endregion // PROTECTED_METHODS

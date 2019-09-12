@@ -12,9 +12,11 @@ public class BallThrow : MonoBehaviour
     float throwForceInXamdY = 1f;
 
     [SerializeField]
-    float throwForceInZ = 50f;
+    float throwForceInZ = 100f;
 
     Rigidbody rb;
+
+    public GameObject par;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +44,7 @@ public class BallThrow : MonoBehaviour
             rb.isKinematic = false;
             rb.AddForce(-direction.x * throwForceInXamdY, -direction.y * throwForceInXamdY, throwForceInZ / timeInterval);
 
-            Destroy(gameObject, 3f);
+            Destroy(gameObject, 7f);
 
         }
 
@@ -62,9 +64,9 @@ public class BallThrow : MonoBehaviour
             direction = startPos - endPos;
             rb.isKinematic = false;
             rb.AddForce(-direction.x * throwForceInXamdY, -direction.y * throwForceInXamdY, throwForceInZ / timeInterval);
-            //this.transform.parent = null;
+            this.transform.parent = par.transform;
 
-            Destroy(gameObject, 3f);
+            Destroy(gameObject, 7f);
         }
     }
 }
