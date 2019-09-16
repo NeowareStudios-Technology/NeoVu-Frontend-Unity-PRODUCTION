@@ -14,12 +14,17 @@ public class VideoTrackableEventHandler : DefaultTrackableEventHandler
     public VideoPlayer[] VPlayer;
     public VideoPlayer video;
     #region PROTECTED_METHODS
+    public bool streaming = true;
     
     protected override void OnTrackingFound()
     {
         //mTrackableBehaviour.transform.GetChild(0).gameObject.SetActive(true);
-        player.Play();
-        video.enabled = true;
+        if (streaming == true)
+        {
+            player.Play();
+
+            video.enabled = true;
+        }
         for(int i = 0; i < VPlayer.Length; i++)
         {
             VPlayer[i].Play();
@@ -42,7 +47,10 @@ public class VideoTrackableEventHandler : DefaultTrackableEventHandler
     }
     protected override void OnTrackingLost()
     {
-        player.Pause();
+        if (streaming == true)
+        {
+            player.Pause();
+        }
         for (int i = 0; i < VPlayer.Length; i++)
         {
             VPlayer[i].Pause();

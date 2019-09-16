@@ -13,7 +13,7 @@ public class MatchCard : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // Update is called once per frame  
     void Update()
     {
         
@@ -42,6 +42,6 @@ public class MatchCard : MonoBehaviour
     }
     public void flip()
     {
-        transform.Rotate(180, 0, 180);
+        this.transform.Rotate(180, 0, 180);
     }
 }

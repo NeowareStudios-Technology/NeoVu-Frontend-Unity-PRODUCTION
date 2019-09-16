@@ -30,7 +30,8 @@ public class CardFlip : MonoBehaviour
                 {
                     if (hit.collider.gameObject == this.gameObject)
                     {
-                        transform.Rotate(180, 0, 180);
+                        this.transform.Rotate(180, 0, 180);
+                        this.GetComponent<BoxCollider>().enabled = false;
                         this.GetComponent<MatchCard>().sendValue();
                     }
                 }
@@ -45,7 +46,8 @@ public class CardFlip : MonoBehaviour
             {
                 if (hit.collider.gameObject == this.gameObject)
                 {
-                    transform.Rotate(180, 0, 180);
+                    this.transform.Rotate(180, 0, 180);
+                    this.GetComponent<BoxCollider>().enabled = false;
                     this.GetComponent<MatchCard>().sendValue();
                 }
 
