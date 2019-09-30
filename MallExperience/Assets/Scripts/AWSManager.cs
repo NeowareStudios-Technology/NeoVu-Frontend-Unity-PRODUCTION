@@ -81,7 +81,7 @@ public class AWSManager : MonoBehaviour
         SceneManager.activeSceneChanged += DeleteDownloadedFilesAndResetCheck;
 
         //this is needed for search functionality
-        GetListOfViews();
+        //GetListOfViews();
     }
 
 
