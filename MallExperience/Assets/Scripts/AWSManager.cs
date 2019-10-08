@@ -163,7 +163,7 @@ public class AWSManager : MonoBehaviour
 
 
     //download Vuforia DataSet seperately from asset bundle because it cant be packaged in the asset bundle
-    public void DowloadDataSet(string nameOfSelectedView)
+    public void DowloadDataSet(string nameOfSelectedView)   
     {
         dataHold.GetComponent<DataSetHolder>().XMLHolder = Path.Combine(Application.persistentDataPath, nameOfSelectedView + ".xml");
         //TODO: Check for existing files before downloading one if it doesnt exist

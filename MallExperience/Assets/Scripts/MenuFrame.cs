@@ -30,13 +30,18 @@ public class MenuFrame : MonoBehaviour
     public string metaBucketName = "neoware-neovu-meta";
     public ViewListJSON vlj;
     public MenuDataJSON mdj;
+    public MenuSmallDataJSON msj;
     public string[] largeCards;
     public string[] smallCards;
     public MenuLargeCardsJSON mlc;
+    public MenuSmallCardsJSON msc;
     public GameObject[] largeCardObjs;
     public GameObject largeCardHolder;
-    public GameObject smallcardObj;
+    public GameObject[] smallcardObjs;
     public GameObject smallCardHolder;
+    public Sprite test;
+    public string tester;
+    public GameObject bigCard;
 
     // Start is called before the first frame update
 
@@ -62,6 +67,7 @@ public class MenuFrame : MonoBehaviour
 
         //this is needed for search functionality
         CreateLargeCards();
+        createSmallCards();
     }
 
     // Update is called once per frame
@@ -75,7 +81,7 @@ public class MenuFrame : MonoBehaviour
     }
     public void CreateLargeCards()
     {
-        float largeCardx = largeCardHolder.transform.position.x;
+        
         string MenuObjectPath = "mainmenu/largecards.json";
         S3Client.GetObjectAsync(viewsBucketName, MenuObjectPath, (responseObj) =>
         {
@@ -98,20 +104,13 @@ public class MenuFrame : MonoBehaviour
         mlc = JsonUtility.FromJson<MenuLargeCardsJSON>(JsonData);
         largeCards = mlc.cards.ToString().Split(',');
 
-        //mdj = JsonUtility.FromJson<MenuDataJSON>(JsonData);
-        //Debug.LogWarning(mdj.description);
-        //save downloaded JSON as a class in unity
-        //text.text = mdj.title;
-        //desc.text = mdj.description;
-        //address.text = mdj.address;
         for (int i = 0; i < largeCards.Length; i++)
         {
-            largeCardx = largeCardx + 150;
+            
             Debug.LogError(i);
-                GameObject currObject = largeCardObjs[i];
-            Debug.LogWarning("Building");
+            GameObject currObject = largeCardObjs[i];
             Debug.LogError(largeCards[i]);
-                string S3ObjectPath = largeCards[i] + "/" + largeCards[i]+"data.json";
+                string S3ObjectPath = largeCards[i] + "/" + largeCards[i]+"carddata.json";
                 Debug.Log(S3ObjectPath);
                 S3Client.GetObjectAsync(viewsBucketName, S3ObjectPath, (responseObjs) =>
                 {
@@ -130,14 +129,23 @@ public class MenuFrame : MonoBehaviour
                     {
                         Debug.Log("Could not find S3 object");
                     }
+
+                    
+
+
                     Debug.Log(VuData);
                     mdj = JsonUtility.FromJson<MenuDataJSON>(VuData);
-                    Debug.LogWarning(mdj.description);
+                    Debug.LogWarning(mdj.shortdescription);
                     //save downloaded JSON as a class in unity
                     currObject.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.title;
-                    currObject.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.description;
-                    currObject.transform.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.address;
+                    currObject.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.shortdescription;
+                    currObject.transform.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.category;
                 });
+                RawImage currImage = currObject.transform.GetChild(3).GetComponent<RawImage>();
+                string S3ImagePath = largeCards[i] + "/" + largeCards[i] + "largeimage.png";
+                Debug.LogError(S3ImagePath);
+
+                StartCoroutine(loadSpriteImageFromUrl(S3ImagePath, currImage));
                 // currObj.transform.parent = largeCardHolder.transform;
             }
         });
@@ -148,74 +156,70 @@ public class MenuFrame : MonoBehaviour
 
     }
 
-        public void createSmallCards()
-        {
-        float largeCardx = largeCardHolder.transform.position.x;
-    string MenuObjectPath = "mainmenu/smallcards.json";
-    S3Client.GetObjectAsync(viewsBucketName, MenuObjectPath, (responseObj) =>
-        {
-        string JsonData = null;
-    var response = responseObj.Response;
-    Debug.Log(response);
-        if (response.ResponseStream != null)
-        {
-            using (StreamReader reader = new StreamReader(response.ResponseStream))
+    public void createSmallCards()
+    {
+        string MenuObjectPath = "mainmenu/smallcards.json";
+        S3Client.GetObjectAsync(viewsBucketName, MenuObjectPath, (responseObj) =>
             {
-                JsonData = reader.ReadToEnd();
-                Debug.Log("found s3 object");
-            }
-        }
-        else
-        {
-            Debug.Log("Could not find S3 object");
-        }
-        Debug.Log(JsonData);
-        mlc = JsonUtility.FromJson<MenuLargeCardsJSON>(JsonData);
-        largeCards = mlc.cards.ToString().Split(',');
-
-        //mdj = JsonUtility.FromJson<MenuDataJSON>(JsonData);
-        //Debug.LogWarning(mdj.description);
-        //save downloaded JSON as a class in unity
-        //text.text = mdj.title;
-        //desc.text = mdj.description;
-        //address.text = mdj.address;
-        for (int i = 0; i<largeCards.Length; i++)
-        {
-            largeCardx = largeCardx + 150;
-            Debug.LogError(i);
-            GameObject currObject = Instantiate(smallcardObj, largeCardHolder.transform);
-currObject.transform.position = new Vector3(largeCardx, currObject.transform.position.y, currObject.transform.position.z);
-Debug.LogWarning("Building");
-            Debug.LogError(largeCards[i]);
-                string S3ObjectPath = largeCards[i] + "/" + largeCards[i] + "data.json";
-Debug.Log(S3ObjectPath);
-                S3Client.GetObjectAsync(viewsBucketName, S3ObjectPath, (responseObjs) =>
+            string JsonData = null;
+            var response = responseObj.Response;
+            Debug.Log(response);
+            if (response.ResponseStream != null)
                 {
-                    string VuData = null;
-var responses = responseObjs.Response;
-Debug.Log(responses);
-                    if (responses.ResponseStream != null)
+                    using (StreamReader reader = new StreamReader(response.ResponseStream))
                     {
-                        using (StreamReader reader = new StreamReader(responses.ResponseStream))
+                        JsonData = reader.ReadToEnd();
+                        Debug.Log("found s3 object");
+                    }
+                }
+            else
+                {
+                    Debug.Log("Could not find S3 object");
+                }
+            Debug.LogError(JsonData);
+            msc = JsonUtility.FromJson<MenuSmallCardsJSON>(JsonData);
+            smallCards = msc.cards.ToString().Split(',');
+
+            for (int i = 0; i< smallCards.Length; i++)
+            {
+                
+                Debug.LogError(i);
+                GameObject currObject = smallcardObjs[i];
+                Debug.LogWarning("Building");
+                Debug.LogError(smallCards[i]);
+                string S3ObjectPath = smallCards[i] + "/" + smallCards[i] + "data.json";
+                Debug.Log(S3ObjectPath);
+                    S3Client.GetObjectAsync(viewsBucketName, S3ObjectPath, (responseObjs) =>
+                    {
+                        Debug.LogWarning("Test");
+                        string VuData = null;
+                        var responses = responseObjs.Response;
+                        Debug.Log(responses);
+                        if (responses.ResponseStream != null)
                         {
-                            VuData = reader.ReadToEnd();
-                            Debug.Log("found s3 object");
+                            using (StreamReader reader = new StreamReader(responses.ResponseStream))
+                            {
+                                VuData = reader.ReadToEnd();
+                                Debug.Log("found s3 object");
+                            }
                         }
-                    }
-                    else
-                    {
-                        Debug.Log("Could not find S3 object");
-                    }
-                    Debug.Log(VuData);
-                    mdj = JsonUtility.FromJson<MenuDataJSON>(VuData);
-                    Debug.LogWarning(mdj.description);
-                    //save downloaded JSON as a class in unity
-                    currObject.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.title;
-                    currObject.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.description;
-                    currObject.transform.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.address;
-                });
-                // currObj.transform.parent = largeCardHolder.transform;
-            }
+                        else
+                        {
+                            Debug.Log("Could not find S3 object");
+                        }
+                        Debug.Log(VuData);
+                        mdj = JsonUtility.FromJson<MenuDataJSON>(VuData);
+                        Debug.LogWarning("mdj Set");
+                        Debug.LogWarning(msj.description);
+                        //save downloaded JSON as a class in unity
+                        currObject.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.title;
+                        
+                        Debug.LogError(msj.title.Length);
+                        currObject.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.category;
+                        tester = msj.title;
+                    });
+                    // currObj.transform.parent = largeCardHolder.transform;
+                }
         });
 
 
@@ -224,5 +228,72 @@ Debug.Log(responses);
 
     }
 
+    IEnumerator loadSpriteImageFromUrl(string URL, RawImage display)
+    {
+        using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture("https://neoware-neovu-views.s3.amazonaws.com/" + URL))
+        {
+            yield return uwr.SendWebRequest();
+
+            if (uwr.isNetworkError || uwr.isHttpError)
+            {
+                Debug.LogError(uwr.error);
+            }
+            else
+            {
+                Debug.LogError("Success");
+                // Get downloaded asset bundle
+                var texture = DownloadHandlerTexture.GetContent(uwr);
+                display.texture = texture;
+                display.color = new Color(255, 255, 255);
+            }
+        }
+    }
+
+    public void generateBigCard(string cardName)
+    {
+        bigCard.SetActive(true);
+
+        string S3ObjectPath = cardName + "/" + cardName + "carddata.json";
+        Debug.Log(S3ObjectPath);
+        S3Client.GetObjectAsync(viewsBucketName, S3ObjectPath, (responseObjs) =>
+        {
+            string VuData = null;
+            var responses = responseObjs.Response;
+            Debug.Log(responses);
+            if (responses.ResponseStream != null)
+            {
+                using (StreamReader reader = new StreamReader(responses.ResponseStream))
+                {
+                    VuData = reader.ReadToEnd();
+                    Debug.Log("found s3 object");
+                }
+            }
+            else
+            {
+                Debug.Log("Could not find S3 object");
+            }
+
+
+
+
+            Debug.Log(VuData);
+            mdj = JsonUtility.FromJson<MenuDataJSON>(VuData);
+            Debug.LogWarning(mdj.shortdescription);
+            //save downloaded JSON as a class in unity
+            bigCard.transform.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.title;
+            bigCard.transform.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.summary;
+            bigCard.transform.GetChild(5).GetComponent<TMPro.TextMeshProUGUI>().text = mdj.address;
+            bigCard.transform.GetChild(7).transform.name = mdj.title.ToLower();
+        });
+        RawImage currImage = bigCard.transform.GetChild(0).GetComponent<RawImage>();
+        string S3ImagePath = cardName + "/" + cardName + "cardimage.png";
+        Debug.LogError(S3ImagePath);
+
+        StartCoroutine(loadSpriteImageFromUrl(S3ImagePath, currImage));
+        // currObj.transform.parent = largeCardHolder.transform;
+    }
 
 }
+
+
+

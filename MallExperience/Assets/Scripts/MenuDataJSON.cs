@@ -5,6 +5,10 @@ using UnityEngine;
 public class MenuDataJSON
 {
     public string title;
-    public string description;
+    public string shortdescription;
     public string address;
+    public string category;
+    public string summary;
+    public string website;
+    public string phone;
 }
