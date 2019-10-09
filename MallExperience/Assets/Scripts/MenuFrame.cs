@@ -251,7 +251,7 @@ public class MenuFrame : MonoBehaviour
 
     public void generateBigCard(string cardName)
     {
-        bigCard.SetActive(true);
+        //bigCard.SetActive(true);
 
         string S3ObjectPath = cardName + "/" + cardName + "carddata.json";
         Debug.Log(S3ObjectPath);
