@@ -9580,6 +9580,21 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 1103493083}
+    - target: {fileID: 7264948020941601643, guid: 79dbe3534a75e5b49b65e41ecbdfa9ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467475223140257599, guid: 79dbe3534a75e5b49b65e41ecbdfa9ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 38.00006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208377342452519537, guid: 79dbe3534a75e5b49b65e41ecbdfa9ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 38.00006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79dbe3534a75e5b49b65e41ecbdfa9ff, type: 3}
 --- !u!1001 &6340469233847809874
